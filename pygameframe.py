@@ -5,6 +5,10 @@ from display_components import *
 
 pygame.init()
 
+# all escape-rooms
+rooms = ['BATH', 'STRT', 'CHLD', 'BACK']
+current_room = 'STRT'
+
 # set width and height (orignial images are 325x200)
 display_width = 325*3
 display_height = 200*3
@@ -17,6 +21,12 @@ door_3 = [(582,129)]
 door_width = 150
 door_height = 220
 
+speech_bubble_width = 650
+speech_bubble_height = 100
+
+speech_bubble_x = 150
+speech_bubble_y = 450
+
 black = (0,0,0)
 white = (255,255,255)
 
@@ -28,93 +38,51 @@ speech_bubble = pygame.image.load(os.path.join("Images", "SpeechBubble2.png"))
 
 clock = pygame.time.Clock()
 
-Screen = 0 
+Screen = 0 # zero is start, one is frist room, two is second room etc.
 
 def display_loading_screen():
      # load the level to the backgorund
     for i in range(3):
-        background = pygame.image.load(os.path.join("Images/load", "l1.jpg")).convert()
-        game_screen.blit(background, (0, 0))
-        pygame.display.update()
-        clock.tick(5)
-        background = pygame.image.load(os.path.join("Images/load", "l2.jpg")).convert()
-        game_screen.blit(background, (0, 0))
-        pygame.display.update()
-        clock.tick(5)
-        background = pygame.image.load(os.path.join("Images/load", "l3.jpg")).convert()
-        game_screen.blit(background, (0, 0))
-        pygame.display.update()
-        clock.tick(5)
-        background = pygame.image.load(os.path.join("Images/load", "l4.jpg")).convert()
-        game_screen.blit(background, (0, 0))
-        pygame.display.update()
-        clock.tick(5)
-        background = pygame.image.load(os.path.join("Images/load", "l5.jpg")).convert()
-        game_screen.blit(background, (0, 0))
-        clock.tick(5)
-        background = pygame.image.load(os.path.join("Images/load", "l2.jpg")).convert()
-        game_screen.blit(background, (0, 0))
-        pygame.display.update()
-        clock.tick(2)
-        background = pygame.image.load(os.path.join("Images/load", "l1.jpg")).convert()
-        game_screen.blit(background, (0, 0))
-        pygame.display.update()
-        clock.tick(2)
-
+        for j in range(7):
+            background = pygame.image.load(os.path.join("Images/load", "l"+str(j+1)+".jpg")).convert()
+            game_screen.blit(background, (0, 0))
+            pygame.display.update()
+            clock.tick(3)
 
 def button(msg, x,y,w,h,ic,ac):
+    global speech_bubble_x
+    global speech_bubble_y
+    global current_room
 
     # get postion of mouse
     mouse = pygame.mouse.get_pos()
 
     # if clicked on a valid button...
     if x+w > mouse[0] > x and y+h > mouse[1] > y:
-        print("FUNCTION: "+ msg + "IS OPENING")
+        print("FUNCTION: "+ msg + " IS OPENING")
 
         # speech_rect = speech_bubble.get_rect()
         # speech_rect.x = 150
         # speech_rect.y = 300
         # pygame.display.update()
-        smallText = pygame.font.Font("pokemon.ttf",20)
-        textSurf, textRect = text_objects(msg, smallText)
-        textRect.center = ( (x+(w/2)), (y+(h/2)) )
-        game_screen.blit(textSurf, textRect)
-       
-        display_loading_screen()
-        open_door_1(game_screen)
-        #pygame.draw.rect(game_screen, ac,(x,y,w,h))
+        if "DOOR" in msg and current_room == 'STRT':
+            
+        
+            #display_loading_screen()
+            open_door_1(game_screen)
+            current_room = 'BATH'
+        if "CRACK" in msg and current_room == 'BATH':
+            crack_wall(game_screen, mouse[0], mouse[1])
     else:
-        print("missed on door")
-        #pygame.draw.rect(game_screen, ic,(x,y,w,h))
-
-
-
-
+        pass
+        #print("missed on door")
+        
 # set up the game
 if  Screen == 0:   
         game_screen.blit(background, (0, 0))
-        game_screen.blit(speech_bubble, (150,450))
+        game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
 
-        #game_screen.fill((255,255,255))
-        #x = pygame.font.get_fonts()
-  
-        # c = 0
-        # grenze_unten = 179
-        # grenze_oben = 181
-        # for i in x:
-            
-        #     if c < grenze_oben and c > grenze_unten:
-        #         print("TRUE________________________________")
-        #         largeText = pygame.font.SysFont('OCR A Extended', 60)
-        #         #largeText = pygame.font.Font(pygame.font.SysFont+".ttf",20)
-        #         TextSurf, TextRect = text_objects("Wait... How did I get here??...", largeText)
-        #         TextRect.center = ((240),( 20 + (  c-grenze_unten) * 20))
-        #         game_screen.blit(TextSurf, TextRect)
-        #     else:
-        #         pass
-            
-        #     c += 1
-
+       
 
         smallText = pygame.font.Font("pokemon.ttf",20)
         #smallText = pygame.font.SysFont('ARCADECLASSIC.ttf', 20)
@@ -149,10 +117,13 @@ while go:
         if mouse_click[0] == 1:
         #if mouse_pressed[pygame.MOUSEBUTTONDOWN]:
             #print("PRESSSED NMOUSE")
+            mouse_pos = pygame.mouse.get_pos()
 
             button("DOOR 1", 253, 129, door_width, door_height,0,0)
             button("DOOR 2", 418, 129, door_width, door_height,0,0)
             button("DOOR 3", 582,129, door_width, door_height,0,0)
+            button("CRACK", 10,10, 1000, 1000,0,0)
+
             # TODO if click on wanted object do wanted function
             #mouse_pos = pygame.mouse.get_pos()
             #print(mouse_pos)
