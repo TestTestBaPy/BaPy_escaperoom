@@ -2,7 +2,8 @@
 import pygame
 import sys
 from door1 import * 
-def handle_input(screen):
+
+def handle_input(screen, go = True, room = 'BACKROOM'):
 
     clock = pygame.time.Clock()
 
@@ -13,6 +14,7 @@ def handle_input(screen):
 
     # create rectangle
     
+    # TODO: KOORDINATEN VERALLGEMEINERN
     input_rect = pygame.Rect(450, 130, 30, 30)
     #pygame.draw.rect(game_screen, (250,250,250), input_rect)
 
@@ -28,7 +30,7 @@ def handle_input(screen):
     active = True
     
 
-    while active:
+    while active and go:
         for event in pygame.event.get():
 
         # if user types QUIT then the screen will close
@@ -44,7 +46,7 @@ def handle_input(screen):
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:  
-                    check_input(user_text)
+                    go = not check_input(user_text, screen)
 
                 # Check for backspace
                 elif event.key == pygame.K_BACKSPACE:
@@ -58,7 +60,11 @@ def handle_input(screen):
                     user_text += event.unicode
         
         # it will set background color of screen
-        open_backroom(screen)
+        if room == 'BACKROOM':
+            open_backroom(screen)
+        else:
+            pass 
+            #open_endroom(screen)
         #screen.fill((255, 255, 255))
 
         if active:
@@ -66,10 +72,8 @@ def handle_input(screen):
         else:
             color = color_passive
             
-        # draw rectangle and argument passed which should
-        # be on screen
+        # draw rectangle and argument passed which should be on screen
         pygame.draw.rect(screen, color, input_rect)
-        #pygame.draw.rect(screen, color, input_rect)
 
         text_surface = base_font.render(user_text, True, (255, 255, 255))
         
@@ -80,18 +84,22 @@ def handle_input(screen):
         # outside of user's text input
         input_rect.w = max(100, text_surface.get_width()+10)
         
-        # display.flip() will update only a portion of the
-        # screen to updated, not full area
+        # display.flip() will update only a portion of the screen to updated, not full area
         pygame.display.flip()
         
         # clock.tick(60) means that for every second at most
         # 60 frames should be passed.
         clock.tick(60)
 
-def check_input(text):
+    return go
+
+def check_input(text, game_screen):
     print(text)
     if text == '15':
         print("CONGRATS OPEN DISPLAY")
+        open_display(game_screen)
+        return True
     else:
         print("NO WRONG")
+        return False
     pass

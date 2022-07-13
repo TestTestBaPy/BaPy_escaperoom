@@ -12,6 +12,7 @@ crack_side = 45
 tuch_pushed = False
 vase_cracked = False
 klappe_open = False
+display_open = False
 
 def open_door_1(game_screen):
 
@@ -56,7 +57,7 @@ def crack_wall(game_screen, x, y):
 def open_backroom(game_screen):
 
     
-    background = pygame.image.load(os.path.join("Images", "backroom.png")).convert()
+    background = pygame.image.load(os.path.join("Images", "backroom2.png")).convert()
     game_screen.blit(background, (0, 0))
     
         
@@ -72,24 +73,18 @@ def open_backroom(game_screen):
 
     board_width = 124*3
     board_height = 84*3
-    board = pygame.image.load(os.path.join("Images", "board.png")).convert()
-    game_screen.blit(board, (313, 44))
+    if not display_open:
+        board = pygame.image.load(os.path.join("Images", "board.png")).convert()
+        game_screen.blit(board, (313, 44))
 
-    smallText = pygame.font.Font("pokemon.ttf",20)     
-    textSurf, textRect = text_objects('Please enter the right code:', smallText)    
-    textRect.bottomleft = ( (370,90) )
-    game_screen.blit(textSurf, textRect)
+        smallText = pygame.font.Font("pokemon.ttf",20)     
+        textSurf, textRect = text_objects('Please enter the right code:', smallText)    
+        textRect.bottomleft = ( (370,90) )
+        game_screen.blit(textSurf, textRect)
 
     
-    input_rect = pygame.Rect(450, 130, 100, 30)
-    pygame.draw.rect(game_screen, (170,170,170), input_rect)
-
-    # smallText = pygame.font.Font("pokemon.ttf",30)     
-    # textSurf, textRect = text_objects('  1  2  3  4  5  6  7  8  9 ', smallText)    
-    # textRect.bottomleft = ( (330,170) )
-    # game_screen.blit(textSurf, textRect)
-    # game_screen.blit(textSurf, textRect)
-    # (349, 147) -> v(651, 163)
+        input_rect = pygame.Rect(450, 130, 100, 30)
+        pygame.draw.rect(game_screen, (170,170,170), input_rect)
 
     if not tuch_pushed:
         tuch = pygame.image.load(os.path.join("Images", "t.png")).convert_alpha()
@@ -107,17 +102,8 @@ def open_backroom(game_screen):
     if klappe_open:
         klappe = pygame.image.load(os.path.join("Images", "klappe.png")).convert_alpha()
         game_screen.blit(klappe, (310, 316))
-    #else:
 
-    #TODo: display tuch
-    #TODO : display vase
-    #TODo: display board
-    #TODO : display text on board
 
-    #pygame.display.update()
-    
-    
-    #pygame.display.flip()
 
 def crack_vase(game_screen):
     global vase_cracked
@@ -133,10 +119,11 @@ def push_tuch(game_screen):
     global tuch_pushed
     tuch_pushed = True
     open_backroom(game_screen)
-    
-def get_keyboard_input():
-    pass
 
-def handle_input_1():
-    pass
+def open_display(game_screen):
+    global display_open
+    display_open = True
+    open_backroom(game_screen)
+    
+
     
