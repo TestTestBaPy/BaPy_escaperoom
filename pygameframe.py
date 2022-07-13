@@ -3,6 +3,7 @@ from door1 import *
 from display_components import *
 from handle_userinput import *
 from endroom import *
+import time
 
 '''Display.flip will update the entire surface. Basically the entire screen. Display.update can just update specific areas of the screen'''
 
@@ -46,13 +47,13 @@ Screen = 0 # zero is start, one is frist room, two is second room etc.
 def open_startscreen(game_screen):
     background = pygame.image.load(os.path.join("Images", "start.png")).convert()
     game_screen.blit(background, (0, 0))
-    smallText = pygame.font.Font("pokemon.ttf",60)
+    # smallText = pygame.font.Font("pokemon.ttf",60)
     
-    textSurf, textRect = text_objects('WHERE IS MY EMMA?', smallText)
+    # textSurf, textRect = text_objects('WHERE IS MY EMMA?', smallText)
     #textRect.left
     
-    textRect.bottomleft = ( (70,160) )
-    game_screen.blit(textSurf, textRect)
+    # textRect.bottomleft = ( (70,160) )
+    # game_screen.blit(textSurf, textRect)
     pass
 
 def open_3doors(game_screen):
@@ -103,7 +104,7 @@ def button(msg, x,y,w,h,ic,ac):
         # speech_rect = speech_bubble.get_rect()
         # speech_rect.x = 150
         # speech_rect.y = 300
-        # pygame.display.update()
+        pygame.display.update()
         if 'START' in msg and current_room == 'STRT':
             current_room = 'DOOR'
             open_3doors(game_screen)
@@ -151,6 +152,23 @@ def button(msg, x,y,w,h,ic,ac):
 
         if 'TOUCHPAD' in msg and current_room == 'TRES':
             zoom_touchpad(game_screen)
+            current_room = 'TCHP'
+
+        if 'TRESOR' in msg and current_room == 'TRES':
+            open_endscreen(game_screen)
+            
+
+        if 'ABORT' in msg and current_room == 'TCHP':
+            open_endroom(game_screen, reset_code=True)
+            current_room = 'TRES'
+
+        if 'CHECK' in msg and current_room == 'TCHP':
+            if check_for_code():
+                open_endroom(game_screen, open_tresor=True)
+                current_room = 'TRES'
+
+        if 'NUMBERS' in msg and current_room == 'TCHP':
+            save_num(game_screen, mouse)
     else:
         pass
         #print("missed on door")
@@ -185,7 +203,8 @@ while go:
             
             if current_room == 'STRT':
                 # (83, 235) (306, 310)
-                button("START", 80, 235, 120, 100,0,0)
+                # (81, 235) (306, 308)
+                button("START", 80, 235, 220, 100,0,0)
                 # (325, 236) (523, 310)
                 button("STORY", 325, 235, 120, 100,0,0)
             if current_room == 'DOOR':
@@ -214,8 +233,25 @@ while go:
                 #button("DISPLAY", 58,168,100,220,0,0)
 
                 button("DISPLAYDOOR", 313, 44, (124*3), (84*3), 0,0)
+            
+
+            elif current_room == 'TCHP':
+                
+                time.sleep(0.5)
+                # (365, 510) (465, 596)
+                button('CHECK', 350, 500, 150, 100, 0,0)
+                # (559, 515) (663, 597)
+                button('ABORT', 550, 500, 150, 100, 0,0)
+                # (368, 49) (662, 452)
+                button('NUMBERS', 365, 50, 300, 400, 0,0)
+
             elif current_room == 'TRES':
                 button('TOUCHPAD', 600, 300, 80, 80, 0,0)
+                # (308, 185) (559, 441)
+                if check_for_code():
+                    print("CODE IS RICHTIG!!!")
+                    button('TRESOR', 300, 185, 260, 260, 0, 0)
+
 
                 
 
