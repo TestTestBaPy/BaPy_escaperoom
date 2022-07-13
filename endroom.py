@@ -99,3 +99,20 @@ def save_num(game_screen, mouse):
 def open_endscreen(game_screen):
     background = pygame.image.load(os.path.join("Images", "endscreen.png")).convert()
     game_screen.blit(background, (0, 0))
+
+
+    smallText = pygame.font.Font("pokemon.ttf",10)
+    
+    textSurf, textRect = text_objects("Hey, Escopub...", smallText)
+    #textRect.left
+    
+    textRect.bottomleft = ( (210,490) )
+    game_screen.blit(textSurf, textRect)
+    
+    base_font = pygame.font.Font("pokemon.ttf",20) 
+    text_surface = base_font.render("I know, I know it's been a while... Yes, the usal place. Okay, see you soon.", True, (0, 0, 0))
+    text_surface2 = base_font.render("Yes, hallucinations. Thank you.", True, (0, 0, 0))
+    
+
+    game_screen.blit(text_surface, (180, 90))
+    game_screen.blit(text_surface2, (340, 120))
