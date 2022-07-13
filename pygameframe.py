@@ -1,6 +1,8 @@
 import pygame, sys, os
 from door1 import *
 from display_components import *
+from handle_userinput import *
+
 '''Display.flip will update the entire surface. Basically the entire screen. Display.update can just update specific areas of the screen'''
 
 pygame.init()
@@ -49,10 +51,14 @@ def display_loading_screen():
             pygame.display.update()
             clock.tick(3)
 
+# weil ich es grad nicht besser weiss
+cracked_vase = False
+#pushed_tuch = False
 def button(msg, x,y,w,h,ic,ac):
     global speech_bubble_x
     global speech_bubble_y
     global current_room
+    global cracked_vase
 
     # get postion of mouse
     mouse = pygame.mouse.get_pos()
@@ -61,18 +67,39 @@ def button(msg, x,y,w,h,ic,ac):
     if x+w > mouse[0] > x and y+h > mouse[1] > y:
         print("FUNCTION: "+ msg + " IS OPENING")
 
+        print(current_room)
         # speech_rect = speech_bubble.get_rect()
         # speech_rect.x = 150
         # speech_rect.y = 300
         # pygame.display.update()
-        if "DOOR" in msg and current_room == 'STRT':
+        if "DOOR" in msg and (current_room == 'STRT' or current_room == 'BATHEND'):
             
-        
-            #display_loading_screen()
-            open_door_1(game_screen)
-            current_room = 'BATH'
+            if current_room == 'STRT':
+                #display_loading_screen()
+                open_door_1(game_screen)
+                current_room = 'BATH'
+            if current_room == 'BATHEND':
+                open_backroom(game_screen)
+                current_room = 'BACK'
         if "CRACK" in msg and current_room == 'BATH':
-            crack_wall(game_screen, mouse[0], mouse[1])
+            if crack_wall(game_screen, mouse[0], mouse[1]):
+                current_room = 'BATHEND'
+
+        if "VASE" in msg and current_room == 'BACK':
+            crack_vase(game_screen)
+            cracked_vase = True
+
+        if "KLAPPE" in msg and current_room == 'BACK' and cracked_vase:
+            print('ÖFFEN KLAPEE')
+            open_klappe(game_screen)
+        
+        if "TUCH" in msg and current_room == 'BACK':
+            print('SCHIEB TUCH')
+            push_tuch(game_screen)
+
+        if "DISPLAY" in msg and current_room == 'BACK':
+            print("get user input NOw")
+            handle_input(game_screen)
     else:
         pass
         #print("missed on door")
@@ -81,8 +108,6 @@ def button(msg, x,y,w,h,ic,ac):
 if  Screen == 0:   
         game_screen.blit(background, (0, 0))
         game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
-
-       
 
         smallText = pygame.font.Font("pokemon.ttf",20)
         #smallText = pygame.font.SysFont('ARCADECLASSIC.ttf', 20)
@@ -115,20 +140,37 @@ while go:
         
 
         if mouse_click[0] == 1:
-        #if mouse_pressed[pygame.MOUSEBUTTONDOWN]:
-            #print("PRESSSED NMOUSE")
             mouse_pos = pygame.mouse.get_pos()
 
-            button("DOOR 1", 253, 129, door_width, door_height,0,0)
-            button("DOOR 2", 418, 129, door_width, door_height,0,0)
-            button("DOOR 3", 582,129, door_width, door_height,0,0)
-            button("CRACK", 10,10, 1000, 1000,0,0)
+            if current_room == 'STRT':
+                button("DOOR 1", 253, 129, door_width, door_height,0,0)
+                button("DOOR 2", 418, 129, door_width, door_height,0,0)
+                button("DOOR 3", 582,129, door_width, door_height,0,0)
+            elif current_room == 'BATH':
+                button("CRACK", 10,10, 1000, 1000,0,0)
+            elif current_room == 'BATHEND':
+                button("DOOR OPEN", 447,177, 100, 150,0,0)
+
+            elif current_room == 'BACK':
+
+                mouse_pos = pygame.mouse.get_pos()
+                print(mouse_pos)
+                #(809, 120)(891, 205)
+                button("VASE", 809, 120, 90, 80, 0, 0)
+                # (338, 425) (625, 516)
+                button("KLAPPE", 338, 425, 300, 100,0,0)
+                #button("", 809, 120, 90, 80, 0, 0)
+                #(59, 168)(163, 381)
+                button("TUCH", 58,168,100,220,0,0)
+
+                # (623, 261) (451, 132) 450, 130
+                button("DISPLAY", 450, 130, 100, 30, 0,0)
+                #button("DISPLAY", 58,168,100,220,0,0)
 
             # TODO if click on wanted object do wanted function
-            #mouse_pos = pygame.mouse.get_pos()
-            #print(mouse_pos)
+            mouse_pos = pygame.mouse.get_pos()
+            print(mouse_pos)
             #go = False
-
 
     #print(event)
     

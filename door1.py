@@ -9,13 +9,11 @@ speech_bubble = pygame.image.load(os.path.join("Images", "SpeechBubble2.png"))
 crack_counter = np.zeros(12).reshape(4,3)
 crack_side = 45
 
+tuch_pushed = False
+vase_cracked = False
+klappe_open = False
+
 def open_door_1(game_screen):
-
-    # smallText = pygame.font.Font("pokemon.ttf",20)
-    # textSurf, textRect = text_objects(msg, smallText)
-    # textRect.center = ( (x+(w/2)), (y+(h/2)) )
-    # game_screen.blit(textSurf, textRect)
-
 
     background = pygame.image.load(os.path.join("Images", "bathroom.jpg")).convert()
     game_screen.blit(background, (0, 0))
@@ -29,15 +27,6 @@ def open_door_1(game_screen):
     textRect.bottomleft = ( (200,500) )
     game_screen.blit(textSurf, textRect)
     pygame.display.update()
-    # clock.tick(2)
-    # #time.sleep(3)
-
-    # textSurf, textRect2 = text_objects('But wait where is my little sister Emma...?', smallText)
-    # textRect2.bottomleft = ( (200,520) )
-    # game_screen.blit(textSurf, textRect2)
-    # pygame.display.update()
-
-    #game_screen.fill((0,0,0))
 
 def crack_wall(game_screen, x, y):
     global crack_counter
@@ -48,16 +37,106 @@ def crack_wall(game_screen, x, y):
     #game_screen.blit(background, (0, 0))
     #game_screen.fill(white)
     #game_screen.blit(background, (0, 0))
-    if crack_counter.all() == 1:
-        print("CONGRATS YOU CRACKED ALL!")
-        #TODO: open the door 
-        sys.exit()
-
+    
     for i in range(3):
         for j in range(4):
             if x+45 > 451+((i+1)*45) > x and y+45 > 183+((j+1)*45) > y:
                 game_screen.blit(wall_crack, (451+(i*45),183+(j*45)))
                 crack_counter[j][i] = 1
+
+    if crack_counter.all() == 1:
+        print("CONGRATS YOU CRACKED ALL!")
+        #TODO: open the door 
+        bath_door = pygame.image.load(os.path.join("Images", "bathroom_door.png"))
+        game_screen.blit(bath_door,(447,177))
+        return True
+
+    return False
+
+def open_backroom(game_screen):
+
+    
+    background = pygame.image.load(os.path.join("Images", "backroom.png")).convert()
+    game_screen.blit(background, (0, 0))
+    
+        
+    
+    # pygame.display.update()
+
+    #game_screen.blit(speech_bubble, (150,450))
+
+    #textSurf, textRect = text_objects('I used to hide here as a child... what the f are so many red balls here?', smallText)
+  
+    #textRect.bottomleft = ( (200,500) )
+    #game_screen.blit(textSurf, textRect)
+
+    board_width = 124*3
+    board_height = 84*3
+    board = pygame.image.load(os.path.join("Images", "board.png")).convert()
+    game_screen.blit(board, (313, 44))
+
+    smallText = pygame.font.Font("pokemon.ttf",20)     
+    textSurf, textRect = text_objects('Please enter the right code:', smallText)    
+    textRect.bottomleft = ( (370,90) )
+    game_screen.blit(textSurf, textRect)
+
+    
+    input_rect = pygame.Rect(450, 130, 100, 30)
+    pygame.draw.rect(game_screen, (170,170,170), input_rect)
+
+    # smallText = pygame.font.Font("pokemon.ttf",30)     
+    # textSurf, textRect = text_objects('  1  2  3  4  5  6  7  8  9 ', smallText)    
+    # textRect.bottomleft = ( (330,170) )
+    # game_screen.blit(textSurf, textRect)
+    # game_screen.blit(textSurf, textRect)
+    # (349, 147) -> v(651, 163)
+
+    if not tuch_pushed:
+        tuch = pygame.image.load(os.path.join("Images", "t.png")).convert_alpha()
+        game_screen.blit(tuch, (50, 158))
+    else:
+        tuch = pygame.image.load(os.path.join("Images", "tuch_pushed.png")).convert_alpha()
+        game_screen.blit(tuch, (50, 158))
+
+    vase = pygame.image.load(os.path.join("Images", "vase.png")).convert_alpha()
+    vase = pygame.transform.scale(vase, (90, 87))
+
+    if not vase_cracked:
+        game_screen.blit(vase, (805, 118))
+
+    if klappe_open:
+        klappe = pygame.image.load(os.path.join("Images", "klappe.png")).convert_alpha()
+        game_screen.blit(klappe, (310, 316))
+    #else:
+
+    #TODo: display tuch
+    #TODO : display vase
+    #TODo: display board
+    #TODO : display text on board
+
+    #pygame.display.update()
+    
     
     #pygame.display.flip()
+
+def crack_vase(game_screen):
+    global vase_cracked
+    vase_cracked = True
+    open_backroom(game_screen)
+
+def open_klappe(game_screen):
+    global klappe_open
+    klappe_open = True
+    open_backroom(game_screen)
+
+def push_tuch(game_screen):
+    global tuch_pushed
+    tuch_pushed = True
+    open_backroom(game_screen)
+    
+def get_keyboard_input():
+    pass
+
+def handle_input_1():
+    pass
     
