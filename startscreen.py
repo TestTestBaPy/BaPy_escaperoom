@@ -20,18 +20,20 @@ def open_startscreen(game_screen):
 
 
 # the room '3doors will be opened if the user clicked on start
-def open_3doors(game_screen):
+def open_3doors(game_screen, simulate_push = True):
 
-    # simulate a click on the button
-    background = pygame.image.load(os.path.join("Images", "start_pushstart.png")).convert()
-    game_screen.blit(background, (0, 0))
-    pygame.display.update()
-    clock.tick(2)
 
-    background = pygame.image.load(os.path.join("Images", "start.png")).convert()
-    game_screen.blit(background, (0, 0))
-    pygame.display.update()
-    clock.tick(2)
+    if simulate_push:
+        # simulate a click on the button
+        background = pygame.image.load(os.path.join("Images", "start_pushstart.png")).convert()
+        game_screen.blit(background, (0, 0))
+        pygame.display.update()
+        clock.tick(2)
+
+        background = pygame.image.load(os.path.join("Images", "start.png")).convert()
+        game_screen.blit(background, (0, 0))
+        pygame.display.update()
+        clock.tick(2)
 
     # load the new room
     background = pygame.image.load(os.path.join("Images", "3doors.jpg")).convert()

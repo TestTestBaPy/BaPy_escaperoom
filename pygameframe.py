@@ -1,5 +1,6 @@
 import pygame, sys, os
 from door1 import *
+from door3 import *
 from display_components import *
 from handle_userinput import *
 from endroom import *
@@ -10,19 +11,14 @@ import time
 
 pygame.init()
 
+rooms = [['STRT', 'DOOR', 'BATH', 'BATHEND', 'BACK', 'BACKEND', 'TRES', 'TCHP', 'CALL'],['STRT'],['STRT']]
+
 Screen = 0 # zero is start, one is frist room, two is second room etc.
 
-# weil ich es grad nicht besser weiss
-cracked_vase = False
-#pushed_tuch = False
-
-# this function simulates a button so if the click is in the given coordinates and width/height of the 'button' the 
-# respective function will be executed
-def button(msg, x,y,w,h,ic,ac):
-    global speech_bubble_x
-    global speech_bubble_y
+# this universal function simulates a button so if the click is in the given coordinates and width/height of the 'button' the 
+# respective function will be executed (leitet quasi weiter)
+def button(msg, x,y,w,h,ic,ac): 
     global current_room
-    global cracked_vase
 
     # get postion of mouse
     mouse = pygame.mouse.get_pos()
@@ -54,32 +50,36 @@ def button(msg, x,y,w,h,ic,ac):
             open_story(game_screen)
 
         # if you clicked on a door open the respective room
-        if "DOOR" in msg and (current_room == 'DOOR' or current_room == 'BATHEND'):
+        if "DOOR" in msg:
             
             if current_room == 'DOOR':
                 #display_loading_screen()
-                open_door_1(game_screen)
-                current_room = 'BATH'
+                if "1" in msg:
+                    open_door_1(game_screen)
+                    current_room = 'BATH'
+                else:
+                    open_door_3(game_screen)
+                    open_3doors(game_screen, False)
+               
             if current_room == 'BATHEND':
                 open_backroom(game_screen)
                 current_room = 'BACK'
             
         # if you cracked 'something' in the bath, it will be displayed
-        if "CRACK" in msg and current_room == 'BATH':
+        if "CRACK" in msg:
             if crack_wall(game_screen, mouse[0], mouse[1]):
                 current_room = 'BATHEND'
 
         # if you clicked on the vase it cracks
-        if "VASE" in msg and current_room == 'BACK':
+        if "VASE" in msg:
             crack_vase(game_screen)
-            cracked_vase = True
 
         # if you clicked on klappe it will open (if you found the key already)
-        if "KLAPPE" in msg and current_room == 'BACK' and cracked_vase:
+        if "KLAPPE" in msg:
             open_klappe(game_screen)
         
         # if you clicked on tuch it will be pushed
-        if "TUCH" in msg and current_room == 'BACK':
+        if "TUCH" in msg:
             push_tuch(game_screen)
 
         # if you typed in the right code and click on the display the new room will open
@@ -100,17 +100,17 @@ def button(msg, x,y,w,h,ic,ac):
                 clock.tick(2)
 
         # if you clicked on the touchpad zoom in
-        if 'TOUCHPAD' in msg and current_room == 'TRES':
+        if 'TOUCHPAD' in msg:
             zoom_touchpad(game_screen)
             current_room = 'TCHP'
 
         # if you click on the tresor (after putting in the right code) open the endscreen
-        if 'TRESOR' in msg and current_room == 'TRES':
+        if 'TRESOR' in msg:
             open_endscreen(game_screen)
             current_room = "CALL"
             
         # if you click on abort go back and delete your input
-        if 'ABORT' in msg and current_room == 'TCHP':
+        if 'ABORT' in msg:
             open_endroom(game_screen, reset_code=True)
             current_room = 'TRES'
 
@@ -123,10 +123,6 @@ def button(msg, x,y,w,h,ic,ac):
         # if you clicked on the numberfield save your input
         if 'NUMBERS' in msg and current_room == 'TCHP':
             save_num(game_screen, mouse)
-
-        
-    else:
-        pass
         
 # set up the game (startscreen)
 if  Screen == 0: 
