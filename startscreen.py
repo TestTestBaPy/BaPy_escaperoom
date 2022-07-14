@@ -45,4 +45,17 @@ def open_3doors(game_screen):
     game_screen.blit(textSurf, textRect)
 
 def open_story(game_screen):
-    pass
+
+    # simulate a click on the button
+    background = pygame.image.load(os.path.join("Images", "start_pushstory.png")).convert()
+    game_screen.blit(background, (0, 0))
+    pygame.display.update()
+    clock.tick(2)
+
+    background = pygame.image.load(os.path.join("Images", "start.png")).convert()
+    game_screen.blit(background, (0, 0))
+    pygame.display.update()
+    clock.tick(2)
+    
+    background = pygame.image.load(os.path.join("Images", "chat.png")).convert()
+    game_screen.blit(background, (0, 0))

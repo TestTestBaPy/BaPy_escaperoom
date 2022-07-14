@@ -39,6 +39,10 @@ def button(msg, x,y,w,h,ic,ac):
             time.sleep(0.3)
             sys.exit()
 
+        if current_room == 'STRY':
+            current_room = 'STRT'
+            open_startscreen(game_screen)
+
         # if you clicked on start, load the first room
         if 'START' in msg and current_room == 'STRT':
             current_room = 'DOOR'
@@ -185,8 +189,11 @@ while go:
                 if check_for_code():
                     button('TRESOR', 300, 185, 260, 260, 0, 0)
 
-            if current_room == "CALL":
+            elif current_room == "CALL":
                 # (683, 473) (906, 547)
+                button("EXIT", 680,470,220,100,0,0)
+
+            elif current_room == "STRY":
                 button("EXIT", 680,470,220,100,0,0)
 
 
