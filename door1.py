@@ -57,6 +57,24 @@ def open_backroom(game_screen):
     board_height = 84*3
 
     # if the display is not open the code was not entered correctly
+
+    if not tuch_pushed:
+        tuch = pygame.image.load(os.path.join("Images", "t.png")).convert_alpha()
+        game_screen.blit(tuch, (50, 158))
+    else:
+        tuch = pygame.image.load(os.path.join("Images", "tuch_pushed.png")).convert_alpha()
+        game_screen.blit(tuch, (50, 158))
+
+    vase = pygame.image.load(os.path.join("Images", "vase.png")).convert_alpha()
+    vase = pygame.transform.scale(vase, (90, 87))
+
+    if not vase_cracked:
+        game_screen.blit(vase, (805, 118))
+
+    if klappe_open:
+        klappe = pygame.image.load(os.path.join("Images", "klappe.png")).convert_alpha()
+        game_screen.blit(klappe, (310, 316))
+
     if not display_open:
         
         
@@ -81,23 +99,6 @@ def open_backroom(game_screen):
         textSurf, textRect = text_objects('Maybe I should remeber them... But where the fuck is Emma?', smallText)    
         textRect.bottomleft = ( (speech_bubble_x + 35 ,speech_bubble_y + 80) )
         game_screen.blit(textSurf, textRect)
-
-    if not tuch_pushed:
-        tuch = pygame.image.load(os.path.join("Images", "t.png")).convert_alpha()
-        game_screen.blit(tuch, (50, 158))
-    else:
-        tuch = pygame.image.load(os.path.join("Images", "tuch_pushed.png")).convert_alpha()
-        game_screen.blit(tuch, (50, 158))
-
-    vase = pygame.image.load(os.path.join("Images", "vase.png")).convert_alpha()
-    vase = pygame.transform.scale(vase, (90, 87))
-
-    if not vase_cracked:
-        game_screen.blit(vase, (805, 118))
-
-    if klappe_open:
-        klappe = pygame.image.load(os.path.join("Images", "klappe.png")).convert_alpha()
-        game_screen.blit(klappe, (310, 316))
 
 
 # the following functions set the global status-variables to keep track of players actions and display them
