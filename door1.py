@@ -1,8 +1,8 @@
-#from pygameframe import * 
 import pygame, sys, os
 from display_components import *
 import time
 import numpy as np
+
 
 clock = pygame.time.Clock()
 speech_bubble = pygame.image.load(os.path.join("Images", "SpeechBubble2.png"))
@@ -23,7 +23,7 @@ def open_door_1(game_screen):
     game_screen.blit(speech_bubble, (150,450))
 
     smallText = pygame.font.Font("pokemon.ttf",20)
-    textSurf, textRect = text_objects('That is my old bathroom ?!', smallText)
+    textSurf, textRect = text_objects('That is my old bathroom?! But it seems Emma is not here.', smallText)
   
     textRect.bottomleft = ( (200,500) )
     game_screen.blit(textSurf, textRect)
@@ -34,10 +34,6 @@ def crack_wall(game_screen, x, y):
 
     print(crack_counter)
     wall_crack = pygame.image.load(os.path.join("Images", "crack.png"))
-    #background = pygame.image.load(os.path.join("Images", "bathroom.jpg")).convert()
-    #game_screen.blit(background, (0, 0))
-    #game_screen.fill(white)
-    #game_screen.blit(background, (0, 0))
     
     for i in range(3):
         for j in range(4):
@@ -46,8 +42,6 @@ def crack_wall(game_screen, x, y):
                 crack_counter[j][i] = 1
 
     if crack_counter.all() == 1:
-        print("CONGRATS YOU CRACKED ALL!")
-        #TODO: open the door 
         bath_door = pygame.image.load(os.path.join("Images", "bathroom_door.png"))
         game_screen.blit(bath_door,(447,177))
         return True
@@ -56,24 +50,16 @@ def crack_wall(game_screen, x, y):
 
 def open_backroom(game_screen):
 
-    
     background = pygame.image.load(os.path.join("Images", "backroom2.png")).convert()
     game_screen.blit(background, (0, 0))
     
-        
-    
-    # pygame.display.update()
-
-    #game_screen.blit(speech_bubble, (150,450))
-
-    #textSurf, textRect = text_objects('I used to hide here as a child... what the f are so many red balls here?', smallText)
-  
-    #textRect.bottomleft = ( (200,500) )
-    #game_screen.blit(textSurf, textRect)
-
     board_width = 124*3
     board_height = 84*3
+
+    # if the display is not open the code was not entered correctly
     if not display_open:
+        
+        
         board = pygame.image.load(os.path.join("Images", "board.png")).convert()
         game_screen.blit(board, (313, 44))
 
@@ -85,6 +71,16 @@ def open_backroom(game_screen):
     
         input_rect = pygame.Rect(450, 130, 100, 30)
         pygame.draw.rect(game_screen, (170,170,170), input_rect)
+
+    else:
+        game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
+        smallText = pygame.font.Font("pokemon.ttf",20)
+        textSurf, textRect = text_objects('That was correct! I think I"m going crazy, I see numbers everywhere.', smallText)    
+        textRect.bottomleft = ( (speech_bubble_x + 35 ,speech_bubble_y + 50) )
+        game_screen.blit(textSurf, textRect)
+        textSurf, textRect = text_objects('Maybe I should remeber them... But where the fuck is Emma?', smallText)    
+        textRect.bottomleft = ( (speech_bubble_x + 35 ,speech_bubble_y + 80) )
+        game_screen.blit(textSurf, textRect)
 
     if not tuch_pushed:
         tuch = pygame.image.load(os.path.join("Images", "t.png")).convert_alpha()
@@ -104,7 +100,7 @@ def open_backroom(game_screen):
         game_screen.blit(klappe, (310, 316))
 
 
-
+# the following functions set the global status-variables to keep track of players actions and display them
 def crack_vase(game_screen):
     global vase_cracked
     vase_cracked = True

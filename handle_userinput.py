@@ -1,35 +1,28 @@
-# import sys module
 import pygame
 import sys
 from door1 import * 
+from display_components import *
 
-def handle_input(screen, go = True, room = 'BACKROOM'):
+def handle_input(screen, go = True, room = 'BACKROOM', input_rect = None):
 
-    clock = pygame.time.Clock()
-
-    # basic font for user typed
-    base_font = pygame.font.Font("pokemon.ttf",20) 
-    #base_font = pygame.font.Font(None, 32)
     user_text = ''
 
     # create rectangle
     
     # TODO: KOORDINATEN VERALLGEMEINERN
-    input_rect = pygame.Rect(450, 130, 30, 30)
+    if input_rect == None:
+        input_rect = pygame.Rect(450, 130, 30, 30)
     #pygame.draw.rect(game_screen, (250,250,250), input_rect)
 
-    # color_active stores color(lightskyblue3) which
-    # gets active when input box is clicked by user
+    # color_active stores color which gets active when input box is clicked by user
     color_active = (30,100,30)
 
-    # color_passive store color(chartreuse4) which is
-    # color of input box.
+    # color_passive store color which is color of input box.
     color_passive = (170,170,170)
     color = color_passive
 
     active = True
     
-
     while active and go:
         for event in pygame.event.get():
 
@@ -38,6 +31,7 @@ def handle_input(screen, go = True, room = 'BACKROOM'):
                 pygame.quit()
                 sys.exit()
 
+            # if the user clicked on the rect it gets active
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if input_rect.collidepoint(event.pos):
                     active = True
@@ -54,18 +48,21 @@ def handle_input(screen, go = True, room = 'BACKROOM'):
                     # get text input from 0 to -1 i.e. end.
                     user_text = user_text[:-1]
 
-                # Unicode standard is used for string
-                # formation
-                else:
-                    user_text += event.unicode
+
+                # the userinput is accepted if it does not exeed the length of 5 or is a number
+                elif len(user_text) < 5:
+                    try:
+                        # Unicode standard is used for string formation
+                        user_text += str (int (event.unicode))
+                    except ValueError:
+                        pass
         
-        # it will set background color of screen
+        # it will set background 
         if room == 'BACKROOM':
             open_backroom(screen)
         else:
             pass 
             #open_endroom(screen)
-        #screen.fill((255, 255, 255))
 
         if active:
             color = color_active
@@ -75,7 +72,7 @@ def handle_input(screen, go = True, room = 'BACKROOM'):
         # draw rectangle and argument passed which should be on screen
         pygame.draw.rect(screen, color, input_rect)
 
-        text_surface = base_font.render(user_text, True, (255, 255, 255))
+        text_surface = smallText.render(user_text, True, (255, 255, 255))
         
         # render at position stated in arguments
         screen.blit(text_surface, (input_rect.x+5, input_rect.y+5))
@@ -96,10 +93,10 @@ def handle_input(screen, go = True, room = 'BACKROOM'):
 def check_input(text, game_screen):
     print(text)
     if text == '15':
-        print("CONGRATS OPEN DISPLAY")
         open_display(game_screen)
+        open_backroom(game_screen)
+        game_screen.fill((0,0,0))
         return True
     else:
         print("NO WRONG")
         return False
-    pass

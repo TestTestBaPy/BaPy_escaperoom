@@ -3,92 +3,21 @@ from door1 import *
 from display_components import *
 from handle_userinput import *
 from endroom import *
+from startscreen import *
 import time
 
 '''Display.flip will update the entire surface. Basically the entire screen. Display.update can just update specific areas of the screen'''
 
 pygame.init()
 
-# all escape-rooms
-rooms = ['STRT', 'STRY', 'DOOR', 'BATH', 'CHLD', 'BACK', 'TRES',]
-current_room = 'STRT'
-
-# set width and height (orignial images are 325x200)
-display_width = 325*3
-display_height = 200*3
-
-# door postions for startscreen (top left corner)
-door_1 = [(253, 129)]
-door_2 = [(418, 129)]
-door_3 = [(582,129)]
-
-door_width = 150
-door_height = 220
-
-speech_bubble_width = 650
-speech_bubble_height = 100
-
-speech_bubble_x = 150
-speech_bubble_y = 450
-
-black = (0,0,0)
-white = (255,255,255)
-
-# needed componets
-game_screen = pygame.display.set_mode([display_width,display_height])
-pygame.display.set_caption('Where is my Emma?')
-
-speech_bubble = pygame.image.load(os.path.join("Images", "SpeechBubble2.png"))
-
-clock = pygame.time.Clock()
-
 Screen = 0 # zero is start, one is frist room, two is second room etc.
-
-def open_startscreen(game_screen):
-    background = pygame.image.load(os.path.join("Images", "start.png")).convert()
-    game_screen.blit(background, (0, 0))
-    # smallText = pygame.font.Font("pokemon.ttf",60)
-    
-    # textSurf, textRect = text_objects('WHERE IS MY EMMA?', smallText)
-    #textRect.left
-    
-    # textRect.bottomleft = ( (70,160) )
-    # game_screen.blit(textSurf, textRect)
-    pass
-
-def open_3doors(game_screen):
-    background = pygame.image.load(os.path.join("Images", "3doors.jpg")).convert()
-    game_screen.blit(background, (0, 0))
-    game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
-
-    smallText = pygame.font.Font("pokemon.ttf",20)
-    
-    textSurf, textRect = text_objects('Wait... How did I get HERE ?!', smallText)
-    #textRect.left
-    
-    textRect.bottomleft = ( (200,500) )
-    game_screen.blit(textSurf, textRect)
-    textSurf, textRect = text_objects('This better be a joke... or a dream...', smallText)
-    textRect.bottomleft = ( (200,520) )
-    game_screen.blit(textSurf, textRect)
-
-def open_story(game_screen):
-    pass
-
-def display_loading_screen():
-
-    # load the level to the backgorund
-    for i in range(3):
-        for j in range(7):
-            background = pygame.image.load(os.path.join("Images/load", "l"+str(j+1)+".jpg")).convert()
-            game_screen.blit(background, (0, 0))
-            pygame.display.update()
-            clock.tick(3)
 
 # weil ich es grad nicht besser weiss
 cracked_vase = False
 #pushed_tuch = False
 
+# this function simulates a button so if the click is in the given coordinates and width/height of the 'button' the 
+# respective function will be executed
 def button(msg, x,y,w,h,ic,ac):
     global speech_bubble_x
     global speech_bubble_y
@@ -101,8 +30,14 @@ def button(msg, x,y,w,h,ic,ac):
     # if clicked on a valid button...
     if x+w > mouse[0] > x and y+h > mouse[1] > y:
 
-        print("---------------------------------" +msg + " IS CLICKED ON----------------------------------------")
+        print("CURRENT ROOM" + current_room + "\n---------------------------------" +msg + " IS CLICKED ON----------------------------------------")
         pygame.display.update()
+
+        if current_room == "CALL":
+            open_endscreen(game_screen, True)
+            pygame.display.update()
+            time.sleep(0.3)
+            sys.exit()
 
         # if you clicked on start, load the first room
         if 'START' in msg and current_room == 'STRT':
@@ -143,17 +78,22 @@ def button(msg, x,y,w,h,ic,ac):
         if "TUCH" in msg and current_room == 'BACK':
             push_tuch(game_screen)
 
-        # if you clicked on the display you can type something in
-        if "DISPLAY" in msg and current_room == 'BACK':
-            if not handle_input(game_screen):
-                current_room = 'BACKEND'
-
         # if you typed in the right code and click on the display the new room will open
         if current_room == 'BACKEND':
+            open_display(game_screen)
             open_backroom(game_screen)
+
             if "DISPLAYDOOR" in msg:
                 open_endroom(game_screen)
                 current_room = 'TRES'
+
+        # if you clicked on the display you can type something in
+        if "DISPLAY" in msg and current_room == 'BACK':
+            if not handle_input(game_screen):
+                
+                current_room = 'BACKEND'
+                open_backroom(game_screen)
+                clock.tick(2)
 
         # if you clicked on the touchpad zoom in
         if 'TOUCHPAD' in msg and current_room == 'TRES':
@@ -163,6 +103,7 @@ def button(msg, x,y,w,h,ic,ac):
         # if you click on the tresor (after putting in the right code) open the endscreen
         if 'TRESOR' in msg and current_room == 'TRES':
             open_endscreen(game_screen)
+            current_room = "CALL"
             
         # if you click on abort go back and delete your input
         if 'ABORT' in msg and current_room == 'TCHP':
@@ -178,6 +119,8 @@ def button(msg, x,y,w,h,ic,ac):
         # if you clicked on the numberfield save your input
         if 'NUMBERS' in msg and current_room == 'TCHP':
             save_num(game_screen, mouse)
+
+        
     else:
         pass
         
@@ -224,12 +167,14 @@ while go:
                 button("KLAPPE", 338, 425, 300, 100,0,0)
                 button("TUCH", 58,168,100,220,0,0)
                 button("DISPLAY", 450, 130, 100, 30, 0,0)
+
+            elif current_room == "BACKEND":
                 button("DISPLAYDOOR", 313, 44, (124*3), (84*3), 0,0)
             
 
             # on the touchpad you can click on 'CHECK' 'ABORT' or the number-field
             elif current_room == 'TCHP':
-                time.sleep(0.5)
+                time.sleep(0.3)
                 button('CHECK', 350, 500, 150, 100, 0,0)
                 button('ABORT', 550, 500, 150, 100, 0,0)
                 button('NUMBERS', 365, 50, 300, 400, 0,0)
@@ -239,6 +184,10 @@ while go:
                 button('TOUCHPAD', 600, 300, 80, 80, 0,0)
                 if check_for_code():
                     button('TRESOR', 300, 185, 260, 260, 0, 0)
+
+            if current_room == "CALL":
+                # (683, 473) (906, 547)
+                button("EXIT", 680,470,220,100,0,0)
 
 
             mouse_pos = pygame.mouse.get_pos()
