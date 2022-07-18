@@ -30,7 +30,7 @@ def zoom_touchpad(game_screen):
     pygame.display.update()
 
 def check_for_code():
-    return number_sequence == '1407'
+    return number_sequence == '1407' or number_sequence == '1532'
 
 def open_tresor(game_screen):
     open_endroom(game_screen, open_tresor=True)
@@ -104,9 +104,9 @@ def open_endscreen(game_screen, clicked_on_exit = False):
     textRect.bottomleft = ( (210,490) )
     game_screen.blit(textSurf, textRect)
     
-    text_surface = smallText.render("I know, I know it's been a while... Yes, the usal place. Okay, see you soon.", True, (0, 0, 0))
-    text_surface2 = smallText.render("Yes, hallucinations. Thank you.", True, (0, 0, 0))
+    text_surface = smallText.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, (0, 0, 0))
+    text_surface2 = smallText.render("Can you help a man out? Yes, usual place. Okay, see you soon. Thank you.", True, (0, 0, 0))
     
 
     game_screen.blit(text_surface, (180, 90))
-    game_screen.blit(text_surface2, (340, 120))
+    game_screen.blit(text_surface2, (180, 120))

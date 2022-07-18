@@ -23,10 +23,17 @@ def open_door_1(game_screen):
     game_screen.blit(speech_bubble, (150,450))
 
     smallText = pygame.font.Font("pokemon.ttf",20)
-    textSurf, textRect = text_objects('That is my old bathroom?! But it seems Emma is not here.', smallText)
-  
-    textRect.bottomleft = ( (200,500) )
+    textSurf, textRect = text_objects('Oh, my old bathroom. Even Henry and Odette, the rubber ducks are here.', smallText)
+    textRect.bottomleft = ( (190,510) )
     game_screen.blit(textSurf, textRect)
+
+    smallText = pygame.font.Font("pokemon.ttf",20)
+    textSurf, textRect = text_objects('Hmph, it seems Emma is not here.', smallText)
+    
+  
+    textRect.bottomleft = ( (190,530) )
+    game_screen.blit(textSurf, textRect)
+
     pygame.display.update()
 
 def crack_wall(game_screen, x, y):
@@ -68,8 +75,13 @@ def open_backroom(game_screen):
         game_screen.blit(board, (313, 44))
 
         smallText = pygame.font.Font("pokemon.ttf",20)     
-        textSurf, textRect = text_objects('Please enter the right code:', smallText)    
+        textSurf, textRect = text_objects('Please enter the right code: ', smallText)    
         textRect.bottomleft = ( (370,90) )
+        game_screen.blit(textSurf, textRect)
+
+        smallText = pygame.font.Font("pokemon.ttf",20)     
+        textSurf, textRect = text_objects('(Press enter, when done)', smallText)    
+        textRect.bottomleft = ( (380,110) )
         game_screen.blit(textSurf, textRect)
 
     
@@ -79,11 +91,11 @@ def open_backroom(game_screen):
     else:
         game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
         smallText = pygame.font.Font("pokemon.ttf",20)
-        textSurf, textRect = text_objects('That was correct! I think I"m going crazy, I see numbers everywhere.', smallText)    
-        textRect.bottomleft = ( (speech_bubble_x + 25 ,speech_bubble_y + 50) )
+        textSurf, textRect = text_objects("That was correct! I think I'm going crazy, I see numbers everywhere.", smallText)    
+        textRect.bottomleft = ( (speech_bubble_x + 50 ,speech_bubble_y + 65) )
         game_screen.blit(textSurf, textRect)
         textSurf, textRect = text_objects('Maybe I should remeber them....', smallText)    
-        textRect.bottomleft = ( (speech_bubble_x + 50 ,speech_bubble_y + 80) )
+        textRect.bottomleft = ( (speech_bubble_x + 50 ,speech_bubble_y + 85) )
         game_screen.blit(textSurf, textRect)
 
     if not tuch_pushed:
@@ -110,8 +122,10 @@ def crack_vase(game_screen):
 
 def open_klappe(game_screen):
     global klappe_open
-    klappe_open = True
-    open_backroom(game_screen)
+    global vase_cracked
+    if vase_cracked:
+        klappe_open = True
+        open_backroom(game_screen)
 
 def push_tuch(game_screen):
     global tuch_pushed

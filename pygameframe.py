@@ -5,7 +5,7 @@ from display_components import *
 from handle_userinput import *
 from endroom import *
 from startscreen import *
-import time
+import time 
 
 '''Display.flip will update the entire surface. Basically the entire screen. Display.update can just update specific areas of the screen'''
 
@@ -157,7 +157,7 @@ while go:
             elif current_room == 'BATH':
                 button("CRACK", 10,10, 1000, 1000,0,0)
 
-            # bathroo task solved
+            # bathroom task solved
             elif current_room == 'BATHEND':
                 button("DOOR OPEN", 447,177, 100, 150,0,0)
 
@@ -168,6 +168,7 @@ while go:
                 button("TUCH", 58,168,100,220,0,0)
                 button("DISPLAY", 450, 130, 100, 30, 0,0)
 
+            # backroom task solved
             elif current_room == "BACKEND":
                 button("DISPLAYDOOR", 313, 44, (124*3), (84*3), 0,0)
             
