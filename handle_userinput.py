@@ -1,4 +1,6 @@
+import numpy
 import pygame
+import math
 import sys
 from door1 import * 
 from display_components import *
@@ -50,7 +52,7 @@ def handle_input(screen, go = True, room = 'BACKROOM', input_rect = None):
 
 
                 # the userinput is accepted if it does not exeed the length of 5 or is a number
-                elif len(user_text) < 5:
+                elif len(user_text) < 2:
                     try:
                         # Unicode standard is used for string formation
                         user_text += str (int (event.unicode))

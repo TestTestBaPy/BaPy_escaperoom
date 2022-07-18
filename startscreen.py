@@ -39,11 +39,11 @@ def open_3doors(game_screen, simulate_push = True):
     background = pygame.image.load(os.path.join("Images", "3doors.jpg")).convert()
     game_screen.blit(background, (0, 0))
     game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
-    textSurf, textRect = text_objects('Wait... How did I get HERE?! Am I dreaming? That is my old house.', smallText)
-    textRect.bottomleft = ( (200,500) )
+    textSurf, textRect = text_objects('Where is my Emma? I need to find her. How dare she leave me alone!', smallText)
+    textRect.bottomleft = ( (200,510) )
     game_screen.blit(textSurf, textRect)
-    textSurf, textRect = text_objects('But wait... where is Emma? I should go find her.', smallText)
-    textRect.bottomleft = ( (200,520) )
+    textSurf, textRect = text_objects("My parents' house is so big, where should I start?", smallText)
+    textRect.bottomleft = ( (200,530) )
     game_screen.blit(textSurf, textRect)
 
 def open_story(game_screen):
