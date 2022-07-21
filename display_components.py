@@ -4,7 +4,7 @@ pygame.init()
 
 smallText = pygame.font.Font("pokemon.ttf",20)
 bigText = pygame.font.Font("pokemon.ttf",60)
-speech_bubble = pygame.image.load(os.path.join("Images", "SpeechBubble2.png"))
+speech_bubble = pygame.image.load(os.path.join("Images", "speechbubble.png"))
 clock = pygame.time.Clock()
 # needed componets
 # all escape-rooms

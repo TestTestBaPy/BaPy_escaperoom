@@ -6,12 +6,11 @@ import math
 
 number_sequence = ''
 
-def open_endroom(game_screen, reset_code = False, open_tresor = False):
+def open_endroom(reset_code = False, open_tresor = False):
     global number_sequence
     if reset_code:
         number_sequence = ''
-    background = pygame.image.load(os.path.join("Images", "tresor_open.png")).convert()
-    game_screen.blit(background, (0, 0))
+    game_screen.blit(pygame.image.load(os.path.join("Images", "tresor_open.png")).convert(), (0, 0))
 
     if not open_tresor:
         safe_door = pygame.image.load(os.path.join("Images", "tresor_zu.png"))
@@ -22,9 +21,8 @@ def open_endroom(game_screen, reset_code = False, open_tresor = False):
 
     pygame.display.update()
 
-def zoom_touchpad(game_screen):
-    background = pygame.image.load(os.path.join("Images", "pad.png")).convert()
-    game_screen.blit(background, (0, 0))
+def zoom_touchpad():
+    game_screen.blit(pygame.image.load(os.path.join("Images", "pad.png")).convert(), (0, 0))
     input_rect = pygame.Rect(50, 150, 130, 130)
     pygame.draw.rect(game_screen, (50,150,100), input_rect)
     pygame.display.update()
@@ -32,10 +30,10 @@ def zoom_touchpad(game_screen):
 def check_for_code():
     return number_sequence == '1407' or number_sequence == '1532'
 
-def open_tresor(game_screen):
-    open_endroom(game_screen, open_tresor=True)
+def open_tresor():
+    open_endroom(open_tresor=True)
 
-def save_num(game_screen, mouse):
+def save_num(mouse):
     global number_sequence
 
     if len(number_sequence) < 4:
@@ -93,20 +91,31 @@ def save_num(game_screen, mouse):
         game_screen.blit(text_surface, (50+5, 150+5))
 
 
-def open_endscreen(game_screen, clicked_on_exit = False):
+def open_endscreen(clicked_on_exit = False):
 
     if clicked_on_exit:
-        background = pygame.image.load(os.path.join("Images", "endscreen_pushexit.png")).convert()
+        game_screen.blit(pygame.image.load(os.path.join("Images", "endscreen_pushexit.png")).convert(), (0, 0))
+       
     else:
-        background = pygame.image.load(os.path.join("Images", "endscreen.png")).convert()
-    game_screen.blit(background, (0, 0))
+        game_screen.blit(pygame.image.load(os.path.join("Images", "endscreen.png")).convert(), (0, 0))
+    
     textSurf, textRect = text_objects("Hey, Escopub...", smallText)
     textRect.bottomleft = ( (210,490) )
     game_screen.blit(textSurf, textRect)
     
     text_surface = smallText.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, (0, 0, 0))
-    text_surface2 = smallText.render("Can you help a man out? Yes, usual place. Okay, see you soon. Thank you.", True, (0, 0, 0))
-    
-
     game_screen.blit(text_surface, (180, 90))
-    game_screen.blit(text_surface2, (180, 120))
+
+    text_surface = smallText.render("Can you help a man out? Yes, usual place. Okay, see you soon. Thank you.", True, (0, 0, 0))
+    game_screen.blit(text_surface, (180, 120))
+
+def open_final_words():
+    game_screen.blit(pygame.image.load(os.path.join("Images", "final_words.png")).convert(), (0, 0))
+
+    text_surface = smallText.render("Did you enjoy the Escaperoom-Game 'Where is my Emma?' Grade now with a 1.0 at: ", True, (0, 0, 0))
+    game_screen.blit(text_surface, (140, 240))
+
+    text_surface = smallText.render("https://hisinone.dienste.uni-osnabrueck.de", True, (50, 50, 250))
+    game_screen.blit(text_surface, (300, 270))
+
+    

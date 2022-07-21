@@ -5,7 +5,8 @@ import sys
 from door1 import * 
 from display_components import *
 
-def handle_input(screen, go = True, room = 'BACKROOM', input_rect = None):
+
+def handle_input(go = True, room = 'BACKROOM', input_rect = None):
 
     user_text = ''
 
@@ -13,7 +14,7 @@ def handle_input(screen, go = True, room = 'BACKROOM', input_rect = None):
     
     # TODO: KOORDINATEN VERALLGEMEINERN
     if input_rect == None:
-        input_rect = pygame.Rect(450, 130, 30, 30)
+        input_rect = pygame.Rect(450, 130, 100, 30)
     #pygame.draw.rect(game_screen, (250,250,250), input_rect)
 
     # color_active stores color which gets active when input box is clicked by user
@@ -42,7 +43,7 @@ def handle_input(screen, go = True, room = 'BACKROOM', input_rect = None):
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:  
-                    go = not check_input(user_text, screen)
+                    go = not check_input(user_text)
 
                 # Check for backspace
                 elif event.key == pygame.K_BACKSPACE:
@@ -60,11 +61,12 @@ def handle_input(screen, go = True, room = 'BACKROOM', input_rect = None):
                         pass
         
         # it will set background 
-        if room == 'BACKROOM':
-            open_backroom(screen)
-        else:
-            pass 
-            #open_endroom(screen)
+        open_backroom()
+        # if room == 'BACKROOM':
+        #     open_backroom()
+        # else:
+        #     pass 
+        #     #open_endroom(screen)
 
         if active:
             color = color_active
@@ -72,33 +74,26 @@ def handle_input(screen, go = True, room = 'BACKROOM', input_rect = None):
             color = color_passive
             
         # draw rectangle and argument passed which should be on screen
-        pygame.draw.rect(screen, color, input_rect)
 
-        text_surface = smallText.render(user_text, True, (255, 255, 255))
-        
-        # render at position stated in arguments
-        screen.blit(text_surface, (input_rect.x+5, input_rect.y+5))
-        
-        # set width of textfield so that text cannot get
-        # outside of user's text input
-        input_rect.w = max(100, text_surface.get_width()+10)
+        from door1 import display_open
+        if not display_open:
+            pygame.draw.rect(game_screen, color, input_rect)
+
+            text_surface = smallText.render(user_text, True, (255, 255, 255))
+            
+            # render at position stated in arguments
+            game_screen.blit(text_surface, (input_rect.x+5, input_rect.y+5))
         
         # display.flip() will update only a portion of the screen to updated, not full area
         pygame.display.flip()
         
-        # clock.tick(60) means that for every second at most
-        # 60 frames should be passed.
-        clock.tick(60)
-
     return go
 
-def check_input(text, game_screen):
-    print(text)
+def check_input(text):
+    
     if text == '15':
-        open_display(game_screen)
-        open_backroom(game_screen)
+        open_display()
+        open_backroom()
         game_screen.fill((0,0,0))
         return True
-    else:
-        print("NO WRONG")
-        return False
+    return False
