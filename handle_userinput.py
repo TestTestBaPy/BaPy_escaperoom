@@ -1,21 +1,20 @@
-import numpy
-import pygame
-import math
-import sys
-from door1 import * 
+from matplotlib.style import use
+import pygame, sys
 from display_components import *
 
-
-def handle_input(go = True, room = 'BACKROOM', input_rect = None):
-
-    user_text = ''
-
-    # create rectangle
+user_text = ''
+def handle_input( input_rect = None, max_chars = 10, only_integer = False):
+    """This function takes an arbitrary pygame rectangle and uses it as a input text box
+        Args:
+            input_rect the pygame-rectangle to display the inputted text on
+            max_chars limits the amount of chars to type in
+            only_integer if set to true, only integers are accepted
+        Returns:
     
-    # TODO: KOORDINATEN VERALLGEMEINERN
-    if input_rect == None:
-        input_rect = pygame.Rect(450, 130, 100, 30)
-    #pygame.draw.rect(game_screen, (250,250,250), input_rect)
+    """
+
+    global user_text
+    user_text = ''
 
     # color_active stores color which gets active when input box is clicked by user
     color_active = (30,100,30)
@@ -24,7 +23,8 @@ def handle_input(go = True, room = 'BACKROOM', input_rect = None):
     color_passive = (170,170,170)
     color = color_passive
 
-    active = True
+    print("I WAS CALLED SO I SET ON ACTIVE")
+    active = go = True
     
     while active and go:
         for event in pygame.event.get():
@@ -43,7 +43,7 @@ def handle_input(go = True, room = 'BACKROOM', input_rect = None):
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:  
-                    go = not check_input(user_text)
+                    go = False # go is set to false becuase the input needs to be checek (when hit return)
 
                 # Check for backspace
                 elif event.key == pygame.K_BACKSPACE:
@@ -53,15 +53,19 @@ def handle_input(go = True, room = 'BACKROOM', input_rect = None):
 
 
                 # the userinput is accepted if it does not exeed the length of 5 or is a number
-                elif len(user_text) < 2:
+                elif len(user_text) < max_chars:
                     try:
                         # Unicode standard is used for string formation
-                        user_text += str (int (event.unicode))
+                        if only_integer:
+                            user_text += str (int(event.unicode))
+                        else:
+                            user_text += str ((event.unicode))
+
                     except ValueError:
                         pass
         
         # it will set background 
-        open_backroom()
+        
         # if room == 'BACKROOM':
         #     open_backroom()
         # else:
@@ -74,26 +78,24 @@ def handle_input(go = True, room = 'BACKROOM', input_rect = None):
             color = color_passive
             
         # draw rectangle and argument passed which should be on screen
+        pygame.draw.rect(game_screen, color, input_rect)
 
-        from door1 import display_open
-        if not display_open:
-            pygame.draw.rect(game_screen, color, input_rect)
-
-            text_surface = smallText.render(user_text, True, (255, 255, 255))
-            
-            # render at position stated in arguments
-            game_screen.blit(text_surface, (input_rect.x+5, input_rect.y+5))
+        text_surface = smallText.render(user_text, True, (255, 255, 255))
+        
+        # render at position stated in arguments
+        game_screen.blit(text_surface, (input_rect.x+5, input_rect.y+5))
         
         # display.flip() will update only a portion of the screen to updated, not full area
         pygame.display.flip()
         
     return go
 
-def check_input(text):
-    
-    if text == '15':
-        open_display()
-        open_backroom()
-        game_screen.fill((0,0,0))
-        return True
-    return False
+def get_input_text():
+    return user_text
+
+
+
+
+def reset_text():
+    global user_text
+    user_text = ''

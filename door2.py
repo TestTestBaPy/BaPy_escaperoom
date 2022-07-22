@@ -12,6 +12,10 @@ possible_nums = [0,1,2,3,4,5,6,7,8,9]
 
 def open_door_2():
 
+    # set the current room
+    set_current_room("CHLD")
+    
+
     background = pygame.image.load(os.path.join("Images", "childsroom.png")).convert()
     game_screen.blit(background, (0, 0))
     pygame.display.update()
@@ -24,6 +28,7 @@ def open_door_2():
 
     display_pointer()
     pygame.display.update()
+
 
 def display_pointer():
 
@@ -39,6 +44,7 @@ def display_pointer():
 
     check_code()
 
+
 def check_code():
     global solved_door2
     
@@ -50,6 +56,10 @@ def check_code():
 
 
 def open_book():
+
+    # set the current room
+    set_current_room("BOOK")
+    
     
     game_screen.blit(pygame.image.load(os.path.join("Images", "book.png")).convert(), (0, 0))
     pygame.display.update()
@@ -136,6 +146,7 @@ def open_book():
     textRect.bottomleft = ( (340,560) )
     game_screen.blit(textSurf, textRect)
 
+
 def rotate_number(field):
 
     global pointer_1 
@@ -158,6 +169,10 @@ def rotate_number(field):
 
 def open_garden():
 
+    # set the current room
+    set_current_room("GARD")
+    
+
     if klappe_open:
         game_screen.blit(pygame.image.load(os.path.join("Images", "garden.png")).convert(), (0, 0))
         
@@ -166,7 +181,12 @@ def open_garden():
     
     pygame.display.update()
 
+
 def open_birdshouse():
+
+    # set the current room
+    set_current_room("BIRD")
+    
    
     if got_key:
         background = pygame.image.load(os.path.join("Images", "birdshouse_collectedkey.png")).convert()
@@ -177,10 +197,12 @@ def open_birdshouse():
 
     pygame.display.update()
 
+
 def get_key():
     global got_key
     got_key = True
     open_birdshouse()
+
 
 def open_klappe_garden():
     global klappe_open

@@ -2,11 +2,16 @@ import pygame, os
 
 pygame.init()
 
+current_room = "STRT"
+# needed componets
 smallText = pygame.font.Font("pokemon.ttf",20)
 bigText = pygame.font.Font("pokemon.ttf",60)
 speech_bubble = pygame.image.load(os.path.join("Images", "speechbubble.png"))
 clock = pygame.time.Clock()
-# needed componets
+
+# needed for scipy
+click_counter = 0
+
 # all escape-rooms
 rooms = ['STRT', 'STRY', 'DOOR', 'BATH', 'CHLD', 'BACK', 'TRES',]
 current_room = 'STRT'
@@ -38,6 +43,7 @@ def text_objects(text,font):
     textSurface = font.render(text, True, (0,0,0))
     return textSurface, textSurface.get_rect()
 
+
 def display_loading_screen():
 
     # load the frames with rate 3 per second to the backgorund
@@ -48,4 +54,28 @@ def display_loading_screen():
             pygame.display.update()
             clock.tick(3)
 
+
+def set_current_room(room):
+    global current_room
+    current_room = room
+
+
+def get_current_room():
+    return current_room
+
+
+def click():
+    global click_counter
+    click_counter +=1
+
+
+def get_clicks():
+    return click_counter
+
+
+def start_timer():
+    pass
+
+def end_timer():
+    pass
             

@@ -1,27 +1,27 @@
-import pygame, sys, os
+import pygame, sys, time, webbrowser
 from door1 import *
 from door2 import *
 from door3 import *
 from display_components import *
-from handle_userinput import *
 from endroom import *
 from startscreen import *
-import time 
-import webbrowser
+from scipy_analysis import *
+from game_timer import *
+from threading import Thread
 
-'''Display.flip will update the entire surface. Basically the entire screen. Display.update can just update specific areas of the screen'''
-
+# initialze pygame first
 pygame.init()
 
-rooms = [['STRT', 'DOOR', 'BATH', 'BATHEND', 'BACK', 'BACKEND', 'TRES', 'TCHP', 'CALL'],['STRT'],['STRT']]
-
-Screen = 0 # zero is start, one is frist room, two is second room etc.
-
-click_counter = 0
-
-# this universal function simulates a button so if the click is in the given coordinates and width/height of the 'button' the 
-# respective function will be executed (leitet quasi weiter)
-def button(msg, x,y,w,h,ic,ac): 
+def button(msg, x, y, w, h, ic, ac):
+    """This universal function simulates a button so if the click is in the given coordinates and width/height of the 'button' the 
+        respective function will be called.
+        Args:
+            msg short description of the button-field to check (helps to decide how to handle)
+            x the x-coordinate of the upper right corner of the button field
+            y the y-coordinate of the upper right corner of the button field
+            w the width of the button 
+            h the height of the bbutton
+    """ 
     global current_room
 
     # get postion of mouse
@@ -30,37 +30,38 @@ def button(msg, x,y,w,h,ic,ac):
     # if clicked on a valid button...
     if x+w > mouse[0] > x and y+h > mouse[1] > y:
 
+        current_room = get_current_room()
         print("CURRENT ROOM IS " + current_room + " \n---------------------------------" +msg + " IS CLICKED ON----------------------------------------")
 
-
+        # in the room "CALL" there is only one button, so no need to check for msg
         if current_room == "CALL":
             open_endscreen(True)
             pygame.display.update()
             time.sleep(0.3)
-            #sys.exit()
             open_final_words()
-            current_room = "FNAL"
 
-        elif current_room == "FNAL":
+        if "NAME" in msg:
+            if not user_name_input():
+                save_user_data()
+            
+        elif "URL" in msg:
             webbrowser.open('https://hisinone.dienste.uni-osnabrueck.de/qisserver/pages/cs/sys/portal/hisinoneStartPage.faces')
 
+        elif "SCIPY" in msg:
+            open_scipy()
+
         elif current_room == 'STRY':
-            current_room = 'STRT'
             open_startscreen()
 
         elif current_room == "BOOK":
-            print('I OPEN DOOR TWOOOOO')
             open_door_2()
-            current_room = "CHLD"
 
         # if you clicked on start, load the first room
         elif 'START' in msg and current_room == 'STRT':
-            current_room = 'DOOR'
             open_3doors()
 
         # if you clicked on story load the storyscreen
         elif 'STORY' in msg and current_room == 'STRT':
-            current_room = 'STRY'
             open_story()
 
         # if you clicked on a door open the respective room
@@ -70,21 +71,18 @@ def button(msg, x,y,w,h,ic,ac):
                 #display_loading_screen()
                 if "1" in msg:
                     open_bathroom()
-                    current_room = 'BATH'
+    
                 elif "2" in msg:
                     open_door_2()
-                    current_room = "CHLD"
                 else:
                     open_door_3()
                     open_3doors(False)
                
             elif current_room == "BATHEND":
                 open_backroom()
-                current_room = "BACK"
             
             elif current_room == "CHLD":
                 open_garden()
-                current_room = "GARD"
 
             elif current_room == "GARD":
 
@@ -95,17 +93,14 @@ def button(msg, x,y,w,h,ic,ac):
                     
                 elif klappe_open:
                     open_endroom()
-                    current_room = "TRES"
                     
             elif "DISPLAYDOOR" in msg:
                 open_endroom()
-                current_room = "TRES"
 
         # if you cracked 'something' in the bath, it will be displayed
         elif "CRACK" in msg:
-            if crack_wall(mouse[0], mouse[1]):
-                current_room = 'BATHEND'
-
+            crack_wall(mouse[0], mouse[1])
+       
         # if you clicked on the vase it cracks
         elif "VASE" in msg:
             crack_vase()
@@ -118,26 +113,22 @@ def button(msg, x,y,w,h,ic,ac):
         elif "TUCH" in msg:
             push_tuch()
 
-        # if you clicked on the touchpad zoom in
-        elif "TOUCHPAD" in msg:
-            zoom_touchpad()
-            current_room = "TCHP"
-
         # if you click on the tresor (after putting in the right code) open the endscreen
         elif "TRESOR" in msg:
             open_endscreen()
-            current_room = "CALL"
+
+        # if you clicked on the touchpad zoom in
+        elif "TOUCHPAD" in msg:
+            zoom_touchpad()
             
         # if you click on abort go back and delete your input
         elif "ABORT" in msg:
             open_endroom(reset_code=True)
-            current_room = "TRES"
 
         # if you click on check, check if your input was correct
         elif "CHECK" in msg and current_room == "TCHP":
             if check_for_code():
                 open_endroom(open_tresor=True)
-                current_room = "TRES"
 
         # if you clicked on the numberfield save your input
         elif "NUMBERS" in msg and current_room == "TCHP":
@@ -145,52 +136,75 @@ def button(msg, x,y,w,h,ic,ac):
         
         elif "BOOK" in msg:
             open_book()
-            current_room = "BOOK"
 
         elif "EXIT" in msg and current_room == "BIRD":
             open_garden()
-            current_room = "GARD"
 
         elif "TAFEL" in msg:
-            # first  385 -> 450 -> 26-30
-            # second  450 -> 520 -> 30-34)
-            # third  520 + (35+)
             rotate_number((mouse[0]/15))
 
         elif "BIRD" in msg:
             open_birdshouse()
-            current_room = "BIRD"
 
         elif "KEY" in msg:
             get_key()
             
         # if you clicked on the display you can type something in
         if "DISPLAY" in msg and current_room == "BACK":
-            if not handle_input():
-                
-                current_room = "BACKEND"
-                open_backroom()
-                clock.tick(2)
-                open_display()
+            if not input_correct() and check_input():
+                display_solved()
+                reset_text()
+            
+Screen = 0  
+# set up the game (startscreen) 
+open_startscreen()
+#open_final_words()
+#open_endscreen()
+#open_backroom()
+set_current_room("STRT")
 
-        
-        
-# set up the game (startscreen)
-if  Screen == 0: 
-    open_startscreen()  
+frame_count = 0
+frame_rate = 60
+font = pygame.font.Font(None, 25)
+
+# this thread is needed because else the timer (e.g. if put in main-loop) does not perform in real time
+t1 = Thread(target=timer)
+# set to daemon so when the user clicks on exit the timer-thread is closed as well
+t1.daemon = True
+
+# start the threads
+t1.start()
+
 
 ##################################################  MAIN  #####################################################################################################################
 while True:
 
+
+
     # each interactive event is saved here
     for event in pygame.event.get():
-        if event.type == pygame.QUIT: sys.exit()
+        if event.type == pygame.QUIT: 
+            sys.exit()
+
+        # display the timer
+        #timer()
+        #_______________________
+        
+    
+        
+        
+        
+            #________________
+
 
         mouse_click = pygame.mouse.get_pressed()
 
-        # if there was a left-click- check if a valid button was pressed in dependence of the current room
+        
+        # if there was a left-click, check if a valid button was pressed in dependence of the current room
         if mouse_click[0] == 1:
-            click_counter +=1
+            click()
+
+            current_room = get_current_room()
             print(current_room)
             mouse_pos = pygame.mouse.get_pos()
             
@@ -244,7 +258,6 @@ while True:
                 button("EXIT", 680, 470, 220, 100, 0, 0)
 
             elif current_room == "CHLD":
-
                 button("BOOK", 590, 250, 60, 40, 0, 0)
                 button("TAFEL", 385, 100, 200, 85, 0, 0)
 
@@ -255,7 +268,6 @@ while True:
                 if solved_door2:
                     button("DOOR",440, 270, 100, 100, 0,0 )
             
-
             elif current_room == "BOOK":
                 button("EXIT", 680, 470, 220, 100, 0, 0)
 
@@ -270,6 +282,8 @@ while True:
 
             elif current_room == "FNAL":
                 button("URL", 300, 270, 400, 20,0,0)
+                button("SCIPY", 680, 470, 220, 100, 0, 0)
+                button("NAME", 400, 400, 200, 30, 0, 0)
 
             # only for testing purposes
             mouse_pos = pygame.mouse.get_pos()

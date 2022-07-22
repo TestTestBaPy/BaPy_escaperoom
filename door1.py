@@ -1,8 +1,8 @@
-import pygame, sys, os
+import pygame, os
 from display_components import *
+from handle_userinput import *
 import time
 import numpy as np
-
 
 crack_counter = np.zeros(12).reshape(4,3)
 crack_side_len = 45
@@ -11,12 +11,16 @@ tuch_pushed = False
 vase_cracked = False
 klappe_open = False
 display_open = False
+input_rect = None
     
 def open_bathroom():
 
+    # set the current room
+    set_current_room("BATH")
+
     # display background
-    game_screen.blit(pygame.image.load(os.path.join("Images", "bathroom.jpg")).convert(), (0, 0))
-    game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
+    game_screen.blit(pygame.image.load(os.path.join("Images", "bathroom.png")).convert(), (0, 0))
+    #game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
 
     # display monologue
     textSurf, textRect = text_objects('Oh, my old bathroom. Even Henry and Odette, the rubber ducks are here.', smallText)
@@ -50,12 +54,17 @@ def crack_wall(x, y):
                 crack_counter[j][i] = 1
 
     if crack_counter.all() == 1:
-        game_screen.blit(pygame.image.load(os.path.join("Images", "bathroom_door.png")),(447,177))
-        return True
+        game_screen.blit(pygame.image.load(os.path.join("Images", "bathroom_door.png")),(0,0))
+        set_current_room("BATHEND")
 
-    return False
 
 def open_backroom():
+
+    global input_rect
+
+    # set the current room
+    set_current_room("BACK")
+    
 
     game_screen.blit(pygame.image.load(os.path.join("Images", "backroom.png")).convert(), (0, 0))
     
@@ -80,7 +89,10 @@ def open_backroom():
         input_rect = pygame.Rect(450, 130, 100, 30)
         pygame.draw.rect(game_screen, (170,170,170), input_rect)
 
+        #correct = handle_input(input_rect)
+
     else:
+
         game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
         textSurf, textRect = text_objects("That was correct! I think I'm going crazy, I see numbers everywhere.", smallText)    
         textRect.bottomleft = ((speech_bubble_x + 50 ,speech_bubble_y + 65))
@@ -90,9 +102,9 @@ def open_backroom():
         game_screen.blit(textSurf, textRect)
 
     if not tuch_pushed:
-        game_screen.blit(pygame.image.load(os.path.join("Images", "tuch.png")).convert_alpha(), (50, 158))
+        game_screen.blit(pygame.image.load(os.path.join("Images", "tuch.png")).convert_alpha(), (0, 0))
     else:
-        game_screen.blit(pygame.image.load(os.path.join("Images", "tuch_pushed.png")).convert_alpha(), (50, 158))
+        game_screen.blit(pygame.image.load(os.path.join("Images", "tuch_pushed.png")).convert_alpha(), (0, 0))
 
     vase = pygame.image.load(os.path.join("Images", "vase.png")).convert_alpha()
     vase = pygame.transform.scale(vase, (90, 87))
@@ -100,12 +112,26 @@ def open_backroom():
     if not vase_cracked:
         game_screen.blit(vase, (805, 118))
 
+   
+
+def input_correct():
+    x =  handle_input(input_rect = input_rect, max_chars = 2, only_integer=True)
+    open_backroom()
+    return x
+
+def display_solved():
+    open_backroom()
+    clock.tick(2)
+    open_display()
+
+        
 
 # the following functions set the global status-variables to keep track of players actions and display them
 def crack_vase():
     global vase_cracked
     vase_cracked = True
     open_backroom()
+
 
 def open_klappe():
     global klappe_open
@@ -114,15 +140,22 @@ def open_klappe():
         klappe_open = True
         open_backroom()
 
+
 def push_tuch():
     global tuch_pushed
     tuch_pushed = True
     open_backroom()
 
+
 def open_display():
+
+    
     global display_open
     display_open = True
     open_backroom()
+
+    # set the current room
+    set_current_room("BACKEND")
     
 
     

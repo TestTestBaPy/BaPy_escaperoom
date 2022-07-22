@@ -4,9 +4,16 @@ import time
 import numpy as np
 import math
 
+from handle_userinput import get_input_text, handle_input
+
 number_sequence = ''
+input_rect = None
 
 def open_endroom(reset_code = False, open_tresor = False):
+
+    # set the current room
+    set_current_room("TRES")
+    
     global number_sequence
     if reset_code:
         number_sequence = ''
@@ -22,6 +29,10 @@ def open_endroom(reset_code = False, open_tresor = False):
     pygame.display.update()
 
 def zoom_touchpad():
+
+    # set the current room
+    set_current_room("TCHP")
+
     game_screen.blit(pygame.image.load(os.path.join("Images", "pad.png")).convert(), (0, 0))
     input_rect = pygame.Rect(50, 150, 130, 130)
     pygame.draw.rect(game_screen, (50,150,100), input_rect)
@@ -90,8 +101,10 @@ def save_num(mouse):
         # render at position stated in arguments
         game_screen.blit(text_surface, (50+5, 150+5))
 
-
 def open_endscreen(clicked_on_exit = False):
+
+    # set the current room
+    set_current_room("CALL")
 
     if clicked_on_exit:
         game_screen.blit(pygame.image.load(os.path.join("Images", "endscreen_pushexit.png")).convert(), (0, 0))
@@ -110,6 +123,12 @@ def open_endscreen(clicked_on_exit = False):
     game_screen.blit(text_surface, (180, 120))
 
 def open_final_words():
+
+    global input_rect
+
+    # set the current room
+    set_current_room("FNAL")
+
     game_screen.blit(pygame.image.load(os.path.join("Images", "final_words.png")).convert(), (0, 0))
 
     text_surface = smallText.render("Did you enjoy the Escaperoom-Game 'Where is my Emma?' Grade now with a 1.0 at: ", True, (0, 0, 0))
@@ -117,5 +136,20 @@ def open_final_words():
 
     text_surface = smallText.render("https://hisinone.dienste.uni-osnabrueck.de", True, (50, 50, 250))
     game_screen.blit(text_surface, (300, 270))
+
+    text_surface = smallText.render("If you like to, you can enter your user_name to be put in the highscore table!", True, (0, 0, 0))
+    game_screen.blit(text_surface, (140, 350))
+
+    input_rect = pygame.Rect(400, 400, 200, 30)
+    pygame.draw.rect(game_screen, (170,170,170), input_rect)
+
+    #handle_input(room="FNAL", input_rect= input_rect, only_integer=False, max_chars=20)
+
+def user_name_input():
+    return handle_input(input_rect= input_rect, only_integer=False, max_chars=20)
+
+def check_input():
+    return get_input_text() == '15'
+    
 
     

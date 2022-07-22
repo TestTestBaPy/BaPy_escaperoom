@@ -4,6 +4,10 @@ from display_components import *
 # this function displays the startscreen
 def open_startscreen():
 
+    # set the current room
+    set_current_room("STRT")
+    
+
     # display background
     background = pygame.image.load(os.path.join("Images", "start.png")).convert()
     game_screen.blit(background, (0, 0))
@@ -22,8 +26,10 @@ def open_startscreen():
     game_screen.blit(textSurf, textRect)
 
 
-# the room '3doors' will be opened if the user clicked on start
 def open_3doors(simulate_push = True):
+
+    # set the current room
+    set_current_room("DOOR")
 
     if simulate_push:
         # simulate a click on the startbutton
@@ -50,7 +56,12 @@ def open_3doors(simulate_push = True):
     textRect.bottomleft = ( (200,530) )
     game_screen.blit(textSurf, textRect)
 
+
 def open_story():
+
+    # set the current room
+    set_current_room("STRY")
+    
 
     # simulate a click on the button
     background = pygame.image.load(os.path.join("Images", "start_pushstory.png")).convert()
