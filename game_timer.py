@@ -4,13 +4,17 @@
 """
 from display_components import *
 import pygame
+
+minutes = seconds = 0
  
  
 # Loop until the user clicks the close button.
 
 def timer():
     pygame.init()
-    font = pygame.font.Font(None, 25)
+    
+    global minutes
+    global seconds
         
     frame_count = 0
     frame_rate = 60
@@ -31,10 +35,10 @@ def timer():
 
         output_string = "Time: {0:02}:{1:02} Clicks: {2}".format(minutes, seconds, get_clicks())
 
-        text = font.render(output_string, True, black)
-        timer_rect = pygame.Rect(450, 15, 250, 30)
+        text = smallText.render(output_string, True, black)
+        timer_rect = pygame.Rect(450, 12, 200, 30)
         pygame.draw.rect(game_screen, (190,190,190), timer_rect)
-        game_screen.blit(text, (450, 20))
+        game_screen.blit(text, (460, 17))
 
         frame_count += 1
         
@@ -48,3 +52,6 @@ def timer():
         # Be IDLE friendly. If you forget this line, the program will 'hang'
         # on exit.
     pygame.quit()
+
+def get_needed_time():
+    return str(minutes) + ':' + str(seconds)
