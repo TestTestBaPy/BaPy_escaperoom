@@ -12,12 +12,13 @@ import os.path, csv
 
 def save_user_data():
     
-    with open("Escaperoom_stats.csv", "a") as csv_file:
+    with open("Escaperoom_stats.csv", "a", newline='') as csv_file:
         writer = csv.writer(csv_file)
-
         writer.writerow([get_input_text(), get_clicks(), get_needed_time()])
 
     csv_file.close()
+
+
 def open_scipy():
    
     matplotlib.use("Agg")
@@ -50,4 +51,3 @@ def open_scipy():
 
     #TO-DO: save clicks to a csv-file 
     # add sound effects 
-    # select a username at beginning

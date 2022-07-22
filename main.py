@@ -41,13 +41,14 @@ def button(msg, x, y, w, h, ic, ac):
             open_final_words()
 
         if "NAME" in msg:
-            if not user_name_input():
-                save_user_data()
+           user_name_input()
+                
             
         elif "URL" in msg:
             webbrowser.open('https://hisinone.dienste.uni-osnabrueck.de/qisserver/pages/cs/sys/portal/hisinoneStartPage.faces')
 
         elif "SCIPY" in msg:
+            save_user_data()
             open_scipy()
 
         elif current_room == 'STRY':
@@ -157,11 +158,11 @@ def button(msg, x, y, w, h, ic, ac):
             
 Screen = 0  
 # set up the game (startscreen) 
-open_startscreen()
-#open_final_words()
+#open_startscreen()
+open_final_words()
 #open_endscreen()
 #open_backroom()
-set_current_room("STRT")
+#set_current_room("FNAL")
 
 frame_count = 0
 frame_rate = 60
@@ -178,8 +179,6 @@ t1.start()
 
 ##################################################  MAIN  #####################################################################################################################
 while True:
-
-
 
     # each interactive event is saved here
     for event in pygame.event.get():

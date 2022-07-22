@@ -140,6 +140,9 @@ def open_final_words():
     text_surface = smallText.render("If you like to, you can enter your user_name to be put in the highscore table!", True, (0, 0, 0))
     game_screen.blit(text_surface, (140, 350))
 
+    text_surface = bigText.render("Results", True, white)
+    game_screen.blit(text_surface, (705, 480))
+
     input_rect = pygame.Rect(400, 400, 200, 30)
     pygame.draw.rect(game_screen, (170,170,170), input_rect)
 
