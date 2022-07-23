@@ -1,16 +1,20 @@
 import pygame, os
 from display_components import *
 
-# this function displays the startscreen
-def open_startscreen():
+
+def open_startscreen(simulate_push = False):
+    """Opens i.e. displays the startscreen
+    """
 
     # set the current room
     set_current_room("STRT")
-    
+    if simulate_push:
+        background = pygame.image.load(os.path.join("Images", "start_pushstart.png")).convert()
+        game_screen.blit(background, (0, 0))
+        pygame.display.update()
+        clock.tick(2)
 
-    # display background
-    background = pygame.image.load(os.path.join("Images", "start.png")).convert()
-    game_screen.blit(background, (0, 0))
+    game_screen.blit(pygame.image.load(os.path.join("Images", "start.png")).convert(), (0, 0))
 
     # display game instructions
     input_rect = pygame.Rect(600, 450, 300, 100)
@@ -27,21 +31,16 @@ def open_startscreen():
 
 
 def open_3doors(simulate_push = True):
+    """Opens i.e. the room with three doors to choose from
+       Args: 
+            simulate_push if True simulates a push on the prior "START" button
+    """
+
+    # simulate a click on the startbutton
+    open_startscreen(simulate_push = simulate_push)
 
     # set the current room
     set_current_room("DOOR")
-
-    if simulate_push:
-        # simulate a click on the startbutton
-        background = pygame.image.load(os.path.join("Images", "start_pushstart.png")).convert()
-        game_screen.blit(background, (0, 0))
-        pygame.display.update()
-        clock.tick(2)
-
-        background = pygame.image.load(os.path.join("Images", "start.png")).convert()
-        game_screen.blit(background, (0, 0))
-        pygame.display.update()
-        clock.tick(2)
 
     # load the new room
     background = pygame.image.load(os.path.join("Images", "3doors.jpg")).convert()
@@ -58,11 +57,12 @@ def open_3doors(simulate_push = True):
 
 
 def open_story():
+    """Opens i.e. displays the backhround information on this game
+    """
 
     # set the current room
     set_current_room("STRY")
     
-
     # simulate a click on the button
     background = pygame.image.load(os.path.join("Images", "start_pushstory.png")).convert()
     game_screen.blit(background, (0, 0))

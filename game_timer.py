@@ -1,17 +1,11 @@
-"""
- Show how to put a timer on the screen.
- 
-"""
 from display_components import *
-import pygame
 
 minutes = seconds = 0
  
- 
-
 
 def timer():
-    pygame.init()
+    """Displays the elapsed time on the gamescreen 
+    """
     
     global minutes
     global seconds
@@ -23,7 +17,7 @@ def timer():
     # Loop until the user clicks the close button.
     while True:
 
-        # Used to manage how fast the screen updates
+        # manage how fast the screen updates
         total_seconds = frame_count // frame_rate
         minutes = total_seconds // 60
         seconds = total_seconds % 60
@@ -39,4 +33,6 @@ def timer():
 
 
 def get_needed_time():
-    return str(minutes) + ':' + str(seconds)
+    """Returns the elapsed time at moment of calling this function
+    """
+    return minutes + seconds / 100

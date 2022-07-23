@@ -1,9 +1,8 @@
-from matplotlib.style import use
 import pygame, sys
 from display_components import *
 
 user_text = ''
-def handle_input( input_rect = None, max_chars = 10, only_integer = False):
+def handle_input(go = True, input_rect = None, max_chars = 10, only_integer = False):
     """This function takes an arbitrary pygame rectangle and uses it as a input text box
         Args:
             input_rect the pygame-rectangle to display the inputted text on
@@ -14,7 +13,6 @@ def handle_input( input_rect = None, max_chars = 10, only_integer = False):
     """
 
     global user_text
-    user_text = ''
 
     # color_active stores color which gets active when input box is clicked by user
     color_active = (30,100,30)
@@ -23,13 +21,12 @@ def handle_input( input_rect = None, max_chars = 10, only_integer = False):
     color_passive = (170,170,170)
     color = color_passive
 
-    print("I WAS CALLED SO I SET ON ACTIVE")
-    active = go = True
+    active = True
     
     while active and go:
         for event in pygame.event.get():
 
-        # if user types QUIT then the screen will close
+        # if user types QUIT (while the input field is active) then the screen will close
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
@@ -92,8 +89,6 @@ def handle_input( input_rect = None, max_chars = 10, only_integer = False):
 
 def get_input_text():
     return user_text
-
-
 
 
 def reset_text():
