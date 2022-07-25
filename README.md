@@ -63,10 +63,11 @@ To start the game excecute the 'main.py' file
 python main.py
 ```
 
-```{toggle}
+```{admonition} Click the button to reveal!
+:class: dropdown
 Some hidden toggle content!
 
-![](../images/cool.jpg)
+![](../Images/tresor_open.png))
 ```
 
 GAME STRUCTURE
