@@ -58,9 +58,9 @@ or
 ```bash
 conda install pandas
 ```
-To start the game...
+To start the game excecute the 'main.py' file
 ```bash
-... run main.py
+python main.py
 ```
 
 GAME STRUCTURE
