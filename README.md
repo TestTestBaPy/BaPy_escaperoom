@@ -64,12 +64,7 @@ python main.py
 ```
 sdsds
 
-```{admonition} Click the button to reveal!
-:class: dropdown
-Some hidden toggle content!
-
-![]((https://github.com/jjennyy/BaPy_escaperoom/blob/main)
-```
+<!-- This is commented out. -->
 
 GAME STRUCTURE
 ---------------------
