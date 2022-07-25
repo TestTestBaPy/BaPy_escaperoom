@@ -31,10 +31,16 @@ pip install pygame
 ```bash
 pip install numpy
 ```
-Please install math.
+Please install mathplotlib
 
 ```bash
-pip install math 
+pip install mathplotlib
+```
+
+Please install pandas
+
+```bash
+pip install pandas
 ```
 To start the game...
 ```bash
