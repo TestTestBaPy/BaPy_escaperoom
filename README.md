@@ -62,12 +62,13 @@ To start the game excecute the 'main.py' file
 ```bash
 python main.py
 ```
+sdsds
 
 ```{admonition} Click the button to reveal!
 :class: dropdown
 Some hidden toggle content!
 
-![](../Images/tresor_open.png))
+![]((https://github.com/jjennyy/BaPy_escaperoom/blob/main)
 ```
 
 GAME STRUCTURE
