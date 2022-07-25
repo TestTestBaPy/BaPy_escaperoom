@@ -92,7 +92,7 @@ ROOMS BEHIND DOOR 1
 ---------------------
 The first room will be the bathroom, try to find out what the puzzle could be.
 ![Bathroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Bathroom.PNG)
-```bash
+```{toggle}
 Try to crack the wall in the middle of the screen by clicking on it.
 ```
 
