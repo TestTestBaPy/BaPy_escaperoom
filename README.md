@@ -27,20 +27,36 @@ Please install pygame.
 ```bash
 pip install pygame
 ```
+or 
+```bash
+conda install pygame
+```
  Please install numpy. 
 ```bash
 pip install numpy
+```
+or 
+```bash
+conda install pygame
 ```
 Please install mathplotlib
 
 ```bash
 pip install mathplotlib
 ```
+or 
+```bash
+conda install mathplotlib
+```
 
 Please install pandas
 
 ```bash
 pip install pandas
+```
+or 
+```bash
+conda install pandas
 ```
 To start the game...
 ```bash
