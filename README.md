@@ -63,6 +63,12 @@ To start the game excecute the 'main.py' file
 python main.py
 ```
 
+```{toggle}
+Some hidden toggle content!
+
+![](../images/cool.jpg)
+```
+
 GAME STRUCTURE
 ---------------------
 | Door 1 | Door 2 | Door 3 |
