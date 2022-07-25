@@ -1,4 +1,3 @@
-# hi jasmin
 import pygame, sys, time, webbrowser
 from threading import Thread
 from door1 import *
