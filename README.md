@@ -93,10 +93,13 @@ ROOMS IN DOOR 1
 ---------------------
 The first room will be the bathroom, here you have to solve a small puzzle by cracking the wall.
 ![Bathroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/bathroom.PNG)
+
 The second room will be the backroom, here you have to find and count all the red balls to solve the puzzle.
 Watch out for hints, they can be very helpful!
+
 ![Backroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/backroom.PNG)
 The last room consists of a safe. The code can be found in room 2.
+
 ![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/tresor_open.png)
 
 
