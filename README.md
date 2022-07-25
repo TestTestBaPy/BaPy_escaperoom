@@ -55,6 +55,23 @@ or
 ```bash
 conda install pandas
 ```
+You can also run 
+```bash
+pip install
+matplotlib == 3.3.4
+numpy == 1.19.5
+pandas == 1.1.5
+pygame == 2.1.2
+```
+or
+```bash
+conda install
+matplotlib == 3.3.4
+numpy == 1.19.5
+pandas == 1.1.5
+pygame == 2.1.2
+```
+
 To start the game excecute the 'main.py' file
 ```bash
 python main.py
@@ -141,3 +158,11 @@ Surprise!
 
 THE STORY 
 ---------------------
+
+SOURCES
+---------------------
+Soundeffekte: https://heidruns-musikerseiten.de/downloads/wav-download
+              https://pixabay.com/de/sound-effects/
+Musik: https://freemidi.org/download3-1341-a-league-of-their-own-movie-themes
+Puzzle (Childsroom): https://escaperoomspiele.com/das-code-logical/
+
