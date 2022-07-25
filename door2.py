@@ -12,7 +12,7 @@ got_key = False
 # reminder: eig unnötig - kommen noch formen?
 possible_nums = [0,1,2,3,4,5,6,7,8,9]
 
-def open_door_2():
+def open_childsroom():
     """Opens i.e. display the childsroom
     """
 
@@ -170,8 +170,16 @@ def rotate_number(field):
        pointer_3 += 1
        
 
-    open_door_2()
+    open_childsroom()
     display_pointer()
+
+def open_flyer():
+    
+    #set the current Room
+    set_current_room("TRAS")
+    game_screen.blit(pygame.image.load(os.path.join("Images", "flyer.png")).convert(), (0, 0))
+    pygame.display.update()
+
 
 
 def open_garden():
