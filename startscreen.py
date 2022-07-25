@@ -2,7 +2,7 @@ import pygame, os
 from display_components import *
 
 #relax = pygame.mixer.music('Meeresrauschen.wav')
-soundObj = pygame.mixer.Sound('Meeresrauschen.wav')
+soundObj = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
 soundObj.play()
 
 def open_startscreen(simulate_push = False):

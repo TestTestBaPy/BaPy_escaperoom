@@ -40,13 +40,13 @@ game_screen = pygame.display.set_mode([display_width,display_height])
 pygame.display.set_caption('Where is my Emma?')
 
 # sounds
-woosh = pygame.mixer.Sound('spruh.mp3')
-piep = pygame.mixer.Sound('Piep.mp3')
-swoosh = pygame.mixer.Sound('tresor.mp3')
-collect = pygame.mixer.Sound('collect.mp3')
-opens = pygame.mixer.Sound('Tuerknarren.wav')
-kling = pygame.mixer.Sound('Bier.mp3')
-clicking = pygame.mixer.Sound('klappe.mp3')
+woosh = pygame.mixer.Sound('Sounds/spruh.mp3')
+piep = pygame.mixer.Sound('Sounds/Piep.mp3')
+swoosh = pygame.mixer.Sound('Sounds/tresor.mp3')
+collect = pygame.mixer.Sound('Sounds/collect.mp3')
+opens = pygame.mixer.Sound('Sounds/Tuerknarren.wav')
+kling = pygame.mixer.Sound('Sounds/Bier.mp3')
+clicking = pygame.mixer.Sound('Sounds/klappe.mp3')
 
 def text_objects(text,font):
     textSurface = font.render(text, True, (0,0,0))

@@ -15,10 +15,9 @@ pygame.init()
 
 # Musik einfügen
 # https://www.python-lernen.de/pygame-spiele-sound-hintergrundmusik.htm
-pygame.mixer.music.load('LawAndOrder.mp3')
+pygame.mixer.music.load('Sounds/LawAndOrder.mp3')
 pygame.mixer.music.play(-1,0.0)
 pygame.mixer.music.set_volume(.1)
-
 
 
 def button(msg, x, y, w, h, ic, ac):
@@ -71,7 +70,7 @@ def button(msg, x, y, w, h, ic, ac):
 
         # if book was closen open the room again
         elif current_room == "BOOK":
-            open_door_2()
+            open_childsroom()
 
         # if clicked on start, load the first room
         elif "START" in msg:
@@ -92,7 +91,7 @@ def button(msg, x, y, w, h, ic, ac):
                 if "1" in msg:
                     open_bathroom()
                 elif "2" in msg:
-                    open_door_2()
+                    open_childsroom()
                 else:
                     open_door_3()
                
@@ -183,6 +182,12 @@ def button(msg, x, y, w, h, ic, ac):
             pygame.mixer.Sound.set_volume(collect, 0.1)
             pygame.mixer.Sound.play(collect)
             rotate_number((mouse[0]/15))
+
+        elif "TRASH" in msg:
+            open_flyer()
+
+        elif current_room == "TRAS":
+            open_childsroom()
  
         # if clicked on open the birdshouse
         elif "BIRD" in msg:
@@ -220,7 +225,7 @@ open_startscreen()
 #open_bathroom()
 #open_backroom()
 
-#open_door_2()
+#open_childsroom()
 #open_garden()
 
 #open_door_3()
@@ -300,11 +305,13 @@ while True:
                     button("TRESOR", 300, 185, 260, 260, 0, 0)
 
             # in the rooms "CALL", "STRY" as well as "BOOK" you can only click on "EXIT"
-            elif current_room == "CALL" or current_room == "STRY" or current_room == "BOOK":
+            elif current_room == "CALL" or current_room == "STRY" or current_room == "BOOK" or current_room == "TRAS":
                 button("EXIT", 680, 470, 220, 100, 0, 0)
 
             # in the childsroom you can click on the book and the tafel (and if solved on the door)
             elif current_room == "CHLD":
+
+                button("TRASH",600, 330, 50, 70, 0, 0)
                 button("BOOK", 590, 250, 60, 40, 0, 0)
                 button("TAFEL", 385, 100, 200, 85, 0, 0)
 
