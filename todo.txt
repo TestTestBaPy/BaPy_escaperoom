@@ -1,22 +1,13 @@
-- solutions überarbeiten (forms, amount of balls, holes in fence)
-- story ergänzen
+Jasmin:
+-solutions überarbeiten (forms, amount of balls, holes in fence)
 - hiding cells evtl.
-- bilder im readme?
+- bilder im readme ersetzen
 -> vor den screenshots the pics are designed and drawn by us
-- falls ja: screenshots einfügen /passende bilder (beim start nihct gedrückter button)
 - redundante solutions bei erklärung der räume evtl löschen?
 - empfehlung am anfang: PLAY IT FIRST SPOILERS AHEAD
 - einfügen von der inspirierten quelle (für childsroomrätsel)
 - link zu musik
 - inhaltsverzeichnis entsprechend ändern 
--(gehört die function button und handle useriput rein?)
-
-Ablauf für Tjark: (in mail schreiben?)
--> 1. readme
--> 2. story
--> 3. spiel
--> 4. programming jouney + screenshots
--> 5.code unso
 
 Beispiel für screenshots/walkthrough
 - raum1: 
@@ -24,54 +15,51 @@ Beispiel für screenshots/walkthrough
 -> screenshot
 -> lösung des raums
 
-->jo die enden sind so, weil er hat entzug von emma nh
-
 Lara:
 - story für readme ausformulieren
+->jo die enden sind so, weil er hat entzug von emma nh
 - video (mit obs studio)
 
-325 * 200
--> 975 * 600 (jeder pixel nimmt 3 ein)
-
-"Project Requirements:
-- familiarize with the pygame library and use it to visualize the room, read user input and control frames
-- start screen (click on start to start)
-- different rooms (three doors at the beginning to choose from)
-- interactivity per mouseclick (change position, load new room)
-- display background, speechbubble, interactive objects (all are images) and text on speech bubble (with pygame fonts)
-
-Score options:
-1. how many clicks did the user needed -> get a grade based on clicks (the less the better)
-1.Timer -> get a grade based on time
-Optional:
-- [ read the monolouge from a file (e.g. Csv)]
--[Audio]
--[get called by your selected username]        
--[save the username scores in csv file]
-"
-
-Mail an Tjark:
-
-Fragen:
-
-Wir sollen ja ein README.md erstellen, was unser Spiel bzw. den Gebrauch erklärt. Dort steht im Grading-Handout der Punkt 'reusable functions if you have'.
-Bisher ist unser README so aufgebaut, dass es die Requirements (libraries und execution) und den Gebrauch/Spielanleitung beinhaltet. 
-Also eher von Code abgegrenzt. 
-Sollten wir hier konkrete Python-Funktionen erklären? (wie z.B. die 'allgemeinere' Funktion button, welche prüft ob der mausklick im bestimmten bereich liegt)
-Des Weiteren wollen wir dort gerne Screenshots der Räume einfügen aus Erklärgründen.
-Ist es in Ordnung, wenn wir dort bereits die Lösungen erklären (also natürlich unter der Warnung 'Spoiler')? Also sprich den Punkt
-'Show us your results e.g. screenshot from your game' bereits dort abarbeiten? (bzw. vielleicht fügen wir ein Walkthrough-Video ein)
-Das Spiel und das README würden wir auf Englisch halten. Dürfen wir die Programming Journey und das (evtl.) Video auf Deutsch machen?
-
-Dann zu den Kommentaren, da wir uns nicht sicher sind, wie du das haben willst: Sind einfache getter/setter ohne Docstring okay? 
-Zu Beginn dieser würden wir einen allumfassenden kommentar schreiben: # the follwing function do...
-
-Es ist, wie du vermutet hast eine recht lange if-else verschachtelung geworden, laut dem punkt ‘appropriate use of pythons features, 
-don’t force things that make no sense’ fühlt sich das aber falsch an. 
-Kannst du vielleicht nochmal dazu sagen, ob das wirklich okay ist? 
-(für jeden knopf der gedrückt werden kann gibt es einen Fall - da ist nämlich nicht wirklich nen zusammenfassen möglich da jeder Knopf eine andere Function auslöst) 
-
-Größtes Problem im Programm liegt allerdings bei langen clicks. Diese werden als mehrere gewerten bei ‚sensiblen‘ Gebrauch aber als einer. 
-Blockierende functionen (wie time.sleep(x)) machen das Spiel teils lang. Ist es okay, wenn der sensible Gebrauch gefordert ist?
-
-
+Jenny:
+    - exit buttons überarbeiten (pushed)
+    - überarbeiten : programming journey
+    - problem seite öffnet sich 6 mal
+    - regressionsgerade
+    - drogenhilfe zeichnen + implementieren
+    - (ein paar bilder ersetzen alles pngs)
+    - vllt. requirements.txt
+    - wo kommen geräusche hin?
+    - alle türen die keine türen sind anders bennen
+    - enter problem
+    - (scietific dings)
+    
+Alle:
+    -Code Layout (Indentation, Tabs/Spaces, Line length, etc.) 
+    -Readability: Comments, Naming Conventions etc.
+    -Docstrings (PEP 257)
+    - Musik (2-3 hintegrundmusik)
+    
+    
+Geräusche:
+    
+Jenny:
+    -klirren( vase, fliesen)done
+    - safe öffnen (wie mikrowelle, dampf) done
+    - door knarren (fast fertig) done
+    - rotieren zahlen (klicken/knacken) 	TODO: klick
+    -meerrauschen done
+    
+Jasmin:
+    -[button geräusch] (erstmal finden) (buttons: exit, start und story) NICHT angegeben
+    -footsteps (jhoch gehen) 			TODO: footsteps
+    -tuch schieben 				TODO: schiebsound
+    - klappen öffnen done
+    - ding sound (richtig) 			TODO: ding
+    
+Lara:
+    -animal crossing geräusch wenn er redet (erstmal finden, weil glaube schwer) NICHT angegeben
+    - blätter sound (buch) 			TODO: rauschen
+    - zwitschern angeben 			TODO: zwitschern
+    - vogelnest rauschen 			TODO: rauschen
+    - ding beim schlüssel done
+     

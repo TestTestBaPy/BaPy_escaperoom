@@ -222,14 +222,20 @@ def open_birdshouse():
 
 def get_key():
     global got_key
-    got_key = True
-    open_birdshouse()
+    if not got_key:
+        pygame.mixer.Sound.set_volume(collect, 0.1)
+        pygame.mixer.Sound.play(collect)
+        got_key = True
+        open_birdshouse()
 
 
 def get_nest():
     global got_nest
-    got_nest = True
-    open_birdshouse()
+    if not got_nest:
+        pygame.mixer.Sound.set_volume(woosh, 0.1)
+        pygame.mixer.Sound.play(woosh)
+        got_nest = True
+        open_birdshouse()
 
 
 def open_klappe_garden():

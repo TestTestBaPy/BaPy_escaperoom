@@ -17,7 +17,8 @@ pygame.init()
 # https://www.python-lernen.de/pygame-spiele-sound-hintergrundmusik.htm
 pygame.mixer.music.load('LawAndOrder.mp3')
 pygame.mixer.music.play(-1,0.0)
-pygame.mixer.music.set_volume(0)
+pygame.mixer.music.set_volume(.1)
+
 
 
 def button(msg, x, y, w, h, ic, ac):
@@ -66,8 +67,7 @@ def button(msg, x, y, w, h, ic, ac):
         # go back to startscreen (STRY has only one button)
         elif current_room == "STRY":
             open_startscreen()
-            relax = pygame.mixer.Sound('Meeresrauschen.wav')
-            pygame.mixer.Sound.play(relax)
+
 
         # if book was closen open the room again
         elif current_room == "BOOK":
@@ -83,11 +83,12 @@ def button(msg, x, y, w, h, ic, ac):
 
         # if clicked on a door open the respective room
         elif "DOOR" in msg:
-            opens = pygame.mixer.Sound('Tuerknarren.wav')
-            pygame.mixer.Sound.play(opens)
             
             if current_room == 'DOOR':
                 #display_loading_screen()
+                
+                pygame.mixer.Sound.set_volume(opens, 0.1)
+                pygame.mixer.Sound.play(opens)
                 if "1" in msg:
                     open_bathroom()
                 elif "2" in msg:
@@ -96,6 +97,9 @@ def button(msg, x, y, w, h, ic, ac):
                     open_door_3()
                
             elif current_room == "BATHEND":
+                # hier footsteps
+                
+                pygame.mixer.Sound.play(opens)
                 open_backroom()
             
             elif current_room == "CHLD":
@@ -106,6 +110,9 @@ def button(msg, x, y, w, h, ic, ac):
                 from door2 import klappe_open, got_key
 
                 if not klappe_open and got_key:
+                    # tuerknarren passt hier
+                    
+                    #pygame.mixer.Sound.play(opens)
                     open_klappe_garden()
                     
                 elif klappe_open:
@@ -128,6 +135,7 @@ def button(msg, x, y, w, h, ic, ac):
         
         # if you clicked on tuch it will be pushed
         elif "TUCH" in msg:
+            # TODO hier schiebsound in methode
             push_tuch()
 
         # if click on the tresor (after putting in the right code) open the endscreen
@@ -145,14 +153,23 @@ def button(msg, x, y, w, h, ic, ac):
         # if clicked on check, check if input was correct
         elif "CHECK" in msg and current_room == "TCHP":
             if check_for_code():
+                
+                pygame.mixer.Sound.set_volume(swoosh, 0.1)
+                pygame.mixer.Sound.play(swoosh)
                 open_endroom(open_tresor=True)
 
         # if clicked on the numberfield save your input
         elif "NUMBERS" in msg and current_room == "TCHP":
+            
+            pygame.mixer.Sound.set_volume(piep, 0.1)
+            pygame.mixer.Sound.play(piep)
             save_num(mouse)
         
         # if clicked on book display it
         elif "BOOK" in msg:
+            # TODO: hier rauschen
+            pygame.mixer.Sound.set_volume(woosh, 0.1)
+            pygame.mixer.Sound.play(woosh)
             open_book()
 
         # if clicked on exit in the birdshouse open the garden
@@ -161,10 +178,18 @@ def button(msg, x, y, w, h, ic, ac):
 
         # if clicked on tafel
         elif "TAFEL" in msg:
+            # TODO: hier klick
+            
+            pygame.mixer.Sound.set_volume(collect, 0.1)
+            pygame.mixer.Sound.play(collect)
             rotate_number((mouse[0]/15))
  
         # if clicked on open the birdshouse
         elif "BIRD" in msg:
+            # TODO: hier zwitschern
+           
+            pygame.mixer.Sound.set_volume(woosh, 0.1)
+            pygame.mixer.Sound.play(woosh)
             open_birdshouse()
 
         # if clicked on the key collect it
@@ -173,11 +198,16 @@ def button(msg, x, y, w, h, ic, ac):
 
         # if clicked on nest collect it
         elif "NEST" in msg:
+            # TODO: hier rauschen IN METHODE
             get_nest() 
             
         # if you clicked on the display you can type something in
         elif "DISPLAY" in msg and current_room == "BACK":
             if not input_correct(True) and check_input():
+                # TODO: hier ding für richtig (15)
+
+                pygame.mixer.Sound.set_volume(woosh, 0.1)
+                pygame.mixer.Sound.play(woosh)
                 display_solved()
                 reset_text()
 
@@ -242,6 +272,7 @@ while True:
 
             # bathroom task solved
             elif current_room == "BATHEND":
+                # TODO: hier footsteps
                 button("DOOR OPEN", 447,177, 100, 150,0,0)
 
             # in the backroom you can click on multiple interactive objects
@@ -287,8 +318,8 @@ while True:
             
             # in the birdshouse you can click on the nest, key or exit button
             elif current_room == "BIRD":
-                button("NEST", 320, 260, 370, 200, 0, 0)
                 button("KEY", 380, 360, 100, 100, 0, 0)
+                button("NEST", 320, 260, 370, 200, 0, 0) 
                 button("EXIT", 680, 470, 220, 100, 0, 0)
 
             # in the final room you can click a link, the scipy button or the name field

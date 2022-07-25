@@ -1,12 +1,25 @@
 import pygame, os
 from display_components import *
 
+#relax = pygame.mixer.music('Meeresrauschen.wav')
+soundObj = pygame.mixer.Sound('Meeresrauschen.wav')
+soundObj.play()
 
 def open_startscreen(simulate_push = False):
     """Opens i.e. displays the startscreen
     """
+    
+    global soundObj
 
-    # set the current room
+    
+    #soundObj.play()
+
+   
+   
+    
+    #pygame.mixer.music.load('Meeresrauschen.wav')
+    #pygame.mixer.music.play(-1,0.0)
+
     set_current_room("STRT")
     if simulate_push:
         background = pygame.image.load(os.path.join("Images", "start_pushstart.png")).convert()
@@ -29,13 +42,22 @@ def open_startscreen(simulate_push = False):
     textRect.bottomleft = ( (600 + 5, 450 + 85) )
     game_screen.blit(textSurf, textRect)
 
+    #relax.stop()
 
 def open_3doors(simulate_push = True):
     """Opens i.e. the room with three doors to choose from
        Args: 
             simulate_push if True simulates a push on the prior "START" button
     """
+    global soundObj
+    #relax.stop()
+    # print("STOP")
+    # pygame.mixer.pause()
+    # pygame.mixer.Sound.set_volume(0)
+    #relax = pygame.mixer.Sound('Bier.mp3')
+    #pygame.mixer.Sound.play(relax)
 
+    soundObj.stop()
     # simulate a click on the startbutton
     open_startscreen(simulate_push = simulate_push)
 

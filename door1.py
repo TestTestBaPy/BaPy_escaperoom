@@ -49,6 +49,8 @@ def crack_wall(x, y):
     for i in range(3):
         for j in range(4):
             if x+45 > 451+((i+1)*crack_side_len) > x and y+45 > 183+((j+1)*crack_side_len) > y:
+                pygame.mixer.Sound.set_volume(kling, 0.1)
+                pygame.mixer.Sound.play(kling)
                 game_screen.blit(wall_crack, (451+(i*crack_side_len),183+(j*crack_side_len)))
                 crack_counter[j][i] = 1
 
@@ -137,22 +139,31 @@ def check_input():
 # the following functions set the global status-variables to keep track of players actions and display them
 def crack_vase():
     global vase_cracked
-    vase_cracked = True
-    open_backroom()
+    if not vase_cracked:
+        pygame.mixer.Sound.set_volume(kling, 0.1)
+        pygame.mixer.Sound.play(kling)
+        vase_cracked = True
+        open_backroom()
 
 
 def open_klappe():
     global klappe_open
     global vase_cracked
     if vase_cracked:
-        klappe_open = True
-        open_backroom()
+        if not klappe_open:
+            pygame.mixer.Sound.set_volume(clicking, 0.1)
+            pygame.mixer.Sound.play(clicking)
+            klappe_open = True
+            open_backroom()
 
 
 def push_tuch():
     global tuch_pushed
-    tuch_pushed = True
-    open_backroom()
+    if not tuch_pushed:
+        pygame.mixer.Sound.set_volume(woosh, 0.1)
+        pygame.mixer.Sound.play(woosh)
+        tuch_pushed = True
+        open_backroom()
 
 
 def open_display():
