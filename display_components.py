@@ -1,4 +1,4 @@
-import pygame, os
+import pygame, os, time
 
 pygame.init()
 
@@ -64,6 +64,11 @@ def display_loading_screen():
             clock.tick(3)
 
 
+def push_exit():
+    game_screen.blit(pygame.image.load(os.path.join("Images", "pushed_exit.png")).convert_alpha(), (0, 0))
+    time.sleep(0.3)
+
+
 def set_current_room(room):
     global current_room
     current_room = room
@@ -79,12 +84,4 @@ def click():
 
 
 def get_clicks():
-    return click_counter
-
-
-def start_timer():
-    pass
-
-def end_timer():
-    pass
-            
+    return click_counter          

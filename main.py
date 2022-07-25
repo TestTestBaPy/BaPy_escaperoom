@@ -1,4 +1,4 @@
-import pygame, sys, time, webbrowser
+import pygame, sys, time
 from threading import Thread
 from door1 import *
 from door2 import *
@@ -54,7 +54,8 @@ def button(msg, x, y, w, h, ic, ac):
                 
         # if clicked on the url open it
         elif "URL" in msg:
-            webbrowser.open('https://hisinone.dienste.uni-osnabrueck.de/qisserver/pages/cs/sys/portal/hisinoneStartPage.faces')
+            print("I OPENNNNNN")
+            open_tab()     
 
         # if want to see scipy-results save the data and open it
         elif "SCIPY" in msg:
@@ -65,11 +66,13 @@ def button(msg, x, y, w, h, ic, ac):
 
         # go back to startscreen (STRY has only one button)
         elif current_room == "STRY":
+            push_exit()
             open_startscreen()
 
 
         # if book was closen open the room again
         elif current_room == "BOOK":
+            push_exit()
             open_childsroom()
 
         # if clicked on start, load the first room
@@ -173,6 +176,7 @@ def button(msg, x, y, w, h, ic, ac):
 
         # if clicked on exit in the birdshouse open the garden
         elif "EXIT" in msg and current_room == "BIRD":
+            push_exit()
             open_garden()
 
         # if clicked on tafel
@@ -187,6 +191,7 @@ def button(msg, x, y, w, h, ic, ac):
             open_flyer()
 
         elif current_room == "TRAS":
+            push_exit()
             open_childsroom()
  
         # if clicked on open the birdshouse
@@ -310,7 +315,6 @@ while True:
 
             # in the childsroom you can click on the book and the tafel (and if solved on the door)
             elif current_room == "CHLD":
-
                 button("TRASH",600, 330, 50, 70, 0, 0)
                 button("BOOK", 590, 250, 60, 40, 0, 0)
                 button("TAFEL", 385, 100, 200, 85, 0, 0)
@@ -331,9 +335,9 @@ while True:
 
             # in the final room you can click a link, the scipy button or the name field
             elif current_room == "FNAL":
-                button("URL", 300, 270, 400, 20,0,0)
                 button("SCIPY", 680, 470, 220, 100, 0, 0)
                 button("NAME", 400, 400, 200, 30, 0, 0)
+                
 
             # only for testing purposes
             mouse_pos = pygame.mouse.get_pos()
@@ -341,3 +345,4 @@ while True:
 
     pygame.display.update()
     clock.tick(60)
+

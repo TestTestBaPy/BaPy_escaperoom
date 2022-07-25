@@ -1,9 +1,10 @@
-import pygame, os, time, math
+import pygame, os, time, math, webbrowser
 from display_components import *
 from handle_userinput import handle_input
 
 number_sequence = ''
 input_rect = None
+open = True
 
 def open_endroom(reset_code = False, open_tresor = False):
     """Opens i.e. displays the endroom with the tresor.
@@ -115,8 +116,7 @@ def open_endscreen(clicked_on_exit = False):
     set_current_room("CALL")
 
     if clicked_on_exit:
-        game_screen.blit(pygame.image.load(os.path.join("Images", "endscreen_pushexit.png")).convert(), (0, 0))
-        time.sleep(0.3)
+        push_exit()
        
     
     # display alternative endings based on the entered code
@@ -177,3 +177,12 @@ def user_name_input():
     """Handles input and makes sure that the username is no longer than 10 chars
     """
     handle_input(input_rect= input_rect, only_integer=False, max_chars=10)
+
+def open_tab():
+    """Allows to open the URL only once
+    """
+    global open 
+
+    if open:
+        webbrowser.open_new_tab('https://hisinone.dienste.uni-osnabrueck.de')
+        open = False

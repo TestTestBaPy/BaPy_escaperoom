@@ -73,7 +73,7 @@ def open_backroom():
     # if the klappe was opened, display it
     if klappe_open:
         klappe = pygame.image.load(os.path.join("Images", "klappe.png")).convert_alpha()
-        game_screen.blit(klappe, (310, 316))
+        game_screen.blit(klappe, (0, 0))
 
     # if the display is not open the code was not (yet) entered correctly
     if not display_open:

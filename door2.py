@@ -189,9 +189,11 @@ def open_garden():
     # set the current room
     set_current_room("GARD")
 
+    
+    game_screen.blit(pygame.image.load(os.path.join("Images", "garden.png")).convert(), (0, 0))
+
     # if the klappe was opened display it
     if klappe_open:
-        game_screen.blit(pygame.image.load(os.path.join("Images", "garden.png")).convert(), (0, 0))
         game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
         textSurf, textRect = text_objects("That was correct! But why are there so many holes in the fence?", smallText)    
         textRect.bottomleft = ((speech_bubble_x + 50 ,speech_bubble_y + 65))
