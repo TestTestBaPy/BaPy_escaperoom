@@ -74,9 +74,9 @@ GAME STRUCTURE
 
 HOW TO PLAY THE GAME
 ---------------------
-In order to solve our puzzles you need to click on anything on the screen. Sometimes you find a key, sometimes you find a part of the puzzle that is needed to solve it.
-We hide some hints for you so keep your eyes open, anything can be useful, maybe it helps if you use pen and paper.
-If you have the correct answer to solve the puzzle you have to either use your keyboard or you have to click on numbers or forms at your screen.
+In order to solve our puzzles you need to click on something on the screen. Sometimes you find a key, sometimes you find or reveal a part of the puzzle that is needed to solve it.
+We hide some hints for you to keep your eyes open, anything can be useful, maybe it helps if you use pen and paper.
+If you have the correct code to solve the puzzle you have to either use your keyboard or you have to click on numbers at your screen.
 
 THE STARTING SCREEN
 ---------------------
