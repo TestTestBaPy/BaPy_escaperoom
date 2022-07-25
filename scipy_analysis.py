@@ -32,7 +32,6 @@ def open_scipy_plot():
     current_result = df.iloc[-1]
     
     df = df[["CLICKS", "TIME"]].sort_values("CLICKS")
-    print(df)
    
     matplotlib.use("Agg")
     fig = pylab.figure(figsize=[4, 4], dpi=150)   # 100 dots per inch, so the resulting buffer is 400x400 pixels

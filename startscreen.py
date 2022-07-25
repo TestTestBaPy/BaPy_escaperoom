@@ -50,12 +50,6 @@ def open_3doors(simulate_push = True):
             simulate_push if True simulates a push on the prior "START" button
     """
     global soundObj
-    #relax.stop()
-    # print("STOP")
-    # pygame.mixer.pause()
-    # pygame.mixer.Sound.set_volume(0)
-    #relax = pygame.mixer.Sound('Bier.mp3')
-    #pygame.mixer.Sound.play(relax)
 
     soundObj.stop()
     # simulate a click on the startbutton

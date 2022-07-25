@@ -18,7 +18,7 @@ def open_endroom(reset_code = False, open_tresor = False):
     set_current_room("TRES")
     
     global number_sequence
-    print(number_sequence, type(number_sequence))
+   
     # alternative code have alternative endings
     if number_sequence == '1407':
         game_screen.blit(pygame.image.load(os.path.join("Images", "emma_dead.png")).convert(), (0, 0))

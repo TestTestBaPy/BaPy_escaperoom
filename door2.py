@@ -202,7 +202,7 @@ def open_garden():
         textRect.bottomleft = ((speech_bubble_x + 50 ,speech_bubble_y + 85))
         game_screen.blit(textSurf, textRect)
     else:
-        game_screen.blit(pygame.image.load(os.path.join("Images", "garden_closed.png")).convert(), (0, 0))   
+        game_screen.blit(pygame.image.load(os.path.join("Images", "garden_klappe.png")).convert_alpha(), (0, 0))   
     
     pygame.display.update()
 
