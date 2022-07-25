@@ -60,6 +60,12 @@ To start the game excecute the 'main.py' file
 python main.py
 ```
 
+HOW TO PLAY THE GAME
+---------------------
+In order to solve our puzzles you need to click on something on the screen. Sometimes you find a key, sometimes you find or reveal a part of the puzzle that is needed to solve it.
+We hide some hints for you to keep your eyes open, anything can be useful, maybe it helps if you use pen and paper.
+If you have the correct code to solve the puzzle you have to either use your keyboard or you have to click on numbers at your screen.
+
 GAME STRUCTURE
 ---------------------
 | Door 1 | Door 2 | Door 3 |
@@ -68,12 +74,6 @@ GAME STRUCTURE
 | Backroom | Garden |  |
 | Saferoom | Saferoom |  |
 | End | End |  |
-
-HOW TO PLAY THE GAME
----------------------
-In order to solve our puzzles you need to click on something on the screen. Sometimes you find a key, sometimes you find or reveal a part of the puzzle that is needed to solve it.
-We hide some hints for you to keep your eyes open, anything can be useful, maybe it helps if you use pen and paper.
-If you have the correct code to solve the puzzle you have to either use your keyboard or you have to click on numbers at your screen.
 
 THE STARTING SCREEN
 ---------------------
