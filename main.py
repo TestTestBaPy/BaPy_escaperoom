@@ -13,6 +13,12 @@ from game_timer import *
 # initialze pygame first
 pygame.init()
 
+# Musik einfügen
+# https://www.python-lernen.de/pygame-spiele-sound-hintergrundmusik.htm
+# pygame.mixer.music.load('sound/eine-MP3-Datei.mp3')
+# pygame.mixer.music.play(-1,0.0)
+# pygame.mixer.music.set_volume(.6)
+
 def button(msg, x, y, w, h, ic, ac):
     """This universal function simulates a button so if the click is in the given coordinates and width/height 
         of the 'button' the respective function will be called.
