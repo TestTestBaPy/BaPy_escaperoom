@@ -15,9 +15,9 @@ pygame.init()
 
 # Musik einfügen
 # https://www.python-lernen.de/pygame-spiele-sound-hintergrundmusik.htm
-# pygame.mixer.music.load('sound/eine-MP3-Datei.mp3')
-# pygame.mixer.music.play(-1,0.0)
-# pygame.mixer.music.set_volume(.6)
+pygame.mixer.music.load('LawAndOrder.mp3')
+pygame.mixer.music.play(-1,0.0)
+pygame.mixer.music.set_volume(0)
 
 def button(msg, x, y, w, h, ic, ac):
     """This universal function simulates a button so if the click is in the given coordinates and width/height 
@@ -65,6 +65,8 @@ def button(msg, x, y, w, h, ic, ac):
         # go back to startscreen (STRY has only one button)
         elif current_room == "STRY":
             open_startscreen()
+            relax = pygame.mixer.Sound('Meeresrauschen.wav')
+            pygame.mixer.Sound.play(relax)
 
         # if book was closen open the room again
         elif current_room == "BOOK":
@@ -80,6 +82,8 @@ def button(msg, x, y, w, h, ic, ac):
 
         # if clicked on a door open the respective room
         elif "DOOR" in msg:
+            opens = pygame.mixer.Sound('Tuerknarren.wav')
+            pygame.mixer.Sound.play(opens)
             
             if current_room == 'DOOR':
                 #display_loading_screen()
