@@ -1,8 +1,5 @@
 # Escaperoom Adventure - Where is my Emma? 
 
-This project was created as part of the 'Basic Programming in Python' course at the University of Osnabrück.
-It represents a small looter in the first-person perspective. Have fun playing! Ideal for puzzlers.
-
 CONTENTS OF THIS FILE
 ---------------------
 
@@ -20,7 +17,7 @@ CONTENTS OF THIS FILE
 
 INTRODUCTION
 ---------------------
-This project was created as part of the 'Basic Python' course at the University of Osnabrück.
+This project was created as part of the 'Basic Programming in Python' course at the University Osnabrück.
 It is based on the concept of an escape room, where you can examine the individual scenes by clicking on the screen. Each scene consists of 1-2 puzzles, only when these have been solved you can switch to the next scene.
 If you manage to solve all the puzzles, you win the game!
 
