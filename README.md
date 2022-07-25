@@ -105,11 +105,13 @@ The last room contains a safe. The code can be found in room 2.
 
 ROOMS IN DOOR 2
 ---------------------
-The first room willbe the childsroom, here you have to solve a puzzle that is a little bit harder, it consists of a logic puzzle which solution needs to be translated into forms in order to solve the puzzle and enter the next room.
+The first room will be the childsroom, here you have to solve a puzzle that is a little bit harder, it consists of a logic puzzle to solve in order to enter the next room.
 ![Childsroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/childsroom.PNG)
+
 The next room is the garden, here you can find a key that is needed if you want to enter the last room.
 Please keep in mind that the code for the last room is hidden in this room, and that you can not come back.
 ![Garden](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/garden_closed.PNG)
+
 The last room consists of a safe. The code can be found in room 2.
 ![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/tresor_open.png)
 
