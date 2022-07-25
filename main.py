@@ -19,6 +19,7 @@ pygame.mixer.music.load('LawAndOrder.mp3')
 pygame.mixer.music.play(-1,0.0)
 pygame.mixer.music.set_volume(0)
 
+
 def button(msg, x, y, w, h, ic, ac):
     """This universal function simulates a button so if the click is in the given coordinates and width/height 
         of the 'button' the respective function will be called.
