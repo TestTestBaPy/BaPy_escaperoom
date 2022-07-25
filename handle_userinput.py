@@ -2,14 +2,13 @@ import pygame, sys
 from display_components import *
 
 user_text = ''
-def handle_input(go = True, input_rect = None, max_chars = 10, only_integer = False):
+def handle_input(go = True, active = True, input_rect = None, max_chars = 10, only_integer = False):
     """This function takes an arbitrary pygame rectangle and uses it as a input text box
         Args:
             input_rect the pygame-rectangle to display the inputted text on
             max_chars limits the amount of chars to type in
             only_integer if set to true, only integers are accepted
-        Returns:
-    
+        Returns: 
     """
 
     global user_text
@@ -39,8 +38,10 @@ def handle_input(go = True, input_rect = None, max_chars = 10, only_integer = Fa
                     active = False
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:  
-                    go = False # go is set to false becuase the input needs to be checek (when hit return)
+
+                if event.key == pygame.K_RETURN: 
+                    active = False 
+                    go = False # go is set to false because the input needs to be check (when hit return)
 
                 # Check for backspace
                 elif event.key == pygame.K_BACKSPACE:
@@ -76,20 +77,26 @@ def handle_input(go = True, input_rect = None, max_chars = 10, only_integer = Fa
             
         # draw rectangle and argument passed which should be on screen
         pygame.draw.rect(game_screen, color, input_rect)
-
-        text_surface = smallText.render(user_text, True, (255, 255, 255))
-        
-        # render at position stated in arguments
-        game_screen.blit(text_surface, (input_rect.x+5, input_rect.y+5))
+        display_num_sequence(input_rect)
         
         # display.flip() will update only a portion of the screen to updated, not full area
         pygame.display.flip()
-        
+
     return go
+
+def display_num_sequence(input_rect):
+   
+
+    text_surface = smallText.render(user_text, True, (255, 255, 255)) 
+   
+    # render at position stated in arguments
+    game_screen.blit(text_surface, (input_rect.x+5, input_rect.y+5))
+    
+    # display.flip() will update only a portion of the screen to updated, not full area
+    pygame.display.flip()
 
 def get_input_text():
     return user_text
-
 
 def reset_text():
     global user_text

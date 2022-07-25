@@ -21,17 +21,20 @@ Lara:
 - video (mit obs studio)
 
 Jenny:
-    - exit buttons überarbeiten (pushed)
-    - überarbeiten : programming journey
-    - problem seite öffnet sich 6 mal
-    - regressionsgerade
-    - drogenhilfe zeichnen + implementieren
-    - (ein paar bilder ersetzen alles pngs)
-    - vllt. requirements.txt
-    - wo kommen geräusche hin?
-    - alle türen die keine türen sind anders bennen
+    
+    - überarbeiten : programming journey (!)
     - enter problem
     - (scietific dings)
+    - regressionsgerade
+
+    - problem seite öffnet sich 6 mal got it
+    - exit buttons überarbeiten (pushed) got it
+    - drogenhilfe zeichnen + implementieren got it
+    - (ein paar bilder ersetzen alles pngs) got it
+    - vllt. requirements.txt got it
+    - wo kommen geräusche hin? got it
+    - alle türen die keine türen sind anders bennen got it
+    
     
 Alle:
     -Code Layout (Indentation, Tabs/Spaces, Line length, etc.) 
@@ -43,23 +46,23 @@ Alle:
 Geräusche:
     
 Jenny:
-    -klirren( vase, fliesen)done
+    -klirren( vase, fliesen)			done
     - safe öffnen (wie mikrowelle, dampf) done
-    - door knarren (fast fertig) done
+    - door knarren (fast fertig) 		done
     - rotieren zahlen (klicken/knacken) 	TODO: klick
-    -meerrauschen done
+    -meerrauschen 				done
     
 Jasmin:
-    -[button geräusch] (erstmal finden) (buttons: exit, start und story) NICHT angegeben
+    -[button geräusch] (erstmal finden)   NICHT angegeben
     -footsteps (jhoch gehen) 			TODO: footsteps
     -tuch schieben 				TODO: schiebsound
-    - klappen öffnen done
+    - klappen öffnen 				done
     - ding sound (richtig) 			TODO: ding
     
 Lara:
-    -animal crossing geräusch wenn er redet (erstmal finden, weil glaube schwer) NICHT angegeben
+    -animal crossing geräusch wenn er redeNICHT angegeben
     - blätter sound (buch) 			TODO: rauschen
     - zwitschern angeben 			TODO: zwitschern
     - vogelnest rauschen 			TODO: rauschen
-    - ding beim schlüssel done
+    - ding beim schlüssel 			done
      

@@ -176,7 +176,9 @@ def open_final_words():
 def user_name_input():
     """Handles input and makes sure that the username is no longer than 10 chars
     """
-    handle_input(input_rect= input_rect, only_integer=False, max_chars=10)
+    if not handle_input(input_rect= input_rect, only_integer=False, max_chars=10):
+       pass
+        
 
 def open_tab():
     """Allows to open the URL only once

@@ -54,6 +54,7 @@ def button(msg, x, y, w, h, ic, ac):
                 
         # if clicked on the url open it
         elif "URL" in msg:
+            print("OPEN WEBBBROWERSERRERRRERERE")
             open_tab()     
 
         # if want to see scipy-results save the data and open it
@@ -108,15 +109,11 @@ def button(msg, x, y, w, h, ic, ac):
 
             elif current_room == "GARD":
 
-                from door2 import klappe_open, got_key
-
-                if not klappe_open and got_key:
-                    # tuerknarren passt hier
-                    
-                    #pygame.mixer.Sound.play(opens)
+                if not get_klappe_open() and get_got_key():
+                    pygame.mixer.Sound.play(opens)
                     open_klappe_garden()
                     
-                elif klappe_open:
+                elif get_klappe_open():
                     open_endroom()
                     
             elif "DISPLAYDOOR" in msg:
@@ -224,13 +221,13 @@ def button(msg, x, y, w, h, ic, ac):
             
 Screen = 0  
 # set up the game (here you can decide in which room you want to start) default shouold be open_startscreen()
-#open_startscreen()
+open_startscreen()
 #open_3doors()
 #open_bathroom()
 #open_backroom()
 
 #open_childsroom()
-open_garden()
+#open_garden()
 
 #open_door_3()
 
@@ -282,7 +279,7 @@ while True:
             # bathroom task solved
             elif current_room == "BATHEND":
                 # TODO: hier footsteps
-                button("DOOR OPEN", 447,177, 100, 150,0,0)
+                button("DOOR", 447,177, 100, 150,0,0)
 
             # in the backroom you can click on multiple interactive objects
             elif current_room == "BACK":   
@@ -336,6 +333,7 @@ while True:
             elif current_room == "FNAL":
                 button("SCIPY", 680, 470, 220, 100, 0, 0)
                 button("NAME", 400, 400, 200, 30, 0, 0)
+                button("URL", 300, 270, 375, 20, 0, 0)
                 
 
             # only for testing purposes

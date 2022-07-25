@@ -1,11 +1,13 @@
 import matplotlib, pygame, pylab, csv, pandas
 from matplotlib.pyplot import xlabel
+import matplotlib.pyplot as plt
 import matplotlib.backends.backend_agg as agg
 from pygame.locals import *
 from game_timer import get_needed_time
 from handle_userinput import *
 from os.path import exists
 from display_components import *
+from scipy import stats
 
 
 def save_user_data():
@@ -37,7 +39,9 @@ def open_scipy_plot():
     fig = pylab.figure(figsize=[4, 4], dpi=150)   # 100 dots per inch, so the resulting buffer is 400x400 pixels
     ax = fig.gca()
     ax.scatter((df["CLICKS"]), df[ "TIME"])
-    ax.set(xlabel = "Clicks", ylabel = "Time")
+    ax.set(xlabel = "Clicks", ylabel = "Time", title = "Highscore Userdata - Clicks vs. Time")
+
+    ax.plot(linear_regression(list(df["CLICKS"]), list(df[ "TIME"]))[0], linear_regression(list(df["CLICKS"]), list(df[ "TIME"]))[1])
 
     # scatter the players result twice so he/she can see their score in comparison
     ax.scatter(current_result[1], current_result[2])
@@ -60,10 +64,20 @@ def open_scipy_plot():
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('The orange dot is you!', smallText)
-    textRect.bottomleft = ( (500,520) )
+    textRect.bottomleft = ( (600,520) )
 
     game_screen.blit(textSurf, textRect)
 
+def linear_regression(x,y):
+    slope, intercept, r, p, std_err = stats.linregress(x, y)
+
+    def myfunc(x):
+      return slope * x + intercept
+
+    mymodel = list(map(myfunc, x))
+
+    return x, mymodel
+    
 
 def calculate_grade(click_amount):
     return min(click_amount//30, 6)

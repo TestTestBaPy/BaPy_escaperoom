@@ -59,7 +59,7 @@ def open_3doors(simulate_push = True):
     set_current_room("DOOR")
 
     # load the new room
-    background = pygame.image.load(os.path.join("Images", "3doors.jpg")).convert()
+    background = pygame.image.load(os.path.join("Images", "3doors.png")).convert()
     game_screen.blit(background, (0, 0))
 
     # load speechbubble with text

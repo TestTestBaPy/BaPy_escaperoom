@@ -91,6 +91,8 @@ def open_backroom():
         input_rect = pygame.Rect(450, 130, 100, 30)
         pygame.draw.rect(game_screen, (170,170,170), input_rect)
 
+        input_correct(go = False)
+
     else:
 
         game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
@@ -109,17 +111,20 @@ def open_backroom():
     if not vase_cracked:
         game_screen.blit(pygame.image.load(os.path.join("Images", "vase.png")).convert_alpha(), (0, 0))
 
-    input_correct(go = False)
-  
+ 
 
 def input_correct(go):
     """Handle and check the input from the user on the text field (input rect)
        Args:
             go if true, the field is active, else it is inactive and only display (if given) prior input
        Returns:
-            True, if input was coorect/wanted. Else False.
+            True, if input was coorect/wanted. Else or when go was set to False, False.
     """
-    return handle_input(go = go, input_rect = input_rect, max_chars = 2, only_integer=True)  
+    if not go:
+        display_num_sequence(input_rect)
+        return go
+    else:
+        return handle_input(go = go, input_rect = input_rect, max_chars = 2, only_integer=True)  
      
 
 def display_solved():

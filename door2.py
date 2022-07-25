@@ -28,7 +28,7 @@ def open_childsroom():
     textRect.bottomleft = ((speech_bubble_x + 30 ,speech_bubble_y + 60))
     game_screen.blit(textSurf, textRect)
 
-    textSurf, textRect = text_objects("Even my old firend. I loved reading stories to my teddybear. ", smallText)    
+    textSurf, textRect = text_objects("Even my old friend. I loved reading stories to my teddybear. ", smallText)    
     textRect.bottomleft = ((speech_bubble_x + 30 ,speech_bubble_y + 85))
     game_screen.blit(textSurf, textRect)
 
@@ -252,3 +252,11 @@ def open_klappe_garden():
     global klappe_open
     klappe_open = True
     open_garden()
+
+
+def get_klappe_open():
+    return klappe_open
+
+
+def get_got_key():
+    return got_key
