@@ -7,16 +7,16 @@ If you manage to solve all the puzzles, you win the game!
 CONTENTS OF THIS FILE
 ---------------------
 
- * Requirements
- * Game structure
- * How to play the game
- * The starting screen
- * The big descision
- * Rooms in door 1
- * Rooms in door 2
- * Rooms in door 3
- * The story
- * Solutions
+ - Requirements
+ - How to play the game
+ - Game structure and solutions
+    - The starting screen
+    - The big descision
+    - Rooms behind door 1
+    - Rooms behind door 2
+    - Rooms behind door 3
+ - The story
+ - Sources
 
 REQUIREMENTS
 ---------------------
@@ -66,8 +66,10 @@ In order to solve our puzzles you need to click on something on the screen. Some
 We hide some hints for you to keep your eyes open, anything can be useful, maybe it helps if you use pen and paper.
 If you have the correct code to solve the puzzle you have to either use your keyboard or you have to click on numbers at your screen.
 
-GAME STRUCTURE
+GAME STRUCTURE AND SOLUTIONS
 ---------------------
+BEVORE READING FURTHER... PLEASE PLAY THE GAME FIRST, IN THIS SECTION WE WILL GIVE YOU THE SOLUTIONS!
+
 | Door 1 | Door 2 | Door 3 |
 |:--------------|:-------------|:--------------|
 | Bathroom | Childsroom | Surprise |
@@ -78,75 +80,64 @@ GAME STRUCTURE
 THE STARTING SCREEN
 ---------------------
 Here you can choose between starting the game or reading the story.
-![Starting screen](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/Startingscreen.PNG)
+![Starting screen](Startingscreen.PNG)
 
 THE BIG DESCISION
 ---------------------
 If you clicked on start, you will end up in this room where you have to decide between 3 doors.
 Depending on your choice you will visit different rooms and puzzles.
-![Big descision](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/TheBigDecision.PNG)
+![Big descision](Big decision.PNG)
 
-ROOMS IN DOOR 1
+ROOMS BEHIND DOOR 1
 ---------------------
-The first room will be the bathroom, here you have to solve a small puzzle by cracking the wall.
-![Bathroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/Bathroom.PNG)
-
-The second room will be the backroom, here you have to find and count all the red balls to solve the puzzle.
-Watch out for hints, they can be very helpful!
-
-![Backroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/Backroom.PNG)
-
-The last room contains a safe. The code can be found in room 2.
-![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/Tresor.PNG)
-
-
-ROOMS IN DOOR 2
----------------------
-The first room will be the childsroom, here you have to solve a puzzle that is a little bit harder, it consists of a logic puzzle to solve in order to enter the next room.
-![Childsroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/childsroom.PNG)
-
-The next room is the garden, here you can find a key that is needed if you want to enter the last room.
-Please keep in mind that the code for the last room is hidden in this room, and that you can not come back.
-![Garden](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/garden_closed.PNG)
-
-The last room consists of a safe. The code can be found in room 2.
-![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/Tresor.PNG)
-
-
-ROOMS IN DOOR 3
----------------------
-![Surprise](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/mysteryroom.PNG)
-
-THE STORY 
----------------------
-
-SOLUTIONS
----------------------
-Bathroom.
+The first room will be the bathroom, try to find out what the puzzle could be.
+![Bathroom](Bathroom.PNG)
 ```bash
 Try to crack the wall in the middle of the screen by clicking on it.
 ```
-Backroom: Key.
+
+The second room will be the backroom, here you have to find the correct code, if you want to enter the next room.
+Be careful, even the most obvious things can sometimes be wrong! Hints might help you.
+
+![Backroom](Backroom.PNG)
 ```bash
 You can find the key in the vase on the right-hand side.
 ```
-Backroom: Blackboard.
 ```bash
 The correct number of red balls is 15. Please use your keyboard to enter this number.
 ```
-Safe code.
+
+The last room contains a safe. The code can be found in room 2.
+![Safe](Safe.PNG)
 ```bash
 You can finde the code for the safe in the backroom. It is 1407. This time you have to click on the right numbers on the touchpad.
 ```
-Childsroom.
+
+ROOMS BEHIND DOOR 2
+---------------------
+The first room will be the childsroom, here you have to solve a puzzle that is a little bit harder, it consists of a logic puzzle that needs to be solved in order to enter the next room.
+![Childsroom](Childsroom.PNG)
 ```bash
-The first part of the puzzle can be found on the table. The solution is 420. 
-This number has to be translated into the correct sequence of forms (can be found on the poster over the bed). The sequence is "Heard","Square","Circle".
+The puzzle can be found on the table. The solution is 420. 
+Please click on the numbers on the wall to find the correct sequence.
 ```
-Garden.
+
+The next room is the garden, here you can find a key that is needed if you want to enter the last room.
+Please keep in mind that the code for the last room is hidden in this room, and that you cannot come back.
+![Garden](Garden.PNG)
 ```bash
 The key can be found in the birdhouse.
 ```
-Safe code.
+
+The last room consists of a safe. The code can be found in room 2.
+![Safe](Safe.PNG)
 ```bash
 You can finde the code for the safe at the fence in the garden. It is 1532.
+```
+
+ROOMS BEHIND DOOR 3
+---------------------
+Surprise!
+
+THE STORY 
+---------------------
