@@ -78,26 +78,26 @@ GAME STRUCTURE
 THE STARTING SCREEN
 ---------------------
 Here you can choose between starting the game or reading the story.
-![Starting screen](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/start_pushstart.PNG)
+![Starting screen](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/Startingscreen.PNG)
 
 THE BIG DESCISION
 ---------------------
 If you clicked on start, you will end up in this room where you have to decide between 3 doors.
 Depending on your choice you will visit different rooms and puzzles.
-![Big descision](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/3doors.jpg)
+![Big descision](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/TheBigDecision.PNG)
 
 ROOMS IN DOOR 1
 ---------------------
 The first room will be the bathroom, here you have to solve a small puzzle by cracking the wall.
-![Bathroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/bathroom.PNG)
+![Bathroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/Bathroom.PNG)
 
 The second room will be the backroom, here you have to find and count all the red balls to solve the puzzle.
 Watch out for hints, they can be very helpful!
 
-![Backroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/backroom.PNG)
+![Backroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/Backroom.PNG)
 
 The last room contains a safe. The code can be found in room 2.
-![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/tresor_open.png)
+![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/Tresor.PNG)
 
 
 ROOMS IN DOOR 2
@@ -110,7 +110,7 @@ Please keep in mind that the code for the last room is hidden in this room, and 
 ![Garden](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/garden_closed.PNG)
 
 The last room consists of a safe. The code can be found in room 2.
-![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/tresor_open.png)
+![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images/Bilder%20Projekt/Tresor.PNG)
 
 
 ROOMS IN DOOR 3
