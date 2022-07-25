@@ -69,7 +69,7 @@ GAME STRUCTURE
 |:--------------|:-------------|:--------------|
 | Bathroom | Childsroom | Surprise |
 | Backroom | Garden |  |
-| Safe room | Safe room |  |
+| Saferoom | Saferoom |  |
 | End | End |  |
 
 HOW TO PLAY THE GAME
