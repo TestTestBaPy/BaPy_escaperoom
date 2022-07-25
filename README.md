@@ -37,7 +37,7 @@ pip install numpy
 ```
 or 
 ```bash
-conda install pygame
+conda install numpy
 ```
 Please install mathplotlib
 
