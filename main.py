@@ -52,7 +52,9 @@ def button(msg, x, y, w, h, ic, ac):
         # if want to see scipy-results save the data and open it
         elif "SCIPY" in msg:
             save_user_data()
-            open_scipy_plot() 
+            open_scipy_plot()
+            
+            stop_timer() 
 
         # go back to startscreen (STRY has only one button)
         elif current_room == "STRY":
@@ -167,6 +169,7 @@ def button(msg, x, y, w, h, ic, ac):
             if not input_correct(True) and check_input():
                 display_solved()
                 reset_text()
+
 
             
 Screen = 0  

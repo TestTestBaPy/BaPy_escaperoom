@@ -24,9 +24,14 @@ def open_door_2():
     pygame.display.update()
 
     game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
-    textSurf, textRect = text_objects("The nostalgia... that is my old room. I loved to draw in my Mathnotebooks.", smallText)    
-    textRect.bottomleft = ((speech_bubble_x + 30 ,speech_bubble_y + 65))
+    textSurf, textRect = text_objects("The nostalgia... that's my old room. I didn't know my parents kept my stuff.", smallText)    
+    textRect.bottomleft = ((speech_bubble_x + 30 ,speech_bubble_y + 60))
     game_screen.blit(textSurf, textRect)
+
+    textSurf, textRect = text_objects("Even my old firend. I loved reading stories to my teddybear. ", smallText)    
+    textRect.bottomleft = ((speech_bubble_x + 30 ,speech_bubble_y + 85))
+    game_screen.blit(textSurf, textRect)
+
 
     display_pointer()
     pygame.display.update()

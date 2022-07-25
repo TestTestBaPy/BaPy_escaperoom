@@ -1,7 +1,8 @@
 from display_components import *
 
 minutes = seconds = 0
- 
+
+go = True
 
 def timer():
     """Displays the elapsed time on the gamescreen 
@@ -15,7 +16,7 @@ def timer():
     frame_rate = 60
         
     # Loop until the user clicks the close button.
-    while True:
+    while go:
 
         # manage how fast the screen updates
         total_seconds = frame_count // frame_rate
@@ -36,3 +37,7 @@ def get_needed_time():
     """Returns the elapsed time at moment of calling this function
     """
     return minutes + seconds / 100
+
+def stop_timer():
+    global go
+    go = False

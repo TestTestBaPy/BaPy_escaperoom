@@ -1,4 +1,5 @@
 import matplotlib, pygame, pylab, csv, pandas
+from matplotlib.pyplot import xlabel
 import matplotlib.backends.backend_agg as agg
 from pygame.locals import *
 from game_timer import get_needed_time
@@ -37,6 +38,7 @@ def open_scipy_plot():
     fig = pylab.figure(figsize=[4, 4], dpi=150)   # 100 dots per inch, so the resulting buffer is 400x400 pixels
     ax = fig.gca()
     ax.scatter((df["CLICKS"]), df[ "TIME"])
+    ax.set(xlabel = "Clicks", ylabel = "Time")
 
     # scatter the players result twice so he/she can see their score in comparison
     ax.scatter(current_result[1], current_result[2])
@@ -54,12 +56,12 @@ def open_scipy_plot():
     textRect.bottomleft = ((570,100))
     game_screen.blit(textSurf, textRect)
 
-    textSurf, textRect = text_objects('Your name is ' + str(get_input_text()) + 'and your grade is ' + str(calculate_grade(current_result[1])), smallText)
+    textSurf, textRect = text_objects('Great job,' + str(get_input_text()) + ', your grade is ' + str(calculate_grade(current_result[1])), smallText)
     textRect.bottomleft = ((570,130))
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('The orange dot is you!', smallText)
-    textRect.bottomleft = ( (250,520) )
+    textRect.bottomleft = ( (500,520) )
 
     game_screen.blit(textSurf, textRect)
 

@@ -19,7 +19,7 @@ def open_endroom(reset_code = False, open_tresor = False):
     global number_sequence
     print(number_sequence, type(number_sequence))
     # alternative code have alternative endings
-    if number_sequence == 1407:
+    if number_sequence == '1407':
         game_screen.blit(pygame.image.load(os.path.join("Images", "emma_dead.png")).convert(), (0, 0))
     else:
         game_screen.blit(pygame.image.load(os.path.join("Images", "emma_alive.png")).convert(), (0, 0))
@@ -118,18 +118,32 @@ def open_endscreen(clicked_on_exit = False):
         game_screen.blit(pygame.image.load(os.path.join("Images", "endscreen_pushexit.png")).convert(), (0, 0))
         time.sleep(0.3)
        
-    game_screen.blit(pygame.image.load(os.path.join("Images", "endscreen.png")).convert(), (0, 0))
     
+    # display alternative endings based on the entered code
+    if number_sequence == '1407':
+
+        game_screen.blit(pygame.image.load(os.path.join("Images", "call_buy.png")).convert(), (0, 0))
+
+    
+        text_surface = smallText.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, (0, 0, 0))
+        game_screen.blit(text_surface, (180, 90))
+
+        text_surface = smallText.render("Can you help a man out? Yes, usual place. Okay, see you soon. Thank you.", True, (0, 0, 0))
+        game_screen.blit(text_surface, (180, 120))
+    else:
+
+        game_screen.blit(pygame.image.load(os.path.join("Images", "call_quit.png")).convert(), (0, 0))
+
+        text_surface = smallText.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, (0, 0, 0))
+        game_screen.blit(text_surface, (180, 90))
+
+        text_surface = smallText.render("Please delete my number. Yes, I'm quitting. Have a good life my firend.", True, (0, 0, 0))
+        game_screen.blit(text_surface, (180, 120))
+
     # display the monologue
     textSurf, textRect = text_objects("Hey, Escopub...", smallText)
     textRect.bottomleft = ( (210,490) )
     game_screen.blit(textSurf, textRect)
-    
-    text_surface = smallText.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, (0, 0, 0))
-    game_screen.blit(text_surface, (180, 90))
-
-    text_surface = smallText.render("Can you help a man out? Yes, usual place. Okay, see you soon. Thank you.", True, (0, 0, 0))
-    game_screen.blit(text_surface, (180, 120))
 
 
 def open_final_words():
@@ -160,6 +174,6 @@ def open_final_words():
 
 
 def user_name_input():
-    """Handles input and makes sure that the username is no longer than 20 chars
+    """Handles input and makes sure that the username is no longer than 10 chars
     """
-    handle_input(input_rect= input_rect, only_integer=False, max_chars=20)
+    handle_input(input_rect= input_rect, only_integer=False, max_chars=10)
