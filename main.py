@@ -170,8 +170,6 @@ def button(msg, x, y, w, h, ic, ac):
         # if clicked on blackboard
         elif "TAFEL" in msg:
             # TODO: hier klick    
-            pygame.mixer.Sound.set_volume(rclick, 0.1)
-            pygame.mixer.Sound.play(rclick)
 
             rotate_number((mouse[0]/15))
 

@@ -35,6 +35,7 @@ def open_childsroom():
     display_pointer()
     pygame.display.update()
 
+
 def display_pointer():
     """Displays the numbers on the blackboard
     """
@@ -49,6 +50,7 @@ def display_pointer():
     game_screen.blit(text_surface, (540, 110))
 
     check_code()
+
 
 def check_code():
     """Checks if the current blackboard numbers are correct
@@ -150,6 +152,9 @@ def rotate_number(field):
     global pointer_1 
     global pointer_2 
     global pointer_3 
+
+    pygame.mixer.Sound.set_volume(rclick, 0.1)
+    pygame.mixer.Sound.play(rclick)
 
     # increment the respective pointer an display the new code
     if field >= 26 and field <= 30:
