@@ -56,6 +56,7 @@ page = pygame.mixer.Sound('Sounds/page.mp3')
 rauschen = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
 button_pushed = pygame.mixer.Sound('Sounds/Button.mp3')
 bird = pygame.mixer.Sound('Sounds/bird.mp3')
+nest = pygame.mixer.Sound('Sounds/nest.mp3')
 
 
 def text_objects(text, font):
