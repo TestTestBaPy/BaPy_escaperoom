@@ -68,6 +68,7 @@ def open_story():
     """Opens i.e. displays the backhround information on this game
     """
 
+    pygame.mixer.Sound.play(rclick)
     # set the current room
     set_current_room("STRY")
     

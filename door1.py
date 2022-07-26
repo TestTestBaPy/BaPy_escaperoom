@@ -57,15 +57,16 @@ def crack_wall(x, y):
         game_screen.blit(pygame.image.load(os.path.join("Images", "bathroom_door.png")), (0, 0))
         set_current_room("BATHEND")
 
-def open_backroom(first = True):
+def open_backroom():
     """Opens i.e. displays the backroom
     """
 
     global input_rect
 
-    if first:
+    if get_current_room() == "BATHEND":
+        pygame.mixer.Sound.set_volume(footsteps, 0.1)
         pygame.mixer.Sound.play(footsteps)
-        first = False
+       
 
     # set the current room
     set_current_room("BACK")
