@@ -1,38 +1,25 @@
 Jasmin:
-
+-Readability: Comments, Naming Conventions etc. + Docstrings (PEP 257)
 
 
 Jenny:
     
 
 Lara:
-- story für readme ausformulieren
+- Story für readme ausformulieren
 ->jo die enden sind so, weil er hat entzug von emma nh
 - video (mit obs studio)
+- Codem leerziechen leerpaces zeilen länge
     
-    
-Alle:
-    -Code Layout (Indentation, Tabs/Spaces, Line length, etc.) 
-    -Readability: Comments, Naming Conventions etc.
-    -Docstrings (PEP 257)
-    - Musik (2-3 hintegrundmusik)
-    
-    
-Geräusche:
-    
-    
+Alle:    
+    -Musik (2-3 hintegrundmusik)
     
 Jasmin:
     -[button geräusch] (erstmal finden)   NICHT angegeben
-    -footsteps (jhoch gehen) 			TODO: footsteps
-    -tuch schieben 				TODO: schiebsound
-    - klappen öffnen 				done
-    - ding sound (richtig) 			TODO: ding
-    
-Lara:
+       
+Geräusche:
     -animal crossing geräusch wenn er redeNICHT angegeben
     - blätter sound (buch) 			TODO: rauschen
     - zwitschern angeben 			TODO: zwitschern
     - vogelnest rauschen 			TODO: rauschen
-    - ding beim schlüssel 			done
      
