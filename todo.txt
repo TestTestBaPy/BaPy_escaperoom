@@ -3,13 +3,15 @@ Jasmin:
 
 
 Jenny:
-    
+    - scipy schön machen plus ergänzen 
+    - buttonfunktion besser machen 
+    - button geräzsche ergänzen
 
 Lara:
-- Story für readme ausformulieren
-->jo die enden sind so, weil er hat entzug von emma nh
-- video (mit obs studio)
-- Codem leerziechen leerpaces zeilen länge
+    - Story für readme ausformulieren
+    ->jo die enden sind so, weil er hat entzug von emma nh
+    - video (mit obs studio)
+    - Codem leerziechen leerpaces zeilen länge
     
 Alle:    
     -Musik (2-3 hintegrundmusik)
