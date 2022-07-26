@@ -48,10 +48,9 @@ collect = pygame.mixer.Sound('Sounds/collect.mp3')
 opens = pygame.mixer.Sound('Sounds/Tuerknarren.wav')
 kling = pygame.mixer.Sound('Sounds/Bier.mp3')
 clicking = pygame.mixer.Sound('Sounds/klappe.mp3')
-footsteps = pygame.mixer.Sound('Sounds/concrete-footsteps-6752.wav') 
+footsteps = pygame.mixer.Sound('Sounds/Running.wav') 
 correct = pygame.mixer.Sound('Sounds/correct-6033.wav')
 cloth_sound = pygame.mixer.Sound('Sounds/Tuch-schieben.wav')
-rclick = pygame.mixer.Sound('Sounds/rclick.mp3')
 
 def text_objects(text, font):
     textSurface = font.render(text, True, (0, 0, 0))
