@@ -155,7 +155,6 @@ Surprise!
 
 THE STORY 
 ---------------------
-![Story](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Safe.PNG)
 SOURCES
 ---------------------
 Soundeffekte: https://heidruns-musikerseiten.de/downloads/wav-download

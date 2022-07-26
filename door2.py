@@ -234,8 +234,8 @@ def get_key():
 def get_nest():
     global got_nest
     if not got_nest:
-        pygame.mixer.Sound.set_volume(woosh, 0.1)
-        pygame.mixer.Sound.play(woosh)
+        pygame.mixer.Sound.set_volume(nest, 0.1)
+        pygame.mixer.Sound.play(nest)
         got_nest = True
         open_birdshouse()
 
