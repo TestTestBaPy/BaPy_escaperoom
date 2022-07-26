@@ -10,7 +10,7 @@ klappe_open = False
 got_nest = False
 got_key = False
 # reminder: eig unnötig - kommen noch formen?
-possible_nums = [0,1,2,3,4,5,6,7,8,9]
+possible_nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 def open_childsroom():
     """Opens i.e. display the childsroom
@@ -23,35 +23,32 @@ def open_childsroom():
     game_screen.blit(background, (0, 0))
     pygame.display.update()
 
-    game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
+    game_screen.blit(speech_bubble, (speech_bubble_x, speech_bubble_y))
     textSurf, textRect = text_objects("The nostalgia... that's my old room. I didn't know my parents kept my stuff.", smallText)    
-    textRect.bottomleft = ((speech_bubble_x + 30 ,speech_bubble_y + 60))
+    textRect.bottomleft = ((speech_bubble_x + 30, speech_bubble_y + 60))
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects("Even my old friend. I loved reading stories to my teddybear. ", smallText)    
-    textRect.bottomleft = ((speech_bubble_x + 30 ,speech_bubble_y + 85))
+    textRect.bottomleft = ((speech_bubble_x + 30, speech_bubble_y + 85))
     game_screen.blit(textSurf, textRect)
-
 
     display_pointer()
     pygame.display.update()
 
-
 def display_pointer():
     """Displays the numbers on the blackboard
     """
-    base_font = pygame.font.Font("pokemon.ttf",70) 
+    base_font = pygame.font.Font("pokemon.ttf", 70) 
     text_surface = base_font.render(str(possible_nums[pointer_1 % 10]), True, (255, 255, 255)) 
-    game_screen.blit(text_surface, (400,110))
+    game_screen.blit(text_surface, (400, 110))
 
     text_surface = base_font.render(str(possible_nums[pointer_2 % 10]), True, (255, 255, 255)) 
-    game_screen.blit(text_surface, (470,110))
+    game_screen.blit(text_surface, (470, 110))
 
     text_surface = base_font.render(str(possible_nums[pointer_3 % 10]), True, (255, 255, 255)) 
-    game_screen.blit(text_surface, (540,110))
+    game_screen.blit(text_surface, (540, 110))
 
     check_code()
-
 
 def check_code():
     """Checks if the current blackboard numbers are correct
@@ -64,7 +61,6 @@ def check_code():
 
     pygame.display.update()
 
-
 def open_book():
     """Displays the inside of the book in the childsroom
     """
@@ -75,78 +71,74 @@ def open_book():
     game_screen.blit(pygame.image.load(os.path.join("Images", "book.png")).convert(), (0, 0))
     pygame.display.update()
 
-    smallText = pygame.font.Font("pokemon.ttf",30)
+    smallText = pygame.font.Font("pokemon.ttf", 30)
 
     # first hint
     textSurf, textRect = text_objects('6  8  0', smallText)
-    textRect.bottomleft = ( (280,80) )
+    textRect.bottomleft = ( (280, 80) )
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('One number is correct', smallText)
-    textRect.bottomleft = ( (180,110) )
+    textRect.bottomleft = ( (180, 110) )
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('and is postioned right.', smallText)
-    textRect.bottomleft = ( (180,140) )
+    textRect.bottomleft = ( (180, 140) )
     game_screen.blit(textSurf, textRect)
 
     # second
-
     textSurf, textRect = text_objects('6  1  2', smallText)
-    textRect.bottomleft = ( (640,125) )
+    textRect.bottomleft = ( (640, 125) )
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('One number is correct', smallText)
-    textRect.bottomleft = ( (540,155) )
+    textRect.bottomleft = ( (540, 155) )
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('but is postioned false.', smallText)
-    textRect.bottomleft = ( (540,185) )
+    textRect.bottomleft = ( (540, 185) )
     game_screen.blit(textSurf, textRect)
 
     # third
-
     textSurf, textRect = text_objects('0  4  6', smallText)
-    textRect.bottomleft = ( (280,240) )
+    textRect.bottomleft = ( (280, 240) )
     game_screen.blit(textSurf, textRect)
     
     textSurf, textRect = text_objects('Two numbers are correct', smallText)
-    textRect.bottomleft = ( (170,270) )
+    textRect.bottomleft = ( (170, 270) )
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('but postioned false.', smallText)
-    textRect.bottomleft = ( (180,300) )
+    textRect.bottomleft = ( (180, 300) )
     game_screen.blit(textSurf, textRect)
 
     # fourth
     textSurf, textRect = text_objects('7  3  8', smallText)
-    textRect.bottomleft = ( (640,285) )
+    textRect.bottomleft = ( (640, 285) )
     game_screen.blit(textSurf, textRect)
  
     textSurf, textRect = text_objects('Nothing is correct.', smallText)
-    textRect.bottomleft = ( (540,315) )
+    textRect.bottomleft = ( (540, 315) )
     game_screen.blit(textSurf, textRect)
 
     # fifth
     textSurf, textRect = text_objects('8  7  4', smallText)
-    textRect.bottomleft = ( (280,400) )
+    textRect.bottomleft = ( (280, 400) )
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('One number is correct', smallText)
-    textRect.bottomleft = ( (180,430) )
+    textRect.bottomleft = ( (180, 430) )
     game_screen.blit(textSurf, textRect)
 
 
     textSurf, textRect = text_objects('but is postioned false.', smallText)
-    textRect.bottomleft = ( (180,460) )
+    textRect.bottomleft = ( (180, 460) )
     game_screen.blit(textSurf, textRect)
 
     # question:
-
     textSurf, textRect = text_objects('What is the correct code?', smallText)
-    textRect.bottomleft = ( (340,560) )
+    textRect.bottomleft = ( (340, 560) )
     game_screen.blit(textSurf, textRect)
-
 
 def rotate_number(field):
     """Rotates the number on the blackboard
@@ -169,18 +161,14 @@ def rotate_number(field):
     else:
        pointer_3 += 1
        
-
     open_childsroom()
     display_pointer()
 
-def open_flyer():
-    
+def open_flyer(): 
     #set the current Room
     set_current_room("TRAS")
     game_screen.blit(pygame.image.load(os.path.join("Images", "flyer.png")).convert(), (0, 0))
     pygame.display.update()
-
-
 
 def open_garden():
     """Opens i.e. displays the garden
@@ -188,8 +176,7 @@ def open_garden():
 
     # set the current room
     set_current_room("GARD")
-
-    
+  
     game_screen.blit(pygame.image.load(os.path.join("Images", "garden.png")).convert(), (0, 0))
 
     # if the klappe was opened display it
@@ -205,11 +192,9 @@ def open_garden():
         game_screen.blit(pygame.image.load(os.path.join("Images", "garden_klappe.png")).convert_alpha(), (0, 0))   
     
     pygame.display.update()
-
-       
+      
 def get_solved_door2():
     return solved_door2
-
 
 # the following functions set the global status-variables to keep track of players actions and display them
 def open_birdshouse():
@@ -229,7 +214,6 @@ def open_birdshouse():
 
     pygame.display.update()
 
-
 def get_key():
     global got_key
     if not got_key:
@@ -237,7 +221,6 @@ def get_key():
         pygame.mixer.Sound.play(collect)
         got_key = True
         open_birdshouse()
-
 
 def get_nest():
     global got_nest
@@ -247,16 +230,13 @@ def get_nest():
         got_nest = True
         open_birdshouse()
 
-
 def open_klappe_garden():
     global klappe_open
     klappe_open = True
     open_garden()
 
-
 def get_klappe_open():
     return klappe_open
-
 
 def get_got_key():
     return got_key
