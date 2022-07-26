@@ -5,22 +5,22 @@ go = True
 
 def timer():
     """Displays the elapsed time on the gamescreen 
-    """
-    
+    """  
     global minutes
     global seconds
         
     frame_count = 0
+
     # update the timer every second
     frame_rate = 60
-        
+
     # Loop until the user clicks the close button.
     while go:
         # manage how fast the screen updates
         total_seconds = frame_count // frame_rate
         minutes = total_seconds // 60
         seconds = total_seconds % 60
-        output_string = "Time: {0:02}:{1:02} Clicks: {2}".format(minutes, seconds, get_clicks())
+        output_string = "Time: {0:02} : {1:02} Clicks: {2}".format(minutes, seconds, get_clicks())
 
         text = smallText.render(output_string, True, black)
         timer_rect = pygame.Rect(450, 12, 200, 30)
