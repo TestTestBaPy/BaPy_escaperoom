@@ -10,14 +10,13 @@ def handle_input(go = True, active = True, input_rect = None, max_chars = 10, on
             only_integer if set to true, only integers are accepted
         Returns: 
     """
-
     global user_text
 
     # color_active stores color which gets active when input box is clicked by user
-    color_active = (30,100,30)
+    color_active = (30, 100, 30)
 
     # color_passive store color which is color of input box.
-    color_passive = (170,170,170)
+    color_passive = (170, 170, 170)
     color = color_passive
 
     active = True
@@ -55,9 +54,9 @@ def handle_input(go = True, active = True, input_rect = None, max_chars = 10, on
                     try:
                         # Unicode standard is used for string formation
                         if only_integer:
-                            user_text += str (int(event.unicode))
+                            user_text += str(int(event.unicode))
                         else:
-                            user_text += str ((event.unicode))
+                            user_text += str((event.unicode))
 
                     except ValueError:
                         pass
@@ -84,19 +83,20 @@ def handle_input(go = True, active = True, input_rect = None, max_chars = 10, on
 
     return go
 
-def display_num_sequence(input_rect):
-   
 
+def display_num_sequence(input_rect):
     text_surface = smallText.render(user_text, True, (255, 255, 255)) 
    
     # render at position stated in arguments
-    game_screen.blit(text_surface, (input_rect.x+5, input_rect.y+5))
+    game_screen.blit(text_surface, (input_rect.x + 5, input_rect.y + 5))
     
     # display.flip() will update only a portion of the screen to updated, not full area
     pygame.display.flip()
 
+
 def get_input_text():
     return user_text
+
 
 def reset_text():
     global user_text
