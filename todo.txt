@@ -5,7 +5,7 @@ Jasmin:
 Jenny:
     - scipy schön machen plus ergänzen 
     - buttonfunktion besser machen 
-    - button geräzsche ergänzen
+    - grabstein display text
 
 Lara:
     - Story für readme ausformulieren
@@ -21,7 +21,4 @@ Jasmin:
        
 Geräusche:
     -animal crossing geräusch wenn er redeNICHT angegeben
-    - blätter sound (buch) 			TODO: rauschen
-    - zwitschern angeben 			TODO: zwitschern
-    - vogelnest rauschen 			TODO: rauschen
-     
+  
