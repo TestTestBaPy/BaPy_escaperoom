@@ -65,7 +65,7 @@ def open_3doors(simulate_push = True):
 def open_story():
     """Opens i.e. displays the backhround information on this game
     """
-    pygame.mixer.Sound.play(rclick)
+    pygame.mixer.Sound.play(Button)
     # set the current room
     set_current_room("STRY")
     
