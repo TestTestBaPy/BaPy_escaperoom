@@ -83,6 +83,4 @@ def open_story():
     background = pygame.image.load(os.path.join("Images", "chat.png")).convert()
     game_screen.blit(background, (0, 0))
 
-    base_font = pygame.font.Font("pokemon.ttf", 18) 
-    text_surface = base_font.render("Give me drugs", True, (255, 255, 255)) 
-    game_screen.blit(text_surface, (340, 80))
+    
