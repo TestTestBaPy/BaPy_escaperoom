@@ -154,8 +154,8 @@ def button(msg, x, y, w, h, ic, ac):
         # if clicked on book display it
         elif "BOOK" in msg:
             # TODO: hier rauschen
-            pygame.mixer.Sound.set_volume(woosh, 0.1)
-            pygame.mixer.Sound.play(woosh)
+            pygame.mixer.Sound.set_volume(page, 0.1)
+            pygame.mixer.Sound.play(page)
             open_book()
 
         # if clicked on exit in the birdshouse open the garden
@@ -199,9 +199,9 @@ def button(msg, x, y, w, h, ic, ac):
            
 Screen = 0  
 # set up the game (here you can decide in which room you want to start) default shouold be open_startscreen()
-#open_startscreen()
+open_startscreen()
 #open_3doors()
-open_bathroom()
+#open_bathroom()
 #open_backroom()
 
 #open_childsroom()
