@@ -95,7 +95,6 @@ def button(msg, x, y, w, h, ic, ac):
                     open_door_3()
                
             elif current_room == "BATHEND": 
-                pygame.mixer.Sound.play(footsteps)
                 open_backroom()
             
             elif current_room == "CHLD":
@@ -127,7 +126,6 @@ def button(msg, x, y, w, h, ic, ac):
         
         # if you clicked on cloth it will be pushed
         elif "TUCH" in msg:
-            pygame.mixer.Sound.play(cloth_sound)
             push_tuch()
 
         # if click on the tresor (after putting in the right code) open the endscreen
@@ -145,9 +143,7 @@ def button(msg, x, y, w, h, ic, ac):
         # if clicked on check, check if input was correct
         elif "CHECK" in msg and current_room == "TCHP":
             if check_for_code():
-                pygame.mixer.Sound.set_volume(swoosh, 0.1)
-                pygame.mixer.Sound.play(swoosh)
-                open_endroom(open_tresor=True)
+                open_tresor()
 
         # if clicked on the numberfield save your input
         elif "NUMBERS" in msg and current_room == "TCHP":
@@ -169,8 +165,6 @@ def button(msg, x, y, w, h, ic, ac):
 
         # if clicked on blackboard
         elif "TAFEL" in msg:
-            # TODO: hier klick    
-
             rotate_number((mouse[0]/15))
 
         # if clicked on the garbage can
@@ -200,17 +194,14 @@ def button(msg, x, y, w, h, ic, ac):
         # if you clicked on the display you can type something in
         elif "DISPLAY" in msg and current_room == "BACK":
             if not input_correct(True) and check_input():
-                pygame.mixer.Sound.play(correct)
-                pygame.mixer.Sound.set_volume(woosh, 0.1)
-                pygame.mixer.Sound.play(woosh)
                 display_solved()
                 reset_text()
            
 Screen = 0  
 # set up the game (here you can decide in which room you want to start) default shouold be open_startscreen()
-open_startscreen()
+#open_startscreen()
 #open_3doors()
-#open_bathroom()
+open_bathroom()
 #open_backroom()
 
 #open_childsroom()

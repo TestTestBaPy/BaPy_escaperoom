@@ -57,11 +57,15 @@ def crack_wall(x, y):
         game_screen.blit(pygame.image.load(os.path.join("Images", "bathroom_door.png")), (0, 0))
         set_current_room("BATHEND")
 
-def open_backroom():
+def open_backroom(first = True):
     """Opens i.e. displays the backroom
     """
 
     global input_rect
+
+    if first:
+        pygame.mixer.Sound.play(footsteps)
+        first = False
 
     # set the current room
     set_current_room("BACK")
@@ -125,6 +129,10 @@ def input_correct(go):
 def display_solved():
     """If the display is solved, displays it
     """
+
+    pygame.mixer.Sound.set_volume(correct, 0.1)
+    pygame.mixer.Sound.play(correct)
+               
     open_backroom()
     clock.tick(2)
     open_display()
@@ -156,8 +164,10 @@ def open_klappe():
 def push_tuch():
     global tuch_pushed
     if not tuch_pushed:
-        pygame.mixer.Sound.set_volume(woosh, 0.1)
-        pygame.mixer.Sound.play(woosh)
+        pygame.mixer.Sound.set_volume(cloth_sound, 1)
+        pygame.mixer.Sound.play(cloth_sound)    
+        # pygame.mixer.Sound.set_volume(woosh, 0.1)
+        # pygame.mixer.Sound.play(woosh)
         tuch_pushed = True
         open_backroom()
 

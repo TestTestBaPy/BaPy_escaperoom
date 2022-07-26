@@ -1,39 +1,14 @@
 Jasmin:
--solutions überarbeiten (forms, amount of balls, holes in fence)
-- hiding cells evtl.
-- bilder im readme ersetzen
--> vor den screenshots the pics are designed and drawn by us
-- redundante solutions bei erklärung der räume evtl löschen?
-- empfehlung am anfang: PLAY IT FIRST SPOILERS AHEAD
-- einfügen von der inspirierten quelle (für childsroomrätsel)
-- link zu musik
-- inhaltsverzeichnis entsprechend ändern 
 
-Beispiel für screenshots/walkthrough
-- raum1: 
--> erklärung zum aussehen
--> screenshot
--> lösung des raums
+
+
+Jenny:
+    
 
 Lara:
 - story für readme ausformulieren
 ->jo die enden sind so, weil er hat entzug von emma nh
 - video (mit obs studio)
-
-Jenny:
-    
-    - überarbeiten : programming journey (!)
-    - enter problem
-    - (scietific dings)
-    - regressionsgerade
-
-    - problem seite öffnet sich 6 mal got it
-    - exit buttons überarbeiten (pushed) got it
-    - drogenhilfe zeichnen + implementieren got it
-    - (ein paar bilder ersetzen alles pngs) got it
-    - vllt. requirements.txt got it
-    - wo kommen geräusche hin? got it
-    - alle türen die keine türen sind anders bennen got it
     
     
 Alle:
@@ -45,12 +20,7 @@ Alle:
     
 Geräusche:
     
-Jenny:
-    -klirren( vase, fliesen)			done
-    - safe öffnen (wie mikrowelle, dampf) done
-    - door knarren (fast fertig) 		done
-    - rotieren zahlen (klicken/knacken) 	TODO: klick
-    -meerrauschen 				done
+    
     
 Jasmin:
     -[button geräusch] (erstmal finden)   NICHT angegeben

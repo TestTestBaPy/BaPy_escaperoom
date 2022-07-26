@@ -1,8 +1,9 @@
 import pygame, os
 from display_components import *
 
-#relax = pygame.mixer.music('Meeresrauschen.wav')
+
 soundObj = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
+pygame.mixer.Sound.set_volume(soundObj, 0.3)
 soundObj.play()
 
 def open_startscreen(simulate_push = False):
@@ -10,15 +11,6 @@ def open_startscreen(simulate_push = False):
     """
     
     global soundObj
-
-    
-    #soundObj.play()
-
-   
-   
-    
-    #pygame.mixer.music.load('Meeresrauschen.wav')
-    #pygame.mixer.music.play(-1,0.0)
 
     set_current_room("STRT")
     if simulate_push:

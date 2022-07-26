@@ -57,6 +57,8 @@ def check_for_code():
 def open_tresor():
     """Opens the tresor with the open_endroom function
     """
+    pygame.mixer.Sound.set_volume(swoosh, 0.2)
+    pygame.mixer.Sound.play(swoosh)
     open_endroom(open_tresor = True)
 
 def save_num(mouse):
