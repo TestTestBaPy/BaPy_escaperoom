@@ -2,6 +2,8 @@ import pygame, sys
 from display_components import *
 
 user_text = ''
+
+
 def handle_input(go = True, active = True, input_rect = None, max_chars = 10, only_integer = False):
     """This function takes an arbitrary pygame rectangle and uses it as a input text box
         Args:
@@ -48,7 +50,6 @@ def handle_input(go = True, active = True, input_rect = None, max_chars = 10, on
                     # get text input from 0 to -1 i.e. end.
                     user_text = user_text[:-1]
 
-
                 # the userinput is accepted if it does not exeed the length of 5 or is a number
                 elif len(user_text) < max_chars:
                     try:
@@ -60,14 +61,6 @@ def handle_input(go = True, active = True, input_rect = None, max_chars = 10, on
 
                     except ValueError:
                         pass
-        
-        # it will set background 
-        
-        # if room == 'BACKROOM':
-        #     open_backroom()
-        # else:
-        #     pass 
-        #     #open_endroom(screen)
 
         if active:
             color = color_active

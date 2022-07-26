@@ -3,6 +3,7 @@ from display_components import *
 minutes = seconds = 0
 go = True
 
+
 def timer():
     """Displays the elapsed time on the gamescreen 
     """  
@@ -30,10 +31,12 @@ def timer():
         clock.tick(frame_rate)
         pygame.display.update()
 
+
 def get_needed_time():
     """Returns the elapsed time at moment of calling this function
     """
     return minutes + seconds / 100
+
 
 def stop_timer():
     global go

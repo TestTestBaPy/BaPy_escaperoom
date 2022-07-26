@@ -55,6 +55,7 @@ rclick = pygame.mixer.Sound('Sounds/rclick.mp3')
 soundObj = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
 Button = pygame.mixer.Sound('Sounds/Button.mp3')
 
+
 def text_objects(text, font):
     textSurface = font.render(text, True, (0, 0, 0))
     return textSurface, textSurface.get_rect()
@@ -69,20 +70,25 @@ def display_loading_screen():
             pygame.display.update()
             clock.tick(3)
 
+
 def push_exit():
     game_screen.blit(pygame.image.load(os.path.join("Images", "pushed_exit.png")).convert_alpha(), (0, 0))
     time.sleep(0.3)
+
 
 def set_current_room(room):
     global current_room
     current_room = room
 
+
 def get_current_room():
     return current_room
+
 
 def click():
     global click_counter
     click_counter += 1
+
 
 def get_clicks():
     return click_counter          

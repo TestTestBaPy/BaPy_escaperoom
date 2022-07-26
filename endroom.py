@@ -6,6 +6,7 @@ number_sequence = ''
 input_rect = None
 open = True
 
+
 def open_endroom(reset_code = False, open_tresor = False):
     """Opens i.e. displays the endroom with the tresor.
        Args:
@@ -13,7 +14,6 @@ def open_endroom(reset_code = False, open_tresor = False):
             open_tresor indicates if the tresor was already open so it can be displayed 
                         correctly
     """
-
     # set the current room
     set_current_room("TRES")
     
@@ -38,10 +38,10 @@ def open_endroom(reset_code = False, open_tresor = False):
 
     pygame.display.update()
 
+
 def zoom_touchpad():
     """Zooms in on the touchpad so the user can type in a code
     """
-
     # set the current room
     set_current_room("TCHP")
 
@@ -50,9 +50,11 @@ def zoom_touchpad():
     pygame.draw.rect(game_screen, (50, 150, 100), input_rect)
     pygame.display.update()
 
+
 def check_for_code():
     """Returns wheter on of the right codes was enetered"""
     return number_sequence == '1407' or number_sequence == '1532'
+
 
 def open_tresor():
     """Opens the tresor with the open_endroom function
@@ -60,6 +62,7 @@ def open_tresor():
     pygame.mixer.Sound.set_volume(swoosh, 0.2)
     pygame.mixer.Sound.play(swoosh)
     open_endroom(open_tresor = True)
+
 
 def save_num(mouse):
     """Safes the inputted numbers to be able to check and display the entered code
@@ -102,12 +105,12 @@ def save_num(mouse):
         # display the code
         game_screen.blit(text_surface, (50 + 5, 150 + 5))
 
+
 def open_endscreen(clicked_on_exit = False):
     """Opens i.e. displays the endscreen
        Args:
             clicked_on_exit if set to True simulates a button click on "EXIT"
     """
-
     # set the current room
     set_current_room("CALL")
 
@@ -138,10 +141,10 @@ def open_endscreen(clicked_on_exit = False):
     textRect.bottomleft = ( (210, 490) )
     game_screen.blit(textSurf, textRect)
 
+
 def open_final_words():
     """Open i.e. display the final words
     """
-
     global input_rect
 
     # set the current room
@@ -164,11 +167,13 @@ def open_final_words():
     input_rect = pygame.Rect(400, 400, 200, 30)
     pygame.draw.rect(game_screen, (170, 170, 170), input_rect)
 
+
 def user_name_input():
     """Handles input and makes sure that the username is no longer than 10 chars
     """
     if not handle_input(input_rect= input_rect, only_integer=False, max_chars = 10):
        pass
+ 
     
 def open_tab():
     """Allows to open the URL only once

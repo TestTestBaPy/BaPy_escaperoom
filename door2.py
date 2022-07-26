@@ -12,10 +12,10 @@ got_key = False
 # reminder: eig unnötig - kommen noch formen?
 possible_nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+
 def open_childsroom():
     """Opens i.e. display the childsroom
     """
-
     # set the current room
     set_current_room("CHLD")
     
@@ -63,10 +63,10 @@ def check_code():
 
     pygame.display.update()
 
+
 def open_book():
     """Displays the inside of the book in the childsroom
     """
-
     # set the current room
     set_current_room("BOOK")
     
@@ -142,13 +142,13 @@ def open_book():
     textRect.bottomleft = ( (340, 560) )
     game_screen.blit(textSurf, textRect)
 
+
 def rotate_number(field):
     """Rotates the number on the blackboard
        Args:
             field after dividing the mouse-coordinate by 15 the resulting numbers (ranges)
                   indicate which of the three squares was clicked
     """
-
     global pointer_1 
     global pointer_2 
     global pointer_3 
@@ -169,16 +169,17 @@ def rotate_number(field):
     open_childsroom()
     display_pointer()
 
+
 def open_flyer(): 
     #set the current Room
     set_current_room("TRAS")
     game_screen.blit(pygame.image.load(os.path.join("Images", "flyer.png")).convert(), (0, 0))
     pygame.display.update()
 
+
 def open_garden():
     """Opens i.e. displays the garden
     """
-
     # set the current room
     set_current_room("GARD")
   
@@ -197,15 +198,16 @@ def open_garden():
         game_screen.blit(pygame.image.load(os.path.join("Images", "garden_klappe.png")).convert_alpha(), (0, 0))   
     
     pygame.display.update()
-      
+
+
 def get_solved_door2():
     return solved_door2
+
 
 # the following functions set the global status-variables to keep track of players actions and display them
 def open_birdshouse():
     """Opens i.e. displays the birdshouse
     """
-
     # set the current room
     set_current_room("BIRD")
    
@@ -219,6 +221,7 @@ def open_birdshouse():
 
     pygame.display.update()
 
+
 def get_key():
     global got_key
     if not got_key:
@@ -226,6 +229,7 @@ def get_key():
         pygame.mixer.Sound.play(collect)
         got_key = True
         open_birdshouse()
+
 
 def get_nest():
     global got_nest
@@ -235,13 +239,16 @@ def get_nest():
         got_nest = True
         open_birdshouse()
 
+
 def open_klappe_garden():
     global klappe_open
     klappe_open = True
     open_garden()
 
+
 def get_klappe_open():
     return klappe_open
+
 
 def get_got_key():
     return got_key

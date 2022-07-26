@@ -9,7 +9,6 @@ from startscreen import *
 from scipy_analysis import *
 from game_timer import *
 
-
 # initialze pygame first
 pygame.init()
 
@@ -165,7 +164,7 @@ def button(msg, x, y, w, h, ic, ac):
 
         # if clicked on blackboard
         elif "TAFEL" in msg:
-            rotate_number((mouse[0]/15))
+            rotate_number((mouse[0] / 15))
 
         # if clicked on the garbage can
         elif "TRASH" in msg:

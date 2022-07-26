@@ -10,11 +10,11 @@ vase_cracked = False
 klappe_open = False
 display_open = False
 input_rect = None
-    
+
+
 def open_bathroom():
     """Opens i.e. displays the bathroom
     """
-
     # set the current room
     set_current_room("BATH")
 
@@ -31,6 +31,7 @@ def open_bathroom():
 
     pygame.display.update()
 
+
 def crack_wall(x, y):
     """Cracks the wall at the given coordinates i.e. displays a crack on the wall
        Args:
@@ -39,7 +40,6 @@ def crack_wall(x, y):
         Returns:
             True, if all tiles are cracked. Else False.
     """
-
     global crack_counter
     wall_crack = pygame.image.load(os.path.join("Images", "crack.png"))
     
@@ -57,17 +57,16 @@ def crack_wall(x, y):
         game_screen.blit(pygame.image.load(os.path.join("Images", "bathroom_door.png")), (0, 0))
         set_current_room("BATHEND")
 
+
 def open_backroom():
     """Opens i.e. displays the backroom
     """
-
     global input_rect
 
     if get_current_room() == "BATHEND":
         pygame.mixer.Sound.set_volume(footsteps, 0.1)
         pygame.mixer.Sound.play(footsteps)
        
-
     # set the current room
     set_current_room("BACK")
     
@@ -95,7 +94,6 @@ def open_backroom():
         input_correct(go = False)
 
     else:
-
         game_screen.blit(speech_bubble, (speech_bubble_x, speech_bubble_y))
         textSurf, textRect = text_objects("That was correct! I think I'm going crazy, I see numbers everywhere.", smallText)    
         textRect.bottomleft = ((speech_bubble_x + 50, speech_bubble_y + 65))
@@ -113,7 +111,6 @@ def open_backroom():
         game_screen.blit(pygame.image.load(os.path.join("Images", "vase.png")).convert_alpha(), (0, 0))
 
  
-
 def input_correct(go):
     """Handle and check the input from the user on the text field (input rect)
        Args:
@@ -126,11 +123,11 @@ def input_correct(go):
         return go
     else:
         return handle_input(go = go, input_rect = input_rect, max_chars = 2, only_integer = True)  
-     
+
+
 def display_solved():
     """If the display is solved, displays it
     """
-
     pygame.mixer.Sound.set_volume(correct, 0.1)
     pygame.mixer.Sound.play(correct)
                
@@ -138,11 +135,13 @@ def display_solved():
     clock.tick(2)
     open_display()
 
+
 def check_input():
     """Returns wheter the code was entered correctly
     """
     return get_input_text() == '15'
-          
+
+
 # the following functions set the global status-variables to keep track of players actions and display them
 def crack_vase():
     global vase_cracked
@@ -151,6 +150,7 @@ def crack_vase():
         pygame.mixer.Sound.play(kling)
         vase_cracked = True
         open_backroom()
+
 
 def open_klappe():
     global klappe_open
@@ -162,6 +162,7 @@ def open_klappe():
             klappe_open = True
             open_backroom()
 
+
 def push_tuch():
     global tuch_pushed
     if not tuch_pushed:
@@ -171,6 +172,7 @@ def push_tuch():
         # pygame.mixer.Sound.play(woosh)
         tuch_pushed = True
         open_backroom()
+
 
 def open_display():
     global display_open

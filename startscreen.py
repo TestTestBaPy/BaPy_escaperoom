@@ -1,15 +1,14 @@
 import pygame, os
 from display_components import *
 
-
 soundObj = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
 pygame.mixer.Sound.set_volume(soundObj, 0.3)
 soundObj.play()
 
+
 def open_startscreen(simulate_push = False):
     """Opens i.e. displays the startscreen
-    """
-    
+    """  
     global soundObj
 
     set_current_room("STRT")
@@ -23,7 +22,7 @@ def open_startscreen(simulate_push = False):
 
     # display game instructions
     input_rect = pygame.Rect(600, 450, 300, 100)
-    pygame.draw.rect(game_screen, (235,235,235), input_rect)
+    pygame.draw.rect(game_screen, (235, 235, 235), input_rect)
     textSurf, textRect = text_objects("How to play?", smallText)
     textRect.bottomleft = ( (600 + 5, 450 + 25) )
     game_screen.blit(textSurf, textRect)  
@@ -34,7 +33,6 @@ def open_startscreen(simulate_push = False):
     textRect.bottomleft = ( (600 + 5, 450 + 85) )
     game_screen.blit(textSurf, textRect)
 
-    #relax.stop()
 
 def open_3doors(simulate_push = True):
     """Opens i.e. the room with three doors to choose from
@@ -57,17 +55,16 @@ def open_3doors(simulate_push = True):
     # load speechbubble with text
     game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
     textSurf, textRect = text_objects('Where is my Emma? I need to find her. How dare she leave me alone!', smallText)
-    textRect.bottomleft = ( (200,510) )
+    textRect.bottomleft = ( (200, 510) )
     game_screen.blit(textSurf, textRect)
     textSurf, textRect = text_objects("My parents' house is so big, where should I start?", smallText)
-    textRect.bottomleft = ( (200,530) )
+    textRect.bottomleft = ( (200, 530) )
     game_screen.blit(textSurf, textRect)
 
 
 def open_story():
     """Opens i.e. displays the backhround information on this game
     """
-
     pygame.mixer.Sound.play(rclick)
     # set the current room
     set_current_room("STRY")
@@ -86,6 +83,6 @@ def open_story():
     background = pygame.image.load(os.path.join("Images", "chat.png")).convert()
     game_screen.blit(background, (0, 0))
 
-    base_font = pygame.font.Font("pokemon.ttf",18) 
+    base_font = pygame.font.Font("pokemon.ttf", 18) 
     text_surface = base_font.render("Give me drugs", True, (255, 255, 255)) 
-    game_screen.blit(text_surface, (340,80))
+    game_screen.blit(text_surface, (340, 80))
