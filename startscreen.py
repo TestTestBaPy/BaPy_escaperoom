@@ -2,15 +2,15 @@ import pygame, os
 from display_components import *
 
 
-soundObj = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
-pygame.mixer.Sound.set_volume(soundObj, 0.3)
-soundObj.play()
+rauschen = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
+pygame.mixer.Sound.set_volume(rauschen, 0.3)
+rauschen.play()
 
 def open_startscreen(simulate_push = False):
     """Opens i.e. displays the startscreen
     """
     
-    global soundObj
+    global rauschen
 
     set_current_room("STRT")
     if simulate_push:
@@ -41,9 +41,9 @@ def open_3doors(simulate_push = True):
        Args: 
             simulate_push if True simulates a push on the prior "START" button
     """
-    global soundObj
+    global rauschen
 
-    soundObj.stop()
+    rauschen.stop()
     # simulate a click on the startbutton
     open_startscreen(simulate_push = simulate_push)
 
