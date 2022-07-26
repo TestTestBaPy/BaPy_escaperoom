@@ -20,7 +20,7 @@ def timer():
         total_seconds = frame_count // frame_rate
         minutes = total_seconds // 60
         seconds = total_seconds % 60
-        output_string = "Time: {0:02} : {1:02} Clicks: {2}".format(minutes, seconds, get_clicks())
+        output_string = "Time: {0:02}:{1:02} Clicks: {2}".format(minutes, seconds, get_clicks())
 
         text = smallText.render(output_string, True, black)
         timer_rect = pygame.Rect(450, 12, 200, 30)
