@@ -199,9 +199,9 @@ def button(msg, x, y, w, h, ic, ac):
            
 Screen = 0  
 # set up the game (here you can decide in which room you want to start) default shouold be open_startscreen()
-#open_startscreen()
+open_startscreen()
 #open_3doors()
-open_bathroom()
+#open_bathroom()
 #open_backroom()
 
 #open_childsroom()
