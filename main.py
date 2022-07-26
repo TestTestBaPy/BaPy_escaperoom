@@ -153,8 +153,8 @@ def button(msg, x, y, w, h, ic, ac):
         # if clicked on book display it
         elif "BOOK" in msg:
             # TODO: hier rauschen
-            pygame.mixer.Sound.set_volume(woosh, 0.1)
-            pygame.mixer.Sound.play(woosh)
+            pygame.mixer.Sound.set_volume(page, 0.1)
+            pygame.mixer.Sound.play(page)
             open_book()
 
         # if clicked on exit in the birdshouse open the garden
@@ -177,8 +177,8 @@ def button(msg, x, y, w, h, ic, ac):
         # if clicked on open the birdshouse
         elif "BIRD" in msg:
             # TODO: hier zwitschern
-            pygame.mixer.Sound.set_volume(woosh, 0.1)
-            pygame.mixer.Sound.play(woosh)
+            pygame.mixer.Sound.set_volume(bird, 0.1)
+            pygame.mixer.Sound.play(bird)
             open_birdshouse()
 
         # if clicked on the key collect it

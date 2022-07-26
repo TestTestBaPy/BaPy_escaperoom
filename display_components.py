@@ -52,8 +52,10 @@ footsteps = pygame.mixer.Sound('Sounds/Running.wav')
 correct = pygame.mixer.Sound('Sounds/correct-6033.wav')
 cloth_sound = pygame.mixer.Sound('Sounds/Tuch-schieben.wav')
 rclick = pygame.mixer.Sound('Sounds/rclick.mp3')
-soundObj = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
+page = pygame.mixer.Sound('Sounds/page.mp3')
+rauschen = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
 Button = pygame.mixer.Sound('Sounds/Button.mp3')
+bird = pygame.mixer.Sound('Sounds/bird.mp3')
 
 
 def text_objects(text, font):

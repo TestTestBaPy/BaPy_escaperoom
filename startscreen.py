@@ -39,9 +39,9 @@ def open_3doors(simulate_push = True):
        Args: 
             simulate_push if True simulates a push on the prior "START" button
     """
-    global soundObj
+    global rauschen
 
-    soundObj.stop()
+    rauschen.stop()
     # simulate a click on the startbutton
     open_startscreen(simulate_push = simulate_push)
 
