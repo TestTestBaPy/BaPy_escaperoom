@@ -55,21 +55,17 @@ or
 ```bash
 conda install pandas
 ```
+Please install scipy.
+```bash
+pip install scipy
+```
+or 
+```bash
+conda install scipy
+```
 You can also run 
 ```bash
-pip install
-matplotlib == 3.3.4
-numpy == 1.19.5
-pandas == 1.1.5
-pygame == 2.1.2
-```
-or
-```bash
-conda install
-matplotlib == 3.3.4
-numpy == 1.19.5
-pandas == 1.1.5
-pygame == 2.1.2
+pip install -r requirements.txt
 ```
 
 To start the game excecute the 'main.py' file
