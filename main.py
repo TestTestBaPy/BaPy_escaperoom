@@ -188,10 +188,8 @@ def button(msg, x, y, w, h, ic, ac):
         # if clicked on nest collect it
         elif "NEST" in msg:
             # TODO: hier rauschen IN METHODE
-            pygame.mixer.Sound.set_volume(nest, 0.1)
-            pygame.mixer.Sound.play(nest)
-            get_nest() 
-            
+            get_nest()
+
         # if you clicked on the display you can type something in
         elif "DISPLAY" in msg and current_room == "BACK":
             if not input_correct(True) and check_input():
@@ -200,13 +198,13 @@ def button(msg, x, y, w, h, ic, ac):
            
 Screen = 0  
 # set up the game (here you can decide in which room you want to start) default shouold be open_startscreen()
-open_startscreen()
+#open_startscreen()
 #open_3doors()
 #open_bathroom()
 #open_backroom()
 
 #open_childsroom()
-#open_garden()
+open_garden()
 
 #open_door_3()
 
