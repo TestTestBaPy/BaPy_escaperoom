@@ -80,16 +80,12 @@ def open_scipy_plot():
         
     
     # Display infos for the user 
-    textSurf, textRect = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' minutes!', small_text)
-    textRect.bottomleft = ((570, 100))
-    game_screen.blit(textSurf, textRect)
-    textSurf, textRect = text_objects('Great job,' + str(get_input_text()) + ' your grade is ' + str(calculate_grade(current_result[1])), small_text)
-    textRect.bottomleft = ((570, 130))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' minutes!', small_text)
+    game_screen.blit(textSurf, (570, 100))
+    textSurf = text_objects('Great job,' + str(get_input_text()) + ' your grade is ' + str(calculate_grade(current_result[1])), small_text)
+    game_screen.blit(textSurf, (570, 130))
 
-    textSurf, textRect = text_objects('The orange dot is you!', small_text)
-    textRect.bottomleft = ( (600, 520) )
-
+    textSurf = text_objects('The orange dot is you!', small_text)
     game_screen.blit(textSurf, (600,520))
 
 
