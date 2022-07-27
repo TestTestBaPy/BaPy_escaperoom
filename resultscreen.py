@@ -65,7 +65,7 @@ def open_scipy_plot():
     textSurf = text_objects("Highscore Table", small_text)
     game_screen.blit(textSurf, (x + 60, y))
     y += 20
-    textSurf = text_objects("NAME    CLICKS      TIME", small_text)
+    textSurf = text_objects("NAME      CLICKS         TIME", small_text)
     game_screen.blit(textSurf, (x + 30, y))
     
 

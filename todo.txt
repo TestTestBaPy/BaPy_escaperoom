@@ -1,19 +1,10 @@
 Jasmin:
     - Readability: Comments, Naming Conventions etc. + Docstrings (PEP 257)
-    - [button geräusch] (erstmal finden)   NICHT angegeben
-    - readme: sensibler umgang
+    - screenshot plot (morgen)
        
 Jenny:
-    - scipy schön machen plus ergänzen done
-    - buttonfunktion besser machen done FINALLY
-    - text von csv lesen NO WIE UND WHY
-    - leaderborad DONE
-    - journey: klick problem DONE
 
 Lara:
-    - Video erstellen
-    - programmin journey
-    - reusable function beschreiben (readme)
 
 Alle:
     - 10 datenpunkte erstellen
@@ -22,28 +13,13 @@ NOCH MACHEN:
     	- docstrings in jeder datei
         - sound zwitschern und footsteps fixen
         - csv 
-        - journey
         - prints rausnehgmen
         - 'only for testing resons' rausnehgmen
         - # open xyz entfernen
         - loading screen einfügen
         - unbenutze variablen streichen
-        - verschobene texte korrigieren
 
-Konzeptionierung des csvs: (WIRKLICH NÖTIG??)
 
-Monologue sind in:
-dict = {"STRT" : "...", "DOOR" : "...", "BATH" : "...", "BACKROOM" : "...", "CHLD" : "...", "GARD" : "...", "TRES" : "...", "CALL" : "...", "NAN" : "..."}
-Start ('How to play')
-Story (x)
-3doors ('How did i get here blabla')
-bath ('Odette blabla')
-backroom('crazy balbla')
-chld('my old blabla')
-garden ('zahlen blabla)
-tresor(x)
-call('Hey im quitting')/('Hey i need more')
-resultscreen(Grade with 1.0 ...)
     
 
   
