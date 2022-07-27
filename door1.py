@@ -142,10 +142,9 @@ def display_solved():
 def check_input():
     return get_input_text() == '15'
 
+# The following functions sets the global status-variables to keep track of players actions and display them
 
 def crack_vase():
-    """Sets the global status-variables to keep track of players actions and display them
-    """
     global vase_cracked
     if not vase_cracked:
         pygame.mixer.Sound.set_volume(kling, 0.1)
@@ -155,8 +154,6 @@ def crack_vase():
 
 
 def open_klappe():
-    """
-    """
     global klappe_open
     global vase_cracked
     if vase_cracked:
@@ -168,8 +165,6 @@ def open_klappe():
 
 
 def push_tuch():
-    """
-    """
     global tuch_pushed
     if not tuch_pushed:
         pygame.mixer.Sound.set_volume(cloth_sound, 1)
