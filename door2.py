@@ -21,13 +21,11 @@ def open_childsroom():
     pygame.display.update()
 
     game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X, SPEECH_BUBBLE_Y))
-    textSurf, textRect = text_objects("The nostalgia... that's my old room. I didn't know my parents kept my stuff.", smallText)    
-    textRect.bottomleft = ((SPEECH_BUBBLE_X + 30, SPEECH_BUBBLE_Y + 60))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects("The nostalgia... that's my old room. I didn't know my parents kept my stuff.", smallText)    
+    game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 30, SPEECH_BUBBLE_Y + 60))
 
-    textSurf, textRect = text_objects("Even my old friend. I loved reading stories to my teddybear. ", smallText)    
-    textRect.bottomleft = ((SPEECH_BUBBLE_X + 30, SPEECH_BUBBLE_Y + 85))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects("Even my old friend. I loved reading stories to my teddybear. ", smallText)    
+    game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 30, SPEECH_BUBBLE_Y + 85))
 
     display_pointer()
     pygame.display.update()
@@ -73,71 +71,56 @@ def open_book():
     smallText = pygame.font.Font("pokemon.ttf", 30)
 
     # First hint
-    textSurf, textRect = text_objects('6  8  0', smallText)
-    textRect.bottomleft = ((280, 80))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('6  8  0', smallText)
+    game_screen.blit(textSurf, (280, 80))
 
-    textSurf, textRect = text_objects('One number is correct', smallText)
-    textRect.bottomleft = ((180, 110))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('One number is correct', smallText)
+    game_screen.blit(textSurf, (180, 110))
 
-    textSurf, textRect = text_objects('and is postioned right.', smallText)
-    textRect.bottomleft = ((180, 140))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('and is postioned right.', smallText)
+    game_screen.blit(textSurf, (180, 140))
 
     # The second hint
-    textSurf, textRect = text_objects('6  1  2', smallText)
-    textRect.bottomleft = ((640, 125))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('6  1  2', smallText)
+    game_screen.blit(textSurf, (640, 125))
 
-    textSurf, textRect = text_objects('One number is correct', smallText)
-    textRect.bottomleft = ((540, 155))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('One number is correct', smallText)
+    game_screen.blit(textSurf, (540, 155))
 
-    textSurf, textRect = text_objects('but is postioned false.', smallText)
-    textRect.bottomleft = ((540, 185))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('but is postioned false.', smallText)
+    game_screen.blit(textSurf, (540, 185))
 
     # The third hint
-    textSurf, textRect = text_objects('0  4  6', smallText)
-    textRect.bottomleft = ((280, 240))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('0  4  6', smallText)
+    game_screen.blit(textSurf, (280, 240))
     
-    textSurf, textRect = text_objects('Two numbers are correct', smallText)
-    textRect.bottomleft = ((170, 270))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('Two numbers are correct', smallText)
+    game_screen.blit(textSurf, (170, 270))
 
-    textSurf, textRect = text_objects('but postioned false.', smallText)
-    textRect.bottomleft = ((180, 300))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('but postioned false.', smallText)
+    game_screen.blit(textSurf, (180, 300))
 
     # The fourth hint
-    textSurf, textRect = text_objects('7  3  8', smallText)
-    textRect.bottomleft = ((640, 285))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('7  3  8', smallText)
+    game_screen.blit(textSurf, (640, 285))
  
-    textSurf, textRect = text_objects('Nothing is correct.', smallText)
-    textRect.bottomleft = ((540, 315))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('Nothing is correct.', smallText)
+    game_screen.blit(textSurf, (540, 315))
 
     # The fifth hint
-    textSurf, textRect = text_objects('8  7  4', smallText)
-    textRect.bottomleft = ((280, 400))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('8  7  4', smallText)
+    game_screen.blit(textSurf, (280, 400))
 
-    textSurf, textRect = text_objects('One number is correct', smallText)
-    textRect.bottomleft = ((180, 430))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('One number is correct', smallText)
+    game_screen.blit(textSurf, (180, 430))
 
 
-    textSurf, textRect = text_objects('but is postioned false.', smallText)
-    textRect.bottomleft = ((180, 460))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('but is postioned false.', smallText)
+    game_screen.blit(textSurf, (180, 460))
 
     # The question
-    textSurf, textRect = text_objects('What is the correct code?', smallText)
-    textRect.bottomleft = ((340, 560))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('What is the correct code?', smallText)
+    game_screen.blit(textSurf, (340, 560))
 
 
 def rotate_number(field):
@@ -185,12 +168,10 @@ def open_garden():
     # If the side entrace was opened display it
     if trap_open:
         game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X,SPEECH_BUBBLE_Y))
-        textSurf, textRect = text_objects("That was correct! But why are there so many holes in the fence?", smallText)    
-        textRect.bottomleft = ((SPEECH_BUBBLE_X + 50 ,SPEECH_BUBBLE_Y + 65))
-        game_screen.blit(textSurf, textRect)
-        textSurf, textRect = text_objects('Maybe I should remeber them....', smallText)    
-        textRect.bottomleft = ((SPEECH_BUBBLE_X + 50 ,SPEECH_BUBBLE_Y + 85))
-        game_screen.blit(textSurf, textRect)
+        textSurf = text_objects("That was correct! But why are there so many holes in the fence?", smallText)   
+        game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50 ,SPEECH_BUBBLE_Y + 65))
+        textSurf = text_objects('Maybe I should remeber them....', smallText)    
+        game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50 ,SPEECH_BUBBLE_Y + 85))
         
     else:
         game_screen.blit(pygame.image.load(os.path.join("Images", "garden_klappe.png")).convert_alpha(), (0, 0))   

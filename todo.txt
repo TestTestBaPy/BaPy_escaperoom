@@ -29,6 +29,7 @@ NOCH MACHEN:
         - # open xyz entfernen
         - loading screen einfügen
         - unbenutze variablen streichen
+        - verschobene texte korrigieren
 
 Konzeptionierung des csvs:
 
