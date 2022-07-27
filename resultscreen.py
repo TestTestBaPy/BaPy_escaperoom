@@ -31,8 +31,8 @@ def save_user_data():
 
 def open_scipy_plot():
     """Handles the correct displaying of time vs. clicks"""
-    pygame.mixer.Sound.play(BUTTON_PUSHED)
-
+    pygame.mixer.Sound.play(BUTTON_PUSHED) 
+    display_loading_screen()  
     # Read the csv data
     df = pandas.read_csv("Escaperoom_stats.csv")
 

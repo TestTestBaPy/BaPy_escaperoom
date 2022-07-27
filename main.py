@@ -85,8 +85,7 @@ def button(msg, x, y, w, h):
         # If clicked on a door open the respective room
         elif "DOOR" in msg:
             
-            if current_room == 'DOOR':
-                #display_loading_screen()       
+            if current_room == 'DOOR':     
                 pygame.mixer.Sound.set_volume(OPENS, 0.1)
                 pygame.mixer.Sound.play(OPENS)
                 if "1" in msg:

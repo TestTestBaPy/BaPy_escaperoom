@@ -39,7 +39,7 @@ def open_3doors(simulate_push = True):
     Args: 
       simulate_push: if set to True simulate a push on the start button
     """
-    global RUSTLE
+    global RUSTLE  
 
     RUSTLE.stop()
     # Simulate a click on the startbutton
