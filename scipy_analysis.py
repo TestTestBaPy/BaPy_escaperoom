@@ -55,7 +55,7 @@ def open_scipy_plot():
     raw_data = renderer.tostring_rgb()
     size = canvas.get_width_height()
     surf = pygame.image.fromstring(raw_data, size, "RGB")
-    game_screen.fill(white)
+    game_screen.fill(WHITE)
     game_screen.blit(surf, (0,0))
 
     x = 300
