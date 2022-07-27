@@ -257,7 +257,6 @@ while True:
             
             # On the touchpad you can click on "CHECK" "ABORT" or the number-field
             elif current_room == "TCHP":
-                time.sleep(0.3)
                 button('CHECK', 350, 500, 150, 100)
                 button('ABORT', 550, 500, 150, 100)
                 button('NUMBERS', 365, 50, 300, 400)
