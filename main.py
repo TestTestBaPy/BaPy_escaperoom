@@ -172,7 +172,7 @@ def button(msg, x, y, w, h):
             push_exit()
             open_childsroom()
  
-        # if clicked on open the birdshouse
+        # if clicked on, open the birdshouse
         elif "BIRD" in msg:
             pygame.mixer.Sound.set_volume(bird, 0.1)
             pygame.mixer.Sound.play(bird)
