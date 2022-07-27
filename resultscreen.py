@@ -1,6 +1,4 @@
-import matplotlib, pygame, pylab, csv, pandas
-from matplotlib.pyplot import xlabel
-import matplotlib.pyplot as plt
+import pygame, pylab, csv, pandas
 import matplotlib.backends.backend_agg as agg
 from pygame.locals import *
 from game_timer import get_needed_time
@@ -16,6 +14,7 @@ def save_user_data():
     # check if file exists
     file_exists = exists("Escaperoom_stats.csv")
 
+    # write user data in csv
     with open("Escaperoom_stats.csv", "a", newline='') as csv_file:
             writer = csv.writer(csv_file)
 
@@ -24,47 +23,47 @@ def save_user_data():
                 writer.writerow(["USERNAME", "CLICKS", "TIME"])
             writer.writerow([get_input_text(), get_clicks(), get_needed_time()])
         
-    set_current_room("NAN")
+    # Set current room
+    set_current_room("RESU")
     csv_file.close()
 
 
 def open_scipy_plot():
-
+    """Displays a Clicks vs. Time plot from all user data"""
     pygame.mixer.Sound.play(button_pushed)
 
     # read the csv data
     df = pandas.read_csv("Escaperoom_stats.csv")
-    # This is the last entry
+
+    # This is the last entry (so the current users entry)
     current_result = df.iloc[-1]
+
+    # sort the dataframe
     df = sort_df(df)
-    #df["", ]
    
-    matplotlib.use("Agg")
-    fig = pylab.figure(figsize=[4, 4], dpi=150)   # 100 dots per inch, so the resulting buffer is 400x400 pixels
+    # create a figure with pylab
+    fig = pylab.figure(figsize=[4, 4], dpi=150) 
+
+    # get the axe and plot the clicks vs. time
     ax = fig.gca()
     ax.scatter((df["CLICKS"]), df[ "TIME"])
     ax.set(xlabel = "Clicks", ylabel = "Time", title = "Highscore Userdata - Clicks vs. Time")
 
+    # plot a regression line
     ax.plot(linear_regression(list(df["CLICKS"]), list(df["TIME"]))[0], linear_regression(list(df["CLICKS"]), list(df[ "TIME"]))[1])
 
-    # catter the players result twice so they can see their score in comparison
+    # scatter the players result twice so they can see their score in comparison
     ax.scatter(current_result[1], current_result[2])
 
-    df_h = df.head(5)
-    #print(df.loc())
-   
-    #x = (str(df[["CLICKS", "TIME"]][:5]))
-    #textsurface = smallText.render(x, True, BLACK)
-
-    
-    canvas = agg.FigureCanvasAgg(fig)
-    canvas.draw()
-    renderer = canvas.get_renderer()
-    raw_data = renderer.tostring_rgb()
-    size = canvas.get_width_height()
-    surf = pygame.image.fromstring(raw_data, size, "RGB")
+    # display the plot    
+    figure_canvas = agg.FigureCanvasAgg(fig)
+    figure_canvas.draw()
+    renderer = figure_canvas.get_renderer()
+    data = renderer.tostring_rgb()
+    size = figure_canvas.get_width_height()
+    surface = pygame.image.fromstring(data, size, "RGB")
     game_screen.fill(WHITE)
-    game_screen.blit(surf, (0,0))
+    game_screen.blit(surface, (0,0))
 
     y = 250
     x = 600
@@ -76,7 +75,8 @@ def open_scipy_plot():
     textRect.bottomleft = ((x + 30, y))
     game_screen.blit(textSurf, textRect)
     
-    for row in df_h.iloc():
+
+    for row in df.head(5).iloc():
         y += 30
         x = 640
         for i in range(3):
@@ -100,14 +100,25 @@ def open_scipy_plot():
     game_screen.blit(textSurf, textRect)
 
 def linear_regression(x,y):
-    slope, intercept, r, p, std_err = stats.linregress(x, y)
+    """Perform linear regression
+        Args: 
+            x: the x-values of datapoints (array)
+            y: the y-values of datapoints (array)
+        Returns:
+            the values to plot the regressionline
+    """
 
+    # perform linear regression
+    res = stats.linregress(x, y)
+
+    # returns the needed values to plot
     def myfunc(x):
-      return slope * x + intercept
+      return res.slope * x + res.intercept
 
-    mymodel = list(map(myfunc, x))
+    # create the modelvalues
+    model = list(map(myfunc, x))
 
-    return x, mymodel
+    return x, model
     
 def sort_df(df):
     """Sorts the Dataframe in clicks and then in time
