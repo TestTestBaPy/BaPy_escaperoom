@@ -7,7 +7,7 @@ crack_side_len = 45
 
 tuch_pushed = False
 vase_cracked = False
-klappe_open = False
+trap_open = False
 display_open = False
 input_rect = None
 
@@ -73,7 +73,7 @@ def open_backroom():
     game_screen.blit(pygame.image.load(os.path.join("Images", "backroom.png")).convert(), (0, 0))
     
     # If the trapdoor was opened, display it
-    if klappe_open:
+    if trap_open:
         klappe = pygame.image.load(os.path.join("Images", "klappe.png")).convert_alpha()
         game_screen.blit(klappe, (0, 0))
 
@@ -95,12 +95,12 @@ def open_backroom():
 
     # If the correct code was entered...
     else:
-        game_screen.blit(speech_bubble, (speech_bubble_x, speech_bubble_y))
+        game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X, SPEECH_BUBBLE_Y))
         textSurf, textRect = text_objects("That was correct! I think I'm going crazy, I see numbers everywhere.", smallText)    
-        textRect.bottomleft = ((speech_bubble_x + 50, speech_bubble_y + 65))
+        textRect.bottomleft = ((SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 65))
         game_screen.blit(textSurf, textRect)
         textSurf, textRect = text_objects('Maybe I should remeber them....', smallText)    
-        textRect.bottomleft = ((speech_bubble_x + 50, speech_bubble_y + 85))
+        textRect.bottomleft = ((SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 85))
         game_screen.blit(textSurf, textRect)
 
     if not tuch_pushed:
@@ -151,13 +151,13 @@ def crack_vase():
 
 
 def open_klappe():
-    global klappe_open
+    global trap_open
     global vase_cracked
     if vase_cracked:
-        if not klappe_open:
+        if not trap_open:
             pygame.mixer.Sound.set_volume(clicking, 0.1)
             pygame.mixer.Sound.play(clicking)
-            klappe_open = True
+            trap_open = True
             open_backroom()
 
 

@@ -18,26 +18,26 @@ rooms = ['STRT', 'STRY', 'DOOR', 'BATH', 'CHLD', 'BACK', 'TRES',]
 current_room = 'STRT'
 
 # Set width and height (orignial images are 325x200)
-display_width = 325 * 3
-display_height = 200 * 3
+DISPLAY_WIDTH = 325 * 3
+DISPLAY_HEIGHT = 200 * 3
 
 # Door postions for startscreen (top left corner)
 door_1 = [(253, 129)]
 door_2 = [(418, 129)]
 door_3 = [(582, 129)]
 
-door_width = 150
-door_height = 220
+DOOR_WIDTH = 150
+DOOR_HEIGHT = 220
 
-speech_bubble_width = 650
-speech_bubble_height = 100
+SPEECH_BUBBLE_WIDTH = 650
+SPEECH_BUBBLE_HEIGHT = 100
 
-speech_bubble_x = 150
-speech_bubble_y = 450
+SPEECH_BUBBLE_X = 150
+SPEECH_BUBBLE_Y = 450
 
 BLACK = (0, 0, 0)
-white = (255, 255, 255)
-game_screen = pygame.display.set_mode([display_width, display_height])
+WHITE = (255, 255, 255)
+game_screen = pygame.display.set_mode([DISPLAY_WIDTH, DISPLAY_HEIGHT])
 pygame.display.set_caption('Where is my Emma?')
 
 # Sounds
@@ -53,7 +53,7 @@ correct = pygame.mixer.Sound('Sounds/correct-6033.wav')
 cloth_sound = pygame.mixer.Sound('Sounds/Tuch-schieben.wav')
 rclick = pygame.mixer.Sound('Sounds/rclick.mp3')
 page = pygame.mixer.Sound('Sounds/page.mp3')
-rauschen = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
+rustle = pygame.mixer.Sound('Sounds/Meeresrustle.wav')
 button_pushed = pygame.mixer.Sound('Sounds/Button.mp3')
 bird = pygame.mixer.Sound('Sounds/bird.mp3')
 nest = pygame.mixer.Sound('Sounds/nest.mp3')

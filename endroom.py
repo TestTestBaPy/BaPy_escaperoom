@@ -7,12 +7,12 @@ input_rect = None
 open = True
 
 
-def open_endroom(reset_code = False, open_tresor = False):
+def open_endroom(reset_code = False, open_safe = False):
     """Opens i.e. displays the endroom with the tresor.
     Args:
       reset_code:
        indicates if the current code should be resetted
-      open_tresor:
+      open_safe:
        indicates if the tresor was already open so it can be displayed 
        correctly
     """
@@ -38,7 +38,7 @@ def open_endroom(reset_code = False, open_tresor = False):
         number_sequence = ''
 
     # If the tresor was (not) opened (do not) display the door
-    if not open_tresor:
+    if not open_safe:
         safe_door = pygame.image.load(os.path.join("Images", "tresor_closed.png"))
         game_screen.blit(safe_door,(0, 0))
     else:
@@ -64,11 +64,11 @@ def check_for_code():
     return number_sequence == '1407' or number_sequence == '1532'
 
 
-def open_tresor():
+def open_safe():
     """Opens the tresor with the open_endroom function"""
     pygame.mixer.Sound.set_volume(swoosh, 0.2)
     pygame.mixer.Sound.play(swoosh)
-    open_endroom(open_tresor = True)
+    open_endroom(open_safe = True)
 
 
 def save_num(mouse):
