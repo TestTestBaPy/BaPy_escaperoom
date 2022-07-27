@@ -1,25 +1,6 @@
-Jasmin:
-    - Readability: Comments, Naming Conventions etc. + Docstrings (PEP 257)
-    - screenshot plot (morgen)
-       
-Jenny:
-
-Lara:
-
 Alle:
     - 10 datenpunkte erstellen
 
 NOCH MACHEN:
-    	- docstrings in jeder datei
         - sound zwitschern und footsteps fixen
         - csv 
-        - prints rausnehgmen
-        - 'only for testing resons' rausnehgmen
-        - # open xyz entfernen
-        - loading screen einfügen
-        - unbenutze variablen streichen
-
-
-    
-
-  
