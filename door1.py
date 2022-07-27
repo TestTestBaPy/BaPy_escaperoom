@@ -77,7 +77,7 @@ def open_backroom():
         klappe = pygame.image.load(os.path.join("Images", "klappe.png")).convert_alpha()
         game_screen.blit(klappe, (0, 0))
 
-    # If the blackboard is not open, the code was not (yet) entered correctly
+    # If the BLACKboard is not open, the code was not (yet) entered correctly
     if not display_open:
         game_screen.blit(pygame.image.load(os.path.join("Images", "board.png")).convert(), (313, 44))
         textSurf, textRect = text_objects('Please enter the right code: ', smallText)    

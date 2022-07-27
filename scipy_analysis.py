@@ -37,7 +37,7 @@ def open_scipy_plot():
     ax.scatter((df["CLICKS"]), df[ "TIME"])
     ax.set(xlabel = "Clicks", ylabel = "Time", title = "Highscore Userdata - Clicks vs. Time")
 
-    ax.plot(linear_regression(list(df["CLICKS"]), list(df[ "TIME"]))[0], linear_regression(list(df["CLICKS"]), list(df[ "TIME"]))[1])
+    ax.plot(linear_regression(list(df["CLICKS"]), list(df["TIME"]))[0], linear_regression(list(df["CLICKS"]), list(df[ "TIME"]))[1])
 
     # catter the players result twice so they can see their score in comparison
     ax.scatter(current_result[1], current_result[2])
@@ -58,20 +58,25 @@ def open_scipy_plot():
     game_screen.fill(WHITE)
     game_screen.blit(surf, (0,0))
 
-    x = 300
+    y = 250
+    x = 600
     textSurf, textRect = text_objects("Highscore Table", smallText)
-    textRect.bottomleft = ((600, x))
+    textRect.bottomleft = ((x + 60, y))
     game_screen.blit(textSurf, textRect)
-    x += 20
-    textSurf, textRect = text_objects("CLICKS        TIME", smallText)
-    textRect.bottomleft = ((580, x))
+    y += 20
+    textSurf, textRect = text_objects("NAME    CLICKS      TIME", smallText)
+    textRect.bottomleft = ((x + 30, y))
     game_screen.blit(textSurf, textRect)
     
     for row in df_h.iloc():
-        x += 20
-        textSurf, textRect = text_objects(str(row[0]) + "           " +  str(row[1]), smallText)
-        textRect.bottomleft = ((600, x))
-        game_screen.blit(textSurf, textRect)
+        y += 30
+        x = 640
+        for i in range(3):
+            print("I PRINT", x, y)
+
+            textSurf, textRect = text_objects(str(row[i]).replace("nan", "-"), smallText)
+            game_screen.blit(textSurf, (x, y))
+            x += 100
         
     
 
@@ -101,7 +106,7 @@ def linear_regression(x,y):
 def sort_df(df):
     """Sorts the Dataframe in Clicks and then in time
     """
-    return df[["CLICKS", "TIME"]].sort_values(['CLICKS', 'TIME'], 
+    return df[["USERNAME", "CLICKS", "TIME"]].sort_values(['CLICKS', 'TIME'], 
               ascending = [True, True])
 
 def calculate_grade(click_amount):

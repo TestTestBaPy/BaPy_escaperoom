@@ -164,7 +164,7 @@ def button(msg, x, y, w, h):
             push_exit()
             open_garden()
 
-        # If clicked on blackboard
+        # If clicked on BLACKboard
         elif "TAFEL" in msg:
             rotate_number((mouse[0] / 15))
 

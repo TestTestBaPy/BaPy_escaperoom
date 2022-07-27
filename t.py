@@ -8,7 +8,7 @@ screen = pygame.display.set_mode(SIZE, pygame.RESIZABLE)
 clock = pygame.time.Clock()
 
 
-def blit_text(surface, text, pos, font, color=pygame.Color('black')):
+def blit_text(surface, text, pos, font, color=pygame.Color('BLACK')):
     words = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.
     space = font.size(' ')[0]  # The width of a space.
     max_width, max_height = surface.get_size()
