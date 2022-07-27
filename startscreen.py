@@ -52,9 +52,9 @@ def open_3doors(simulate_push = True):
     # Load speechbubble with text
     game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X,SPEECH_BUBBLE_Y))
     textSurf = text_objects('Where is my Emma? I need to find her. How dare she leave me alone!', small_text)
-    game_screen.blit(textSurf, (200, 510))
+    game_screen.blit(textSurf, (200, 490))
     textSurf = text_objects("My parents' house is so big, where should I start?", small_text)
-    game_screen.blit(textSurf, (200, 530))
+    game_screen.blit(textSurf, (200, 510))
 
 
 def open_story():

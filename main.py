@@ -198,7 +198,7 @@ def button(msg, x, y, w, h):
            
 # Set up, the game (here you can decide in which room you want to start) default should be open_startscreen()
 open_startscreen()
-open_final_words()
+# open_final_words()
 
 frame_count = 0
 frame_rate = 60
