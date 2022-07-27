@@ -146,7 +146,7 @@ The key can be found in the birdhouse.
 The last room consists of a safe. The code can be found in room 2.
 ![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Safe.PNG)
 ```bash
-You can finde the code for the safe on the fence in the garden. It is 1532 (amount of holes).
+You can find the code for the safe on the fence in the garden. It is 1532 (amount of holes).
 ```
 
 ROOMS BEHIND DOOR 3
