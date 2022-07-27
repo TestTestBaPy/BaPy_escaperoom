@@ -93,7 +93,7 @@ def open_scipy_plot():
     textRect.bottomleft = ((570, 130))
     game_screen.blit(textSurf, textRect)
 
-    textSurf, textRect = text_objects('The orange dot is you!', smallText)
+    textSurf, textRect = text_objects('The orange dot is you!', small_text)
     textRect.bottomleft = ( (600, 520) )
 
     game_screen.blit(textSurf, (600,520))
