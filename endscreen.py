@@ -5,7 +5,6 @@ from handle_userinput import handle_input
 
 number_sequence = ''
 input_rect = None
-open = True
 
 
 def open_endroom(reset_code = False, open_safe = False):
