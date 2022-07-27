@@ -4,7 +4,7 @@ from door1 import *
 from door2 import *
 from door3 import *
 from display_components import *
-from endroom import *
+from endscreen import *
 from startscreen import *
 from scipy_analysis import *
 from game_timer import *
