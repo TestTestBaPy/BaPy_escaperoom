@@ -118,7 +118,7 @@ def linear_regression(x,y):
     # create the modelvalues
     model = list(map(myfunc, x))
 
-    return x, mymodel
+    return x, model
 
 
 def sort_df(df):

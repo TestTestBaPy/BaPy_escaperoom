@@ -100,7 +100,7 @@ def open_backroom():
     if not cloth_pushed:
         game_screen.blit(pygame.image.load(os.path.join("Images", "tuch.png")).convert_alpha(), (0, 0))
     else:
-        game_screen.blit(pygame.image.load(os.path.join("Images", "cloth_pushed.png")).convert_alpha(), (0, 0))
+        game_screen.blit(pygame.image.load(os.path.join("Images", "tuch_pushed.png")).convert_alpha(), (0, 0))
 
     if not vase_cracked:
         game_screen.blit(pygame.image.load(os.path.join("Images", "vase.png")).convert_alpha(), (0, 0))
