@@ -2,7 +2,6 @@ Jasmin:
     -Readability: Comments, Naming Conventions etc. + Docstrings (PEP 257)
     -[button geräusch] (erstmal finden)   NICHT angegeben
     - readme: sensibler umgang
-    
        
 Jenny:
     - scipy schön machen plus ergänzen done
@@ -30,7 +29,7 @@ NOCH MACHEN:
         - # open xyz entfernen
         - loading screen einfügen
         - unbenutze variablen streichen
-        
+
 Konzeptionierung des csvs:
 
 Monologue sind in:
