@@ -7,8 +7,7 @@ rauschen.play()
 
 
 def open_startscreen(simulate_push = False):
-    """Opens i.e. displays the startscreen
-    """  
+    """Opens i.e. displays the startscreen"""  
     global rauschen
 
     set_current_room("STRT")
@@ -20,7 +19,7 @@ def open_startscreen(simulate_push = False):
 
     game_screen.blit(pygame.image.load(os.path.join("Images", "start.png")).convert(), (0, 0))
 
-    # display game instructions
+    # Display game instructions
     input_rect = pygame.Rect(600, 450, 300, 100)
     pygame.draw.rect(game_screen, (235, 235, 235), input_rect)
     textSurf, textRect = text_objects("How to play?", smallText)
@@ -36,23 +35,24 @@ def open_startscreen(simulate_push = False):
 
 def open_3doors(simulate_push = True):
     """Opens i.e. the room with three doors to choose from
-        Args: 
-            simulate_push if True simulates a push on the prior "START" button
+    Args: 
+      simulate_push:
+        If True simulates a push on the prior "START" button
     """
     global rauschen
 
     rauschen.stop()
-    # simulate a click on the startbutton
+    # Simulate a click on the startbutton
     open_startscreen(simulate_push = simulate_push)
 
-    # set the current room
+    # Set the current room
     set_current_room("DOOR")
 
-    # load the new room
+    # Load the new room
     background = pygame.image.load(os.path.join("Images", "3doors.png")).convert()
     game_screen.blit(background, (0, 0))
 
-    # load speechbubble with text
+    # Load speechbubble with text
     game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
     textSurf, textRect = text_objects('Where is my Emma? I need to find her. How dare she leave me alone!', smallText)
     textRect.bottomleft = ((200, 510))
@@ -63,13 +63,12 @@ def open_3doors(simulate_push = True):
 
 
 def open_story():
-    """Opens i.e. displays the backhround information on this game
-    """
+    """Opens i.e. displays the backhround information on this game"""
     pygame.mixer.Sound.play(button_pushed)
-    # set the current room
+    # Set the current room
     set_current_room("STRY")
     
-    # simulate a click on the button
+    # Simulate a click on the button
     background = pygame.image.load(os.path.join("Images", "start_pushstory.png")).convert()
     game_screen.blit(background, (0, 0))
     pygame.display.update()
@@ -81,6 +80,4 @@ def open_story():
     clock.tick(2)
     
     background = pygame.image.load(os.path.join("Images", "chat.png")).convert()
-    game_screen.blit(background, (0, 0))
-
-    
+    game_screen.blit(background, (0, 0))  

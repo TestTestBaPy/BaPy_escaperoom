@@ -5,19 +5,18 @@ go = True
 
 
 def timer():
-    """Displays the elapsed time on the gamescreen 
-    """  
+    """Displays the elapsed time on the gamescreen"""  
     global minutes
     global seconds
         
     frame_count = 0
 
-    # update the timer every second
+    # Update the timer every second
     frame_rate = 60
 
     # Loop until the user clicks the close button.
     while go:
-        # manage how fast the screen updates
+        # Manage how fast the screen updates
         total_seconds = frame_count // frame_rate
         minutes = total_seconds // 60
         seconds = total_seconds % 60
@@ -33,8 +32,7 @@ def timer():
 
 
 def get_needed_time():
-    """Returns the elapsed time at moment of calling this function
-    """
+    """Returns the elapsed time at moment of calling this function"""
     return minutes + seconds / 100
 
 

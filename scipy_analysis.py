@@ -11,9 +11,7 @@ from scipy import stats
 
 
 def save_user_data():
-    """Saves the username (if given), click and elapsed time of player in a csv
-    """
-
+    """Saves the username (if given), click and elapsed time of player in a csv"""
     file_exists = exists("Escaperoom_stats.csv")
 
     with open("Escaperoom_stats.csv", "a", newline='') as csv_file:
@@ -28,11 +26,9 @@ def save_user_data():
 
 
 def open_scipy_plot():
-
     df = pandas.read_csv("Escaperoom_stats.csv")
-    # this is the last entry
+    # This is the last entry
     current_result = df.iloc[-1]
-    
     df = df[["CLICKS", "TIME"]].sort_values("CLICKS")
    
     matplotlib.use("Agg")
@@ -43,7 +39,7 @@ def open_scipy_plot():
 
     ax.plot(linear_regression(list(df["CLICKS"]), list(df[ "TIME"]))[0], linear_regression(list(df["CLICKS"]), list(df[ "TIME"]))[1])
 
-    # scatter the players result twice so they can see their score in comparison
+    # catter the players result twice so they can see their score in comparison
     ax.scatter(current_result[1], current_result[2])
 
     canvas = agg.FigureCanvasAgg(fig)
