@@ -23,6 +23,13 @@ def open_endroom(reset_code = False, open_tresor = False):
     # alternative code have alternative endings
     if number_sequence == '1407':
         game_screen.blit(pygame.image.load(os.path.join("Images", "emma_dead.png")).convert(), (0, 0))
+        text_surface = smallText.render("EMMA", True, white)
+        game_screen.blit(text_surface, (415, 280))
+        text_surface = smallText.render("* 03.08.2014", True, white)
+        game_screen.blit(text_surface, (380, 320))
+        text_surface = smallText.render("x 04.20.2025", True, white)
+        game_screen.blit(text_surface, (380, 340))
+        
     else:
         game_screen.blit(pygame.image.load(os.path.join("Images", "emma_alive.png")).convert(), (0, 0))
 
