@@ -22,9 +22,9 @@ def open_bathroom():
 
     # Display monologue
     textSurf = text_objects('Oh, my old bathroom. Even Henry and Odette, the rubber ducks are here.', small_text)
-    game_screen.blit(textSurf, (190, 510))
+    game_screen.blit(textSurf, (190, 490))
     textSurf = text_objects('Hmph, it seems Emma is not here.', small_text)
-    game_screen.blit(textSurf, (190, 530))
+    game_screen.blit(textSurf, (190, 510))
     
     pygame.display.update()
 
@@ -79,10 +79,10 @@ def open_backroom():
     if not display_open:
         game_screen.blit(pygame.image.load(os.path.join("Images", "board.png")).convert(), (313, 44))
         textSurf = text_objects('Please enter the right code: ', small_text)    
-        game_screen.blit(textSurf, (370, 90))
+        game_screen.blit(textSurf, (370, 60))
      
         textSurf = text_objects('(Press enter, when done)', small_text)    
-        game_screen.blit(textSurf, (380, 110))
+        game_screen.blit(textSurf, (380, 80))
 
         input_rect = pygame.Rect(450, 130, 100, 30)
         pygame.draw.rect(game_screen, (170, 170, 170), input_rect)
