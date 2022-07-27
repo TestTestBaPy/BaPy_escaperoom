@@ -208,7 +208,6 @@ def get_solved_door2():
     return solved_door2
 
 
-# the following functions set the global status-variables to keep track of players actions and display them
 def open_birdshouse():
     """Opens i.e. displays the birdshouse
     """
@@ -228,6 +227,7 @@ def open_birdshouse():
 
     pygame.display.update()
 
+# the following functions set the global status-variables to keep track of players actions and display them
 
 def get_key():
     global got_key
@@ -251,10 +251,10 @@ def open_klappe_garden():
     global klappe_open
 
     pygame.mixer.Sound.play(opens)
-
-    klappe_open = True
     pygame.mixer.Sound.set_volume(popping, 0.7)
     pygame.mixer.Sound.play(popping)
+
+    klappe_open = True
     open_garden()
 
 
