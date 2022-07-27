@@ -10,6 +10,7 @@ klappe_open = False
 got_nest = False
 got_key = False
 # reminder: eig unnötig - kommen noch formen?
+#Ahhh
 possible_nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
@@ -77,78 +78,79 @@ def open_book():
 
     # first hint
     textSurf, textRect = text_objects('6  8  0', smallText)
-    textRect.bottomleft = ( (280, 80) )
+    textRect.bottomleft = ((280, 80))
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('One number is correct', smallText)
-    textRect.bottomleft = ( (180, 110) )
+    textRect.bottomleft = ((180, 110))
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('and is postioned right.', smallText)
-    textRect.bottomleft = ( (180, 140) )
+    textRect.bottomleft = ((180, 140))
     game_screen.blit(textSurf, textRect)
 
     # second
     textSurf, textRect = text_objects('6  1  2', smallText)
-    textRect.bottomleft = ( (640, 125) )
+    textRect.bottomleft = ((640, 125))
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('One number is correct', smallText)
-    textRect.bottomleft = ( (540, 155) )
+    textRect.bottomleft = ((540, 155))
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('but is postioned false.', smallText)
-    textRect.bottomleft = ( (540, 185) )
+    textRect.bottomleft = ((540, 185))
     game_screen.blit(textSurf, textRect)
 
     # third
     textSurf, textRect = text_objects('0  4  6', smallText)
-    textRect.bottomleft = ( (280, 240) )
+    textRect.bottomleft = ((280, 240))
     game_screen.blit(textSurf, textRect)
     
     textSurf, textRect = text_objects('Two numbers are correct', smallText)
-    textRect.bottomleft = ( (170, 270) )
+    textRect.bottomleft = ((170, 270))
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('but postioned false.', smallText)
-    textRect.bottomleft = ( (180, 300) )
+    textRect.bottomleft = ((180, 300))
     game_screen.blit(textSurf, textRect)
 
     # fourth
     textSurf, textRect = text_objects('7  3  8', smallText)
-    textRect.bottomleft = ( (640, 285) )
+    textRect.bottomleft = ((640, 285))
     game_screen.blit(textSurf, textRect)
  
     textSurf, textRect = text_objects('Nothing is correct.', smallText)
-    textRect.bottomleft = ( (540, 315) )
+    textRect.bottomleft = ((540, 315))
     game_screen.blit(textSurf, textRect)
 
     # fifth
     textSurf, textRect = text_objects('8  7  4', smallText)
-    textRect.bottomleft = ( (280, 400) )
+    textRect.bottomleft = ((280, 400))
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects('One number is correct', smallText)
-    textRect.bottomleft = ( (180, 430) )
+    textRect.bottomleft = ((180, 430))
     game_screen.blit(textSurf, textRect)
 
 
     textSurf, textRect = text_objects('but is postioned false.', smallText)
-    textRect.bottomleft = ( (180, 460) )
+    textRect.bottomleft = ((180, 460))
     game_screen.blit(textSurf, textRect)
 
     # question:
     textSurf, textRect = text_objects('What is the correct code?', smallText)
-    textRect.bottomleft = ( (340, 560) )
+    textRect.bottomleft = ((340, 560))
     game_screen.blit(textSurf, textRect)
 
 
 def rotate_number(field):
     """Rotates the number on the blackboard
-       Args:
+        Args:
             field after dividing the mouse-coordinate by 15 the resulting numbers (ranges)
-                  indicate which of the three squares was clicked
+            indicate which of the three squares was clicked  
     """
+    #Ahhh
     global pointer_1 
     global pointer_2 
     global pointer_3 
@@ -156,7 +158,7 @@ def rotate_number(field):
     pygame.mixer.Sound.set_volume(rclick, 0.1)
     pygame.mixer.Sound.play(rclick)
 
-    # increment the respective pointer an display the new code
+    # increment the respective pointer and display the new code
     if field >= 26 and field <= 30:
         pointer_1 += 1  
         
@@ -171,7 +173,7 @@ def rotate_number(field):
 
 
 def open_flyer(): 
-    #set the current Room
+    #set the current room
     set_current_room("TRAS")
     game_screen.blit(pygame.image.load(os.path.join("Images", "flyer.png")).convert(), (0, 0))
     pygame.display.update()
@@ -234,8 +236,8 @@ def get_key():
 def get_nest():
     global got_nest
     if not got_nest:
-        pygame.mixer.Sound.set_volume(woosh, 0.1)
-        pygame.mixer.Sound.play(woosh)
+        pygame.mixer.Sound.set_volume(nest, 0.1)
+        pygame.mixer.Sound.play(nest)
         got_nest = True
         open_birdshouse()
 

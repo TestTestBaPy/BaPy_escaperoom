@@ -12,6 +12,7 @@ def handle_input(go = True, active = True, input_rect = None, max_chars = 10, on
             only_integer if set to true, only integers are accepted
         Returns: 
     """
+    #Ahhh
     global user_text
 
     # color_active stores color which gets active when input box is clicked by user
@@ -42,7 +43,7 @@ def handle_input(go = True, active = True, input_rect = None, max_chars = 10, on
 
                 if event.key == pygame.K_RETURN: 
                     active = False 
-                    go = False # go is set to false because the input needs to be check (when hit return)
+                    go = False # go is set to false because the input needs to be checked (when hit return)
 
                 # Check for backspace
                 elif event.key == pygame.K_BACKSPACE:

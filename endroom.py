@@ -9,11 +9,12 @@ open = True
 
 def open_endroom(reset_code = False, open_tresor = False):
     """Opens i.e. displays the endroom with the tresor.
-       Args:
+        Args:
             reset_code indicates if the current code should be resetted
             open_tresor indicates if the tresor was already open so it can be displayed 
                         correctly
     """
+    #Ahhh
     # set the current room
     set_current_room("TRES")
     
@@ -108,7 +109,7 @@ def save_num(mouse):
 
 def open_endscreen(clicked_on_exit = False):
     """Opens i.e. displays the endscreen
-       Args:
+        Args:
             clicked_on_exit if set to True simulates a button click on "EXIT"
     """
     # set the current room
@@ -138,7 +139,7 @@ def open_endscreen(clicked_on_exit = False):
 
     # display the monologue
     textSurf, textRect = text_objects("Hey, Escopub...", smallText)
-    textRect.bottomleft = ( (210, 490) )
+    textRect.bottomleft = ((210, 490))
     game_screen.blit(textSurf, textRect)
 
 
