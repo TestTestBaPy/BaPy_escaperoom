@@ -32,7 +32,7 @@ def open_childsroom():
 
 
 def display_pointer():
-    """Displays the numbers on the BLACKboard"""
+    """Displays the numbers on the blackboard"""
     base_font = pygame.font.Font("pokemon.ttf", 70) 
     text_surface = base_font.render(str(pointer_1 % 10), True, WHITE) 
     game_screen.blit(text_surface, (400, 110))
@@ -47,7 +47,7 @@ def display_pointer():
 
 
 def check_code():
-    """Checks if the current BLACKboard numbers are correct"""
+    """Checks if the current blackboard numbers are correct"""
     global solved_door2
     
     if str(pointer_1 % 10) + str(pointer_2 % 10) + str(pointer_3 % 10) == '420':
@@ -124,10 +124,10 @@ def open_book():
 
 
 def rotate_number(field):
-    """Rotates the number on the BLACKboard
+    """Rotates the number on the blackboard
     Args:
       field: 
-        after dividing the mouse-coordinate by 15 the resulting numbers (ranges)
+        After dividing the mouse-coordinate by 15 the resulting numbers (ranges)
         indicate which of the three squares was clicked. 
     """
     global pointer_1 

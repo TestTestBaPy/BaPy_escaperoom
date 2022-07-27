@@ -132,7 +132,7 @@ def button(msg, x, y, w, h):
         elif "TUCH" in msg:
             push_tuch()
 
-        # If click on the tresor (after putting in the right code) open the endscreen
+        # If click on the safe (after putting in the right code) open the endscreen
         elif "TRESOR" in msg:
             open_endscreen()
 
@@ -260,7 +260,7 @@ while True:
                 button('ABORT', 550, 500, 150, 100)
                 button('NUMBERS', 365, 50, 300, 400)
 
-            # In the tresor room you can click on the "TOUCHPAD" or the "TRESOR" (if you typed in the right code)
+            # In the safe room you can click on the "TOUCHPAD" or the "TRESOR" (if you typed in the right code)
             elif current_room == "TRES":
                 button("TOUCHPAD", 600, 300, 80, 80)
                 if check_for_code():

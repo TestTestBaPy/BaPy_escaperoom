@@ -5,7 +5,7 @@ from handle_userinput import *
 crack_counter = numpy.zeros(12).reshape(4, 3)
 crack_side_len = 45
 
-tuch_pushed = False
+cloth_pushed = False
 vase_cracked = False
 trap_open = False
 display_open = False
@@ -42,7 +42,7 @@ def crack_wall(x, y):
     global crack_counter
     wall_crack = pygame.image.load(os.path.join("Images", "crack.png"))
     
-    # Each crack is crack_side_len(45) * crack_side_len(45) pixels big, 
+    # Each crack is of the size crack_side_len(45) * crack_side_len(45) pixels, 
     # so regarding of the coordinates decide where to place it
     for i in range(3):
         for j in range(4):
@@ -75,7 +75,7 @@ def open_backroom():
         klappe = pygame.image.load(os.path.join("Images", "klappe.png")).convert_alpha()
         game_screen.blit(klappe, (0, 0))
 
-    # If the BLACKboard is not open, the code was not (yet) entered correctly
+    # If the Blackboard is not open, the code was not (yet) entered correctly
     if not display_open:
         game_screen.blit(pygame.image.load(os.path.join("Images", "board.png")).convert(), (313, 44))
         textSurf = text_objects('Please enter the right code: ', small_text)    
@@ -97,10 +97,10 @@ def open_backroom():
         textSurf = text_objects('Maybe I should remeber them....', small_text)    
         game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 85))
 
-    if not tuch_pushed:
+    if not cloth_pushed:
         game_screen.blit(pygame.image.load(os.path.join("Images", "tuch.png")).convert_alpha(), (0, 0))
     else:
-        game_screen.blit(pygame.image.load(os.path.join("Images", "tuch_pushed.png")).convert_alpha(), (0, 0))
+        game_screen.blit(pygame.image.load(os.path.join("Images", "cloth_pushed.png")).convert_alpha(), (0, 0))
 
     if not vase_cracked:
         game_screen.blit(pygame.image.load(os.path.join("Images", "vase.png")).convert_alpha(), (0, 0))
@@ -156,11 +156,11 @@ def open_klappe():
 
 
 def push_tuch():
-    global tuch_pushed
-    if not tuch_pushed:
+    global cloth_pushed
+    if not cloth_pushed:
         pygame.mixer.Sound.set_volume(cloth_sound, 1)
         pygame.mixer.Sound.play(cloth_sound)    
-        tuch_pushed = True
+        cloth_pushed = True
         open_backroom()
 
 
