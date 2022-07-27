@@ -8,20 +8,19 @@ open = True
 
 
 def open_endroom(reset_code = False, open_safe = False):
-    """Opens i.e. displays the endroom with the tresor.
+    """Opens i.e. displays the endroom with the safe.
     Args:
       reset_code:
-       indicates if the current code should be resetted
+       Indicates if the current code should be resetted
       open_safe:
-       indicates if the tresor was already open so it can be displayed 
-       correctly
+       Indicates if the safe was already open so it can be displayed correctly
     """
     # Set the current room
     set_current_room("TRES")
     
     global number_sequence
    
-    # Alternative code have alternative endings
+    # Alternative codes have alternative endings
     if number_sequence == '1407':
         game_screen.blit(pygame.image.load(os.path.join("Images", "emma_dead.png")).convert(), (0, 0))
         text_surface = smallText.render("EMMA", True, WHITE)
@@ -37,7 +36,7 @@ def open_endroom(reset_code = False, open_safe = False):
     if reset_code:
         number_sequence = ''
 
-    # If the tresor was (not) opened (do not) display the door
+    # If the safe was (not) opened (do not) display the door
     if not open_safe:
         safe_door = pygame.image.load(os.path.join("Images", "tresor_closed.png"))
         game_screen.blit(safe_door,(0, 0))
@@ -65,7 +64,7 @@ def check_for_code():
 
 
 def open_safe():
-    """Opens the tresor with the open_endroom function"""
+    """Opens the safe with the open_endroom function"""
     pygame.mixer.Sound.set_volume(swoosh, 0.2)
     pygame.mixer.Sound.play(swoosh)
     open_endroom(open_safe = True)

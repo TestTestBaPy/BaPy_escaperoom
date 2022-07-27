@@ -15,7 +15,7 @@ click_counter = 0
 rooms = ['STRT', 'STRY', 'DOOR', 'BATH', 'CHLD', 'BACK', 'GARd', 'TRES', 'TRAS', 'BOOK', 'BIRD', 'NAN']
 current_room = 'STRT'
 
-# Set width and height (orignial images are 325x200)
+# Set width and height (original images are 325x200)
 DISPLAY_WIDTH = 325 * 3
 DISPLAY_HEIGHT = 200 * 3
 
@@ -80,7 +80,7 @@ def push_exit():
     time.sleep(0.3)
 
 
-# Get our current room by looking at the global situation
+# Get the current room by looking at the global situation
 def set_current_room(room):
     global current_room
     current_room = room

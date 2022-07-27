@@ -5,7 +5,7 @@ user_text = ''
 
 
 def handle_input(go = True, active = True, input_rect = None, max_chars = 10, only_integer = False):
-    """This function takes an arbitrary pygame rectangle and uses it as a input text box
+    """This function takes an arbitrary pygame rectangle and uses it as an input textbox
     Args:
       input_rect:
         The pygame-rectangle to display the inputted text on
