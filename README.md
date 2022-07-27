@@ -82,7 +82,7 @@ If you have the correct code to solve the puzzle you have to either use your key
 
 GAME STRUCTURE AND SOLUTIONS (SPOILER)
 ---------------------
-BEVORE READING FURTHER... PLEASE PLAY THE GAME FIRST, IN THIS SECTION WE WILL GIVE YOU THE SOLUTIONS!
+BEFORE READING FURTHER... PLEASE PLAY THE GAME FIRST, IN THIS SECTION WE WILL GIVE YOU THE SOLUTIONS!
 
 | Door 1 | Door 2 | Door 3 |
 |:--------------|:-------------|:--------------|
@@ -123,7 +123,7 @@ The correct amount of red balls is 15. Please use your keyboard to enter this nu
 The last room contains a safe. The code can be found in room 2.
 ![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Safe.PNG)
 ```bash
-You can finde the code for the safe in the backroom. It is 1407. 
+You can find the code for the safe in the backroom. It is 1407. 
 This time you have to click on the right numbers on the touchpad.
 ```
 
@@ -146,7 +146,7 @@ The key can be found in the birdhouse.
 The last room consists of a safe. The code can be found in room 2.
 ![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Safe.PNG)
 ```bash
-You can finde the code for the safe on the fence in the garden. It is 1532 (amount of holes).
+You can find the code for the safe on the fence in the garden. It is 1532 (amount of holes).
 ```
 
 ROOMS BEHIND DOOR 3
