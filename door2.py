@@ -68,6 +68,10 @@ def check_code():
 def open_book():
     """Displays the inside of the book in the childsroom
     """
+
+    pygame.mixer.Sound.set_volume(page, 0.1)
+    pygame.mixer.Sound.play(page)
+
     # set the current room
     set_current_room("BOOK")
     
@@ -212,6 +216,9 @@ def get_solved_door2():
 def open_birdshouse():
     """Opens i.e. displays the birdshouse
     """
+    pygame.mixer.Sound.set_volume(bird, 0.1)
+    pygame.mixer.Sound.play(bird)
+    
     # set the current room
     set_current_room("BIRD")
    
@@ -235,10 +242,10 @@ def get_key():
         open_birdshouse()
 
 
-def get_nest():
+def remove_nest():
     global got_nest
     if not got_nest:
-        pygame.mixer.Sound.set_volume(nest, 0.1)
+        pygame.mixer.Sound.set_volume(nest, 0.5)
         pygame.mixer.Sound.play(nest)
         got_nest = True
         open_birdshouse()
@@ -246,6 +253,9 @@ def get_nest():
 
 def open_klappe_garden():
     global klappe_open
+
+    pygame.mixer.Sound.play(opens)
+
     klappe_open = True
     pygame.mixer.Sound.set_volume(popping, 0.7)
     pygame.mixer.Sound.play(popping)

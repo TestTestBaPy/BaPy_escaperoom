@@ -103,7 +103,6 @@ def button(msg, x, y, w, h, ic, ac):
             elif current_room == "GARD":
 
                 if not get_klappe_open() and get_got_key():
-                    pygame.mixer.Sound.play(opens)
                     open_klappe_garden()
                     
                 elif get_klappe_open():
@@ -153,8 +152,6 @@ def button(msg, x, y, w, h, ic, ac):
         
         # if clicked on book display it
         elif "BOOK" in msg:
-            pygame.mixer.Sound.set_volume(page, 0.1)
-            pygame.mixer.Sound.play(page)
             open_book()
 
         # if clicked on exit in the birdshouse open the garden
@@ -170,14 +167,13 @@ def button(msg, x, y, w, h, ic, ac):
         elif "TRASH" in msg:
             open_flyer()
 
+        # if you are in the trashcan you can only go back
         elif current_room == "TRAS":
             push_exit()
             open_childsroom()
  
-        # if clicked on open the birdshouse
+        # if clicked on, open the birdshouse
         elif "BIRD" in msg:
-            pygame.mixer.Sound.set_volume(bird, 0.1)
-            pygame.mixer.Sound.play(bird)
             open_birdshouse()
 
         # if clicked on the key collect it
@@ -186,9 +182,7 @@ def button(msg, x, y, w, h, ic, ac):
 
         # if clicked on nest collect it
         elif "NEST" in msg:
-            pygame.mixer.Sound.set_volume(nest, 0.1)
-            pygame.mixer.Sound.play(nest)
-            get_nest()  
+            remove_nest()  
             
         # if you clicked on the display you can type something in
         elif "DISPLAY" in msg and current_room == "BACK":
