@@ -21,10 +21,10 @@ def open_childsroom():
     pygame.display.update()
 
     game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X, SPEECH_BUBBLE_Y))
-    textSurf = text_objects("The nostalgia... that's my old room. I didn't know my parents kept my stuff.", smallText)    
+    textSurf = text_objects("The nostalgia... that's my old room. I didn't know my parents kept my stuff.", small_text)    
     game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 30, SPEECH_BUBBLE_Y + 60))
 
-    textSurf = text_objects("Even my old friend. I loved reading stories to my teddybear. ", smallText)    
+    textSurf = text_objects("Even my old friend. I loved reading stories to my teddybear. ", small_text)    
     game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 30, SPEECH_BUBBLE_Y + 85))
 
     display_pointer()
@@ -68,58 +68,58 @@ def open_book():
     game_screen.blit(pygame.image.load(os.path.join("Images", "book.png")).convert(), (0, 0))
     pygame.display.update()
 
-    smallText = pygame.font.Font("pokemon.ttf", 30)
+    small_text = pygame.font.Font("pokemon.ttf", 30)
 
     # First hint
-    textSurf = text_objects('6  8  0', smallText)
+    textSurf = text_objects('6  8  0', small_text)
     game_screen.blit(textSurf, (280, 80))
 
-    textSurf = text_objects('One number is correct', smallText)
+    textSurf = text_objects('One number is correct', small_text)
     game_screen.blit(textSurf, (180, 110))
 
-    textSurf = text_objects('and is postioned right.', smallText)
+    textSurf = text_objects('and is postioned right.', small_text)
     game_screen.blit(textSurf, (180, 140))
 
     # The second hint
-    textSurf = text_objects('6  1  2', smallText)
+    textSurf = text_objects('6  1  2', small_text)
     game_screen.blit(textSurf, (640, 125))
 
-    textSurf = text_objects('One number is correct', smallText)
+    textSurf = text_objects('One number is correct', small_text)
     game_screen.blit(textSurf, (540, 155))
 
-    textSurf = text_objects('but is postioned false.', smallText)
+    textSurf = text_objects('but is postioned false.', small_text)
     game_screen.blit(textSurf, (540, 185))
 
     # The third hint
-    textSurf = text_objects('0  4  6', smallText)
+    textSurf = text_objects('0  4  6', small_text)
     game_screen.blit(textSurf, (280, 240))
     
-    textSurf = text_objects('Two numbers are correct', smallText)
+    textSurf = text_objects('Two numbers are correct', small_text)
     game_screen.blit(textSurf, (170, 270))
 
-    textSurf = text_objects('but postioned false.', smallText)
+    textSurf = text_objects('but postioned false.', small_text)
     game_screen.blit(textSurf, (180, 300))
 
     # The fourth hint
-    textSurf = text_objects('7  3  8', smallText)
+    textSurf = text_objects('7  3  8', small_text)
     game_screen.blit(textSurf, (640, 285))
  
-    textSurf = text_objects('Nothing is correct.', smallText)
+    textSurf = text_objects('Nothing is correct.', small_text)
     game_screen.blit(textSurf, (540, 315))
 
     # The fifth hint
-    textSurf = text_objects('8  7  4', smallText)
+    textSurf = text_objects('8  7  4', small_text)
     game_screen.blit(textSurf, (280, 400))
 
-    textSurf = text_objects('One number is correct', smallText)
+    textSurf = text_objects('One number is correct', small_text)
     game_screen.blit(textSurf, (180, 430))
 
 
-    textSurf = text_objects('but is postioned false.', smallText)
+    textSurf = text_objects('but is postioned false.', small_text)
     game_screen.blit(textSurf, (180, 460))
 
     # The question
-    textSurf = text_objects('What is the correct code?', smallText)
+    textSurf = text_objects('What is the correct code?', small_text)
     game_screen.blit(textSurf, (340, 560))
 
 
@@ -168,9 +168,9 @@ def open_garden():
     # If the side entrace was opened display it
     if trap_open:
         game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X,SPEECH_BUBBLE_Y))
-        textSurf = text_objects("That was correct! But why are there so many holes in the fence?", smallText)   
+        textSurf = text_objects("That was correct! But why are there so many holes in the fence?", small_text)   
         game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50 ,SPEECH_BUBBLE_Y + 65))
-        textSurf = text_objects('Maybe I should remeber them....', smallText)    
+        textSurf = text_objects('Maybe I should remeber them....', small_text)    
         game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50 ,SPEECH_BUBBLE_Y + 85))
         
     else:

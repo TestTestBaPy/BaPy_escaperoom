@@ -21,9 +21,9 @@ def open_bathroom():
     game_screen.blit(pygame.image.load(os.path.join("Images", "bathroom.png")).convert(), (0, 0))
 
     # Display monologue
-    textSurf = text_objects('Oh, my old bathroom. Even Henry and Odette, the rubber ducks are here.', smallText)
+    textSurf = text_objects('Oh, my old bathroom. Even Henry and Odette, the rubber ducks are here.', small_text)
     game_screen.blit(textSurf, (190, 510))
-    textSurf = text_objects('Hmph, it seems Emma is not here.', smallText)
+    textSurf = text_objects('Hmph, it seems Emma is not here.', small_text)
     game_screen.blit(textSurf, (190, 530))
     
     pygame.display.update()
@@ -78,10 +78,10 @@ def open_backroom():
     # If the BLACKboard is not open, the code was not (yet) entered correctly
     if not display_open:
         game_screen.blit(pygame.image.load(os.path.join("Images", "board.png")).convert(), (313, 44))
-        textSurf = text_objects('Please enter the right code: ', smallText)    
+        textSurf = text_objects('Please enter the right code: ', small_text)    
         game_screen.blit(textSurf, (370, 90))
      
-        textSurf = text_objects('(Press enter, when done)', smallText)    
+        textSurf = text_objects('(Press enter, when done)', small_text)    
         game_screen.blit(textSurf, (380, 110))
 
         input_rect = pygame.Rect(450, 130, 100, 30)
@@ -92,9 +92,9 @@ def open_backroom():
     # If the correct code was entered...
     else:
         game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X, SPEECH_BUBBLE_Y))
-        textSurf = text_objects("That was correct! I think I'm going crazy, I see numbers everywhere.", smallText)    
+        textSurf = text_objects("That was correct! I think I'm going crazy, I see numbers everywhere.", small_text)    
         game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 65))
-        textSurf = text_objects('Maybe I should remeber them....', smallText)    
+        textSurf = text_objects('Maybe I should remeber them....', small_text)    
         game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 85))
 
     if not tuch_pushed:

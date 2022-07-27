@@ -67,10 +67,10 @@ def open_scipy_plot():
 
     y = 250
     x = 600
-    textSurf = text_objects("Highscore Table", smallText)
+    textSurf = text_objects("Highscore Table", small_text)
     game_screen.blit(textSurf, (x + 60, y))
     y += 20
-    textSurf = text_objects("NAME    CLICKS      TIME", smallText)
+    textSurf = text_objects("NAME    CLICKS      TIME", small_text)
     game_screen.blit(textSurf, (x + 30, y))
     
 
@@ -79,18 +79,18 @@ def open_scipy_plot():
         x = 640
         for i in range(3):
 
-            textSurf = text_objects(str(row[i]).replace("nan", "-"), smallText)
+            textSurf = text_objects(str(row[i]).replace("nan", "-"), small_text)
             game_screen.blit(textSurf, (x, y))
             x += 100
         
     
     # display infos for the user 
-    textSurf = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' minutes!', smallText)
+    textSurf = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' minutes!', small_text)
     game_screen.blit(textSurf, (570,100))
-    textSurf = text_objects('Great job,' + str(get_input_text()) + ', your grade is ' + str(calculate_grade(current_result[1])), smallText)
+    textSurf = text_objects('Great job,' + str(get_input_text()) + ', your grade is ' + str(calculate_grade(current_result[1])), small_text)
     game_screen.blit(textSurf, (570,130))
 
-    textSurf = text_objects('The orange dot is you!', smallText)
+    textSurf = text_objects('The orange dot is you!', small_text)
 
     game_screen.blit(textSurf, (600,520))
 

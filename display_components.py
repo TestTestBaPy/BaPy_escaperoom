@@ -3,8 +3,8 @@ import pygame, os, time
 pygame.init()
 
 # Needed componets
-smallText = pygame.font.Font("pokemon.ttf", 20)
-bigText = pygame.font.Font("pokemon.ttf", 60)
+small_text = pygame.font.Font("pokemon.ttf", 20)
+big_text = pygame.font.Font("pokemon.ttf", 60)
 speech_bubble = pygame.image.load(os.path.join("Images", "speechbubble.png"))
 clock = pygame.time.Clock()
 
