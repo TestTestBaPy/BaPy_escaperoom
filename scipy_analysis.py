@@ -43,7 +43,7 @@ def open_scipy_plot():
 
     ax.plot(linear_regression(list(df["CLICKS"]), list(df[ "TIME"]))[0], linear_regression(list(df["CLICKS"]), list(df[ "TIME"]))[1])
 
-    # scatter the players result twice so he/she can see their score in comparison
+    # scatter the players result twice so they can see their score in comparison
     ax.scatter(current_result[1], current_result[2])
 
     canvas = agg.FigureCanvasAgg(fig)
@@ -58,7 +58,7 @@ def open_scipy_plot():
     textSurf, textRect = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' in time!', smallText)
     textRect.bottomleft = ((570,100))
     game_screen.blit(textSurf, textRect)
-
+    #Ahhh
     textSurf, textRect = text_objects('Great job,' + str(get_input_text()) + ', your grade is ' + str(calculate_grade(current_result[1])), smallText)
     textRect.bottomleft = ((570,130))
     game_screen.blit(textSurf, textRect)

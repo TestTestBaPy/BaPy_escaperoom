@@ -23,10 +23,10 @@ def open_bathroom():
 
     # display monologue
     textSurf, textRect = text_objects('Oh, my old bathroom. Even Henry and Odette, the rubber ducks are here.', smallText)
-    textRect.bottomleft = ( (190, 510) )
+    textRect.bottomleft = ((190, 510))
     game_screen.blit(textSurf, textRect)
     textSurf, textRect = text_objects('Hmph, it seems Emma is not here.', smallText)
-    textRect.bottomleft = ( (190, 530) )
+    textRect.bottomleft = ((190, 530))
     game_screen.blit(textSurf, textRect)
 
     pygame.display.update()
@@ -34,7 +34,7 @@ def open_bathroom():
 
 def crack_wall(x, y):
     """Cracks the wall at the given coordinates i.e. displays a crack on the wall
-       Args:
+        Args:
             x the x coordinate (from 0 to 2)
             y the y coordinate (from 0 to 3)
         Returns:
@@ -45,6 +45,7 @@ def crack_wall(x, y):
     
     # each crack is crack_side_len(45) * crack_side_len(45) pixels big, 
     # so regarding of the coordinates decide where to place it
+    #Ahhh
     for i in range(3):
         for j in range(4):
             if x + 45 > 451 + ((i + 1) * crack_side_len) > x and y + 45 > 183 + ((j + 1) * crack_side_len) > y:
@@ -113,9 +114,9 @@ def open_backroom():
  
 def input_correct(go):
     """Handle and check the input from the user on the text field (input rect)
-       Args:
+        Args:
             go if true, the field is active, else it is inactive and only display (if given) prior input
-       Returns:
+        Returns:
             True, if input was coorect/wanted. Else or when go was set to False, False.
     """
     if not go:
@@ -170,6 +171,7 @@ def push_tuch():
         pygame.mixer.Sound.play(cloth_sound)    
         # pygame.mixer.Sound.set_volume(woosh, 0.1)
         # pygame.mixer.Sound.play(woosh)
+        #Ahhh
         tuch_pushed = True
         open_backroom()
 
