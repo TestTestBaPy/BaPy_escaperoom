@@ -12,13 +12,14 @@ from game_timer import *
 # initialze pygame first
 pygame.init()
 
-# First of all we want some nice backgroundmusic, therefore we load some mp3, we want that the music repeats the whole time, so we set -1 and we set our volume to 0.1
+# First of all we want some nice backgroundmusic, therefore we load some mp3, 
+# we want that the music repeats the whole time, so we set -1 and we set our volume to 0.1
 pygame.mixer.music.load('Sounds/columbianische machenschaften.mp3')
 pygame.mixer.music.play(-1,0.0)
 pygame.mixer.music.set_volume(.1)
 
 
-def button(msg, x, y, w, h, ic, ac):
+def button(msg, x, y, w, h):
     """This universal function simulates a button so if the click is in the given coordinates and width/height 
         of the 'button' the respective function will be called.
         Args:
@@ -146,8 +147,6 @@ def button(msg, x, y, w, h, ic, ac):
 
         # if clicked on the numberfield save your input
         elif "NUMBERS" in msg and current_room == "TCHP":
-            pygame.mixer.Sound.set_volume(piep, 0.1)
-            pygame.mixer.Sound.play(piep)
             save_num(mouse)
         
         # if clicked on book display it
@@ -237,77 +236,77 @@ while True:
             
             # at the startscreen you can elect between 'START' and 'STORY'
             if current_room == "STRT":
-                button("START", 80, 235, 220, 100, 0, 0)
-                button("STORY", 325, 235, 120, 100, 0, 0)
+                button("START", 80, 235, 220, 100)
+                button("STORY", 325, 235, 120, 100)
 
             # elect between three doors (each has an own story)
             elif current_room == "DOOR":
-                button("DOOR 1", 253, 129, door_width, door_height, 0, 0)
-                button("DOOR 2", 418, 129, door_width, door_height, 0, 0)
-                button("DOOR 3", 582, 129, door_width, door_height, 0, 0)
+                button("DOOR 1", 253, 129, door_width, door_height)
+                button("DOOR 2", 418, 129, door_width, door_height)
+                button("DOOR 3", 582, 129, door_width, door_height)
 
             # bathroom task buttons
             elif current_room == "BATH":
-                button("CRACK", 10, 10, 1000, 1000, 0, 0)
+                button("CRACK", 10, 10, 1000, 1000)
 
             # bathroom task solved
             elif current_room == "BATHEND":
                 pygame.mixer.Sound.play(footsteps)
-                button("DOOR", 447, 177, 100, 150, 0, 0)
+                button("DOOR", 447, 177, 100, 150)
 
             # in the backroom you can click on multiple interactive objects
             elif current_room == "BACK":   
-                button("VASE", 809, 120, 90, 80, 0, 0) 
-                button("KLAPPE", 338, 425, 300, 100, 0, 0)
-                button("TUCH", 58, 168, 100, 220, 0, 0)
-                button("DISPLAY", 450, 130, 100, 30, 0, 0)
+                button("VASE", 809, 120, 90, 80) 
+                button("KLAPPE", 338, 425, 300, 100)
+                button("TUCH", 58, 168, 100, 220)
+                button("DISPLAY", 450, 130, 100, 30)
 
             # backroom task solved
             elif current_room == "BACKEND":
-                button("DISPLAYDOOR", 313, 44, (124 * 3), (84 * 3), 0, 0)
+                button("DISPLAYDOOR", 313, 44, (124 * 3), (84 * 3))
             
             # on the touchpad you can click on "CHECK" "ABORT" or the number-field
             elif current_room == "TCHP":
                 time.sleep(0.3)
-                button('CHECK', 350, 500, 150, 100, 0, 0)
-                button('ABORT', 550, 500, 150, 100, 0, 0)
-                button('NUMBERS', 365, 50, 300, 400, 0, 0)
+                button('CHECK', 350, 500, 150, 100)
+                button('ABORT', 550, 500, 150, 100)
+                button('NUMBERS', 365, 50, 300, 400)
 
             # in the tresor room you can click on the "TOUCHPAD" or the "TRESOR" (if you typed in the right code)
             elif current_room == "TRES":
-                button("TOUCHPAD", 600, 300, 80, 80, 0, 0)
+                button("TOUCHPAD", 600, 300, 80, 80)
                 if check_for_code():
-                    button("TRESOR", 300, 185, 260, 260, 0, 0)
+                    button("TRESOR", 300, 185, 260, 260)
 
             # in the rooms "CALL", "STRY" as well as "BOOK" you can only click on "EXIT"
             elif current_room == "CALL" or current_room == "STRY" or current_room == "BOOK" or current_room == "TRAS":
-                button("EXIT", 680, 470, 220, 100, 0, 0)
+                button("EXIT", 680, 470, 220, 100)
 
             # in the childsroom you can click on the book and the tafel (and if solved on the door)
             elif current_room == "CHLD":
-                button("TRASH", 600, 330, 50, 70, 0, 0)
-                button("BOOK", 590, 250, 60, 40, 0, 0)
-                button("TAFEL", 385, 100, 200, 85, 0, 0)
+                button("TRASH", 600, 330, 50, 70)
+                button("BOOK", 590, 250, 60, 40)
+                button("TAFEL", 385, 100, 200, 85)
 
                 if get_solved_door2():
-                    button("DOOR", 440, 270, 100, 100, 0,0 )
+                    button("DOOR", 440, 270, 100, 100)
             
             # in the garden you can click on the birdshouse and the door
             elif current_room == "GARD":
-                button("BIRD", 700, 190, 100, 100, 0, 0)
-                button("DOOR", 40, 360, 150, 80, 0, 0)
+                button("BIRD", 700, 190, 100, 100)
+                button("DOOR", 40, 360, 150, 80)
             
             # in the birdshouse you can click on the nest, key or exit button
             elif current_room == "BIRD":
-                button("KEY", 380, 360, 100, 100, 0, 0)
-                button("NEST", 320, 260, 370, 200, 0, 0) 
-                button("EXIT", 680, 470, 220, 100, 0, 0)
+                button("KEY", 380, 360, 100, 100)
+                button("NEST", 320, 260, 370, 200) 
+                button("EXIT", 680, 470, 220, 100)
 
             # in the final room you can click a link, the scipy button or the name field
             elif current_room == "FNAL":
-                button("SCIPY", 680, 470, 220, 100, 0, 0)
-                button("NAME", 400, 400, 200, 30, 0, 0)
-                button("URL", 300, 270, 375, 20, 0, 0)
+                button("SCIPY", 680, 470, 220, 100)
+                button("NAME", 400, 400, 200, 30)
+                button("URL", 300, 270, 375, 20)
                 
             # only for testing purposes
             mouse_pos = pygame.mouse.get_pos()

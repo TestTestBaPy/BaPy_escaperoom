@@ -15,6 +15,10 @@ input_rect = None
 def open_bathroom():
     """Opens i.e. displays the bathroom
     """
+
+    pygame.mixer.Sound.set_volume(popping, 0.7)
+    pygame.mixer.Sound.play(popping)
+
     # set the current room
     set_current_room("BATH")
 
@@ -22,13 +26,14 @@ def open_bathroom():
     game_screen.blit(pygame.image.load(os.path.join("Images", "bathroom.png")).convert(), (0, 0))
 
     # display monologue
+
     textSurf, textRect = text_objects('Oh, my old bathroom. Even Henry and Odette, the rubber ducks are here.', smallText)
     textRect.bottomleft = ((190, 510))
     game_screen.blit(textSurf, textRect)
     textSurf, textRect = text_objects('Hmph, it seems Emma is not here.', smallText)
     textRect.bottomleft = ((190, 530))
     game_screen.blit(textSurf, textRect)
-
+    
     pygame.display.update()
 
 

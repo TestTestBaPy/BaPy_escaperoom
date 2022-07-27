@@ -19,6 +19,4 @@ Alle:
 Jasmin:
     -[button geräusch] (erstmal finden)   NICHT angegeben
        
-Geräusche:
-    -animal crossing geräusch wenn er redeNICHT angegeben
   

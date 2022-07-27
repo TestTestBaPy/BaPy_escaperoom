@@ -189,6 +189,9 @@ def open_garden():
 
     # if the klappe was opened display it
     if klappe_open:
+
+        pygame.mixer.Sound.set_volume(popping, 0.7)
+        pygame.mixer.Sound.play(popping)
         game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
         textSurf, textRect = text_objects("That was correct! But why are there so many holes in the fence?", smallText)    
         textRect.bottomleft = ((speech_bubble_x + 50 ,speech_bubble_y + 65))
@@ -196,6 +199,7 @@ def open_garden():
         textSurf, textRect = text_objects('Maybe I should remeber them....', smallText)    
         textRect.bottomleft = ((speech_bubble_x + 50 ,speech_bubble_y + 85))
         game_screen.blit(textSurf, textRect)
+        
     else:
         game_screen.blit(pygame.image.load(os.path.join("Images", "garden_klappe.png")).convert_alpha(), (0, 0))   
     

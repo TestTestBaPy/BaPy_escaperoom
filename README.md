@@ -155,6 +155,11 @@ Surprise!
 
 THE STORY 
 ---------------------
+Our protagonist is a drug addict that comes from his parents funeral when he experiences withdrawal symptoms. Halucinating, he is set on finding Emma. But who or what is Emma? His Sister or something else entirely?
+In his search he is headed to his childhood home he hasn´t visited for years. On his way through the different roomes .....
+In the ending of the first room the safe contains a tombstone with The name Emma on it. Realizing it was a haluzination and that he imagended having a sister that died he calls his dealeer Escopub to get a new dose to forget everything.
+In the ending of the secound room the safe contains a bag of ecstasy pills. Seeing them he ralizes he does not want to go through the cicle of withdrawwls and hights again. He gets rid of the bag and calls Escopub for a fnal goodbye.
+
 SOURCES
 ---------------------
 Soundeffekte: https://heidruns-musikerseiten.de/downloads/wav-download
