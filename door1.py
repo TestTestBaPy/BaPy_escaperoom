@@ -21,12 +21,10 @@ def open_bathroom():
     game_screen.blit(pygame.image.load(os.path.join("Images", "bathroom.png")).convert(), (0, 0))
 
     # Display monologue
-    textSurf, textRect = text_objects('Oh, my old bathroom. Even Henry and Odette, the rubber ducks are here.', smallText)
-    textRect.bottomleft = ((190, 510))
-    game_screen.blit(textSurf, textRect)
-    textSurf, textRect = text_objects('Hmph, it seems Emma is not here.', smallText)
-    textRect.bottomleft = ((190, 530))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('Oh, my old bathroom. Even Henry and Odette, the rubber ducks are here.', smallText)
+    game_screen.blit(textSurf, (190, 510))
+    textSurf = text_objects('Hmph, it seems Emma is not here.', smallText)
+    game_screen.blit(textSurf, (190, 530))
     
     pygame.display.update()
 
@@ -80,13 +78,11 @@ def open_backroom():
     # If the Blackboard is not open, the code was not (yet) entered correctly
     if not display_open:
         game_screen.blit(pygame.image.load(os.path.join("Images", "board.png")).convert(), (313, 44))
-        textSurf, textRect = text_objects('Please enter the right code: ', smallText)    
-        textRect.bottomleft = ((370, 90))
-        game_screen.blit(textSurf, textRect)
+        textSurf = text_objects('Please enter the right code: ', smallText)    
+        game_screen.blit(textSurf, (370, 90))
      
-        textSurf, textRect = text_objects('(Press enter, when done)', smallText)    
-        textRect.bottomleft = ((380, 110))
-        game_screen.blit(textSurf, textRect)
+        textSurf = text_objects('(Press enter, when done)', smallText)    
+        game_screen.blit(textSurf, (380, 110))
 
         input_rect = pygame.Rect(450, 130, 100, 30)
         pygame.draw.rect(game_screen, (170, 170, 170), input_rect)
@@ -96,12 +92,10 @@ def open_backroom():
     # If the correct code was entered...
     else:
         game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X, SPEECH_BUBBLE_Y))
-        textSurf, textRect = text_objects("That was correct! I think I'm going crazy, I see numbers everywhere.", smallText)    
-        textRect.bottomleft = ((SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 65))
-        game_screen.blit(textSurf, textRect)
-        textSurf, textRect = text_objects('Maybe I should remeber them....', smallText)    
-        textRect.bottomleft = ((SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 85))
-        game_screen.blit(textSurf, textRect)
+        textSurf = text_objects("That was correct! I think I'm going crazy, I see numbers everywhere.", smallText)    
+        game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 65))
+        textSurf = text_objects('Maybe I should remeber them....', smallText)    
+        game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 85))
 
     if not cloth_pushed:
         game_screen.blit(pygame.image.load(os.path.join("Images", "tuch.png")).convert_alpha(), (0, 0))

@@ -22,15 +22,12 @@ def open_startscreen(simulate_push = False):
     # Display game instructions
     input_rect = pygame.Rect(600, 450, 300, 100)
     pygame.draw.rect(game_screen, (235, 235, 235), input_rect)
-    textSurf, textRect = text_objects("How to play?", smallText)
-    textRect.bottomleft = ((600 + 5, 450 + 25))
-    game_screen.blit(textSurf, textRect)  
-    textSurf, textRect = text_objects("Click on 'START' to start the game.", smallText)
-    textRect.bottomleft = ((600 + 5, 450 + 55))
-    game_screen.blit(textSurf, textRect)
-    textSurf, textRect = text_objects("and on 'STORY' to get background.", smallText)
-    textRect.bottomleft = ((600 + 5, 450 + 85))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects("How to play?", smallText)
+    game_screen.blit(textSurf, (600 + 5, 450 + 25))  
+    textSurf = text_objects("Click on 'START' to start the game.", smallText)
+    game_screen.blit(textSurf, (600 + 5, 450 + 55))
+    textSurf = text_objects("and on 'STORY' to get background.", smallText)
+    game_screen.blit(textSurf, (600 + 5, 450 + 85))
 
 
 def open_3doors(simulate_push = True):
@@ -54,12 +51,10 @@ def open_3doors(simulate_push = True):
 
     # Load speechbubble with text
     game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X,SPEECH_BUBBLE_Y))
-    textSurf, textRect = text_objects('Where is my Emma? I need to find her. How dare she leave me alone!', smallText)
-    textRect.bottomleft = ((200, 510))
-    game_screen.blit(textSurf, textRect)
-    textSurf, textRect = text_objects("My parents' house is so big, where should I start?", smallText)
-    textRect.bottomleft = ((200, 530))
-    game_screen.blit(textSurf, textRect)
+    textSurf = text_objects('Where is my Emma? I need to find her. How dare she leave me alone!', smallText)
+    game_screen.blit(textSurf, (200, 510))
+    textSurf = text_objects("My parents' house is so big, where should I start?", smallText)
+    game_screen.blit(textSurf, (200, 530))
 
 
 def open_story():

@@ -11,18 +11,12 @@ clock = pygame.time.Clock()
 # Needed for scipy
 click_counter = 0
 
-# All escape-rooms
-rooms = ['STRT', 'STRY', 'DOOR', 'BATH', 'CHLD', 'BACK', 'GARd', 'TRES', 'TRAS', 'BOOK', 'BIRD', 'NAN']
+# the current room is saved here
 current_room = 'STRT'
 
 # Set width and height (original images are 325x200)
 DISPLAY_WIDTH = 325 * 3
 DISPLAY_HEIGHT = 200 * 3
-
-# Door postions for startscreen (top left corner)
-door_1 = [(253, 129)]
-door_2 = [(418, 129)]
-door_3 = [(582, 129)]
 
 DOOR_WIDTH = 150
 DOOR_HEIGHT = 220
@@ -60,7 +54,7 @@ popping = pygame.mixer.Sound('Sounds/popping.mp3')
  
 def text_objects(text, font):
     textSurface = font.render(text, True, BLACK)
-    return textSurface, textSurface.get_rect()
+    return textSurface
 
 
 def display_loading_screen():
