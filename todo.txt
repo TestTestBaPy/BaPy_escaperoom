@@ -1,18 +1,23 @@
 Jasmin:
--Readability: Comments, Naming Conventions etc. + Docstrings (PEP 257)
-
-
+    -Readability: Comments, Naming Conventions etc. + Docstrings (PEP 257)
+    -[button geräusch] (erstmal finden)   NICHT angegeben
+    - readme: sensibler umgang
+    
+       
 Jenny:
     - scipy schön machen plus ergänzen 
     - buttonfunktion besser machen 
+    - text von csv lesen
+    - leaderborad
+    - journey: klick problem
 
 Lara:
-    - Story für readme ausformulieren
-    ->jo die enden sind so, weil er hat entzug von emma nh
-    - video (mit obs studio)
-    - Codem leerziechen leerpaces zeilen länge
+    - Video erstellen
+    - programmin journey
+    - reusable function beschreiben (readme)
+
+Alle:
+    - 10 datenpunkte erstellen
     
-Jasmin:
-    -[button geräusch] (erstmal finden)   NICHT angegeben
-       
+
   
