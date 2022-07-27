@@ -147,8 +147,6 @@ def button(msg, x, y, w, h):
 
         # if clicked on the numberfield save your input
         elif "NUMBERS" in msg and current_room == "TCHP":
-            pygame.mixer.Sound.set_volume(piep, 0.1)
-            pygame.mixer.Sound.play(piep)
             save_num(mouse)
         
         # if clicked on book display it
@@ -198,7 +196,7 @@ def button(msg, x, y, w, h):
            
 Screen = 0  
 # set up the game (here you can decide in which room you want to start) default shouold be open_startscreen()
-#open_startscreen()
+open_startscreen()
 #open_3doors()
 #open_bathroom()
 #open_backroom()
@@ -208,7 +206,7 @@ Screen = 0
 
 #open_door_3()
 
-open_endroom()
+#open_endroom()
 #open_endscreen()
 #open_final_words()
 

@@ -77,6 +77,9 @@ def save_num(mouse):
     """
     global number_sequence
 
+    pygame.mixer.Sound.set_volume(piep, 0.1)
+    pygame.mixer.Sound.play(piep)
+
     if len(number_sequence) < 4:   
         x = mouse[0]
         y = mouse[1]
