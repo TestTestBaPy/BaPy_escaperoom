@@ -1,4 +1,4 @@
-import pygame, os, time, math, webbrowser
+import pygame, os, math, webbrowser
 from display_components import *
 from handle_userinput import handle_input
 
@@ -71,7 +71,7 @@ def open_safe():
 
 
 def save_num(mouse):
-    """Safes the inputted numbers to be able to check and display the entered code"""
+    """Safes the inputted numbers to be able to check and display the entered code """ # TODO: MOUSE ALS ARGGS!
     global number_sequence
     pygame.mixer.Sound.set_volume(piep, 0.1)
     pygame.mixer.Sound.play(piep)
@@ -175,8 +175,7 @@ def open_final_words():
 
 def user_name_input():
     """Handles input and makes sure that the username is no longer than 10 chars"""
-    if not handle_input(input_rect= input_rect, only_integer=False, max_chars = 10):
-       pass
+    handle_input(input_rect= input_rect, only_integer=False, max_chars = 10)
  
     
 def open_tab():
