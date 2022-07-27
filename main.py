@@ -165,6 +165,7 @@ def button(msg, x, y, w, h):
         elif "TRASH" in msg:
             open_flyer()
 
+        # if you are in the trashcan you can only go back
         elif current_room == "TRAS":
             push_exit()
             open_childsroom()
