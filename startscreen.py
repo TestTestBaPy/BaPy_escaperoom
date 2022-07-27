@@ -1,7 +1,6 @@
 import pygame, os
 from display_components import *
 
-rustle = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
 pygame.mixer.Sound.set_volume(rustle, 0.3)
 rustle.play()
 
