@@ -1,3 +1,7 @@
+"""Executable file that contains the main loop in order to keep the game running. 
+Manages the interactivity with mouse click and checks if a valid button was clicked
+and forwards onto the respective functions.
+"""
 import pygame, sys, time
 from threading import Thread
 from door1 import *
@@ -23,16 +27,11 @@ def button(msg, x, y, w, h):
     """This universal function simulates a button so if the click is in the given coordinates and width/height 
        of the 'button' the respective function will be called.
     Args:
-      msg:
-        Short description of the button-field to check (helps to decide how to handle)
-      x:
-        The x-coordinate of the upper right corner of the button field
-      y: 
-        The y-coordinate of the upper right corner of the button field
-      w:
-        The width of the button 
-      h:
-        The height of the button
+      msg: short description of the button-field to check (helps to decide how to handle)
+      x: the x-coordinate of the upper right corner of the button field
+      y: the y-coordinate of the upper right corner of the button field
+      w: the width of the button 
+      h: the height of the button
     """ 
     global current_room
 
@@ -43,7 +42,6 @@ def button(msg, x, y, w, h):
     if x + w > mouse[0] > x and y + h > mouse[1] > y:
 
         current_room = get_current_room()
-        print("CURRENT ROOM IS " + current_room + " \n---------------------------------" +msg + " IS CLICKED ON----------------------------------------")
 
         # In the room "CALL" there is only one button, so no need to check for msg
         if current_room == "CALL":
@@ -58,7 +56,6 @@ def button(msg, x, y, w, h):
                 
         # If clicked on the url open it
         elif "URL" in msg:
-            print("OPEN WEBBROWSER")
             open_tab()     
 
         # If you want to see scipy-results save the data and open it
@@ -90,8 +87,8 @@ def button(msg, x, y, w, h):
             
             if current_room == 'DOOR':
                 #display_loading_screen()       
-                pygame.mixer.Sound.set_volume(opens, 0.1)
-                pygame.mixer.Sound.play(opens)
+                pygame.mixer.Sound.set_volume(OPENS, 0.1)
+                pygame.mixer.Sound.play(OPENS)
                 if "1" in msg:
                     open_bathroom()
                 elif "2" in msg:
@@ -126,11 +123,11 @@ def button(msg, x, y, w, h):
 
         # If clicked on trapdoor it will open (if you found the key already)
         elif "KLAPPE" in msg:
-            open_klappe()
+            open_trap()
         
         # If clicked on cloth it will be pushed
         elif "TUCH" in msg:
-            push_tuch()
+            push_cloth()
 
         # If click on the safe (after putting in the right code) open the endscreen
         elif "TRESOR" in msg:
@@ -151,15 +148,15 @@ def button(msg, x, y, w, h):
 
         # If clicked on the numberfield, save input
         elif "NUMBERS" in msg and current_room == "TCHP":
-            pygame.mixer.Sound.set_volume(piep, 0.1)
-            pygame.mixer.Sound.play(piep)
+            pygame.mixer.Sound.set_volume(PIEP, 0.1)
+            pygame.mixer.Sound.play(PIEP)
             save_num(mouse)
         
         # If clicked on book, display it
         elif "BOOK" in msg:
             open_book()
 
-        # If clicked on exit in the birdshouse, open the garden
+        # If clicked on exit in the birdhouse, open the garden
         elif "EXIT" in msg and current_room == "BIRD":
             push_exit()
             open_garden()
@@ -177,9 +174,9 @@ def button(msg, x, y, w, h):
             push_exit()
             open_childsroom()
  
-        # If clicked on, open the birdshouse
+        # If clicked on, open the birdhouse
         elif "BIRD" in msg:
-            open_birdshouse()
+            open_birdhouse()
 
         # If clicked on the key collect it
         elif "KEY" in msg:
@@ -198,7 +195,6 @@ def button(msg, x, y, w, h):
            
 # Set up, the game (here you can decide in which room you want to start) default should be open_startscreen()
 open_startscreen()
-# open_final_words()
 
 frame_count = 0
 frame_rate = 60
@@ -240,7 +236,7 @@ while True:
 
             # Bathroom task solved
             elif current_room == "BATHEND":
-                pygame.mixer.Sound.play(footsteps)
+                pygame.mixer.Sound.play(FOOTSTEPS)
                 button("DOOR", 447, 177, 100, 150)
 
             # In the backroom you can click on multiple interactive objects
@@ -276,15 +272,15 @@ while True:
                 button("BOOK", 590, 250, 60, 40)
                 button("TAFEL", 385, 100, 200, 85)
 
-                if get_solved_door2():
+                if get_chld_solved():
                     button("DOOR", 440, 270, 100, 100)
             
-            # In the garden you can click on the birdshouse and the door
+            # In the garden you can click on the birdhouse and the door
             elif current_room == "GARD":
                 button("BIRD", 700, 190, 100, 100)
                 button("DOOR", 40, 360, 150, 80)
             
-            # In the birdshouse you can click on the nest, key or exit button
+            # In the birdhouse you can click on the nest, key or exit button
             elif current_room == "BIRD":
                 button("KEY", 380, 360, 100, 100)
                 button("NEST", 320, 260, 370, 200) 
@@ -295,10 +291,6 @@ while True:
                 button("SCIPY", 680, 470, 220, 100)
                 button("NAME", 400, 400, 200, 30)
                 button("URL", 300, 270, 375, 20)
-                
-            # Only for testing purposes
-            mouse_pos = pygame.mouse.get_pos()
-            print(mouse_pos)
 
     pygame.display.update()
     clock.tick(60)

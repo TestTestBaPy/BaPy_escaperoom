@@ -1,3 +1,4 @@
+"""This file manages status variables (e.g. current room) and offers constants and functions for the majority of the other files"""
 import pygame, os, time
 
 pygame.init()
@@ -11,7 +12,7 @@ clock = pygame.time.Clock()
 # Needed for scipy
 click_counter = 0
 
-# the current room is saved here
+# The current room is saved here
 current_room = 'STRT'
 
 # Set width and height (original images are 325x200)
@@ -33,32 +34,38 @@ game_screen = pygame.display.set_mode([DISPLAY_WIDTH, DISPLAY_HEIGHT])
 pygame.display.set_caption('Where is my Emma?')
 
 # Sounds
-woosh = pygame.mixer.Sound('Sounds/spruh.mp3')
-piep = pygame.mixer.Sound('Sounds/Piep.mp3')
-swoosh = pygame.mixer.Sound('Sounds/tresor.mp3')
-collect = pygame.mixer.Sound('Sounds/collect.mp3')
-opens = pygame.mixer.Sound('Sounds/Tuerknarren.wav')
-kling = pygame.mixer.Sound('Sounds/Bier.mp3')
-clicking = pygame.mixer.Sound('Sounds/klappe.mp3')
-footsteps = pygame.mixer.Sound('Sounds/Running.wav') 
-correct = pygame.mixer.Sound('Sounds/correct-6033.wav')
-cloth_sound = pygame.mixer.Sound('Sounds/Tuch-schieben.wav')
-rclick = pygame.mixer.Sound('Sounds/rclick.mp3')
-page = pygame.mixer.Sound('Sounds/page.mp3')
-rustle = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
-button_pushed = pygame.mixer.Sound('Sounds/Button.mp3')
-bird = pygame.mixer.Sound('Sounds/bird.mp3')
-nest = pygame.mixer.Sound('Sounds/nest.mp3')
-popping = pygame.mixer.Sound('Sounds/popping.mp3')
+PIEP = pygame.mixer.Sound('Sounds/piep.mp3')
+SWOOSH = pygame.mixer.Sound('Sounds/tresor.mp3')
+COLLECT = pygame.mixer.Sound('Sounds/collect.mp3')
+OPENS = pygame.mixer.Sound('Sounds/Tuerknarren.wav')
+KLING = pygame.mixer.Sound('Sounds/Bier.mp3')
+CLICKING = pygame.mixer.Sound('Sounds/klappe.mp3')
+FOOTSTEPS = pygame.mixer.Sound('Sounds/Running.wav') 
+CORRECT = pygame.mixer.Sound('Sounds/correct-6033.wav')
+CLOTH_SOUND = pygame.mixer.Sound('Sounds/Tuch-schieben.wav')
+RCLICK = pygame.mixer.Sound('Sounds/rclick.mp3')
+PAGE = pygame.mixer.Sound('Sounds/page.mp3')
+RUSTLE = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
+BUTTON_PUSHED = pygame.mixer.Sound('Sounds/Button.mp3')
+BIRD = pygame.mixer.Sound('Sounds/bird.mp3')
+NEST = pygame.mixer.Sound('Sounds/nest.mp3')
+POPPING = pygame.mixer.Sound('Sounds/popping.mp3')
 
  
 def text_objects(text, font):
+    """Creates a tailored textsurface.
+    Args:
+      text: the Text that should be displayed
+      font: the font in which the text should be displayed 
+    Returns:
+      A textsurface that contains the given text in the given font
+    """
     textSurface = font.render(text, True, BLACK)
     return textSurface
 
 
 def display_loading_screen():
-    """Load the frames with rate 3 per second to the backgorund """
+    """Load the frames with rate 3 per second to the backgorund"""
     for i in range(3):
         for j in range(7):
             background = pygame.image.load(os.path.join("Images/load", "l" + str(j + 1) + ".jpg")).convert()
@@ -67,30 +74,33 @@ def display_loading_screen():
             clock.tick(3)
 
 
-# Push exit button
 def push_exit():
-    pygame.mixer.Sound.play(button_pushed)
+    """Pushes the exit button"""
+    pygame.mixer.Sound.play(BUTTON_PUSHED)
     game_screen.blit(pygame.image.load(os.path.join("Images", "pushed_exit.png")).convert_alpha(), (0, 0))
     time.sleep(0.3)
 
 
-# Get the current room by looking at the global situation
 def set_current_room(room):
+    """Sets the current room by looking at the global situation
+    Args:
+      room: string of the shortform of the room that is entered  
+    """
     global current_room
     current_room = room
 
 
-# Return the current room
 def get_current_room():
+    """Get current room"""
     return current_room
 
 
-# Counter increases by 1
 def click():
+    """Increases the counter by one"""
     global click_counter
     click_counter += 1
 
 
-# Returns the total number of clicks
 def get_clicks():
+    """Get amount of clicks"""
     return click_counter          

@@ -1,3 +1,4 @@
+"""This file manages the room behind the third door and displays it"""
 import pygame, os, time
 from display_components import *
 from startscreen import *

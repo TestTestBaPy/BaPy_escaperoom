@@ -1,3 +1,4 @@
+"""This file manages all the rooms behind the second door, their interactive functions, status variables and displays them"""
 import pygame, os
 from display_components import *
 
@@ -5,7 +6,7 @@ pointer_1 = 9
 pointer_2 = 9
 pointer_3 = 9
 
-solved_door2 = False
+solved_chld = False
 trap_open = False
 got_nest = False
 got_key = False
@@ -48,10 +49,10 @@ def display_pointer():
 
 def check_code():
     """Checks if the current blackboard numbers are correct"""
-    global solved_door2
+    global solved_chld
     
     if str(pointer_1 % 10) + str(pointer_2 % 10) + str(pointer_3 % 10) == '420':
-        solved_door2 = True
+        solved_chld = True
         game_screen.blit(pygame.image.load(os.path.join("Images", "wall.png")).convert_alpha(), (0, 0))
 
     pygame.display.update()
@@ -59,8 +60,8 @@ def check_code():
 
 def open_book():
     """Displays the inside of the book in the childsroom"""
-    pygame.mixer.Sound.set_volume(page, 0.1)
-    pygame.mixer.Sound.play(page)
+    pygame.mixer.Sound.set_volume(PAGE, 0.1)
+    pygame.mixer.Sound.play(PAGE)
 
     # Set the current room
     set_current_room("BOOK")
@@ -126,16 +127,15 @@ def open_book():
 def rotate_number(field):
     """Rotates the number on the blackboard
     Args:
-      field: 
-        After dividing the mouse-coordinate by 15 the resulting numbers (ranges)
+      field: after dividing the mouse-coordinate by 15 the resulting numbers (ranges)
         indicate which of the three squares was clicked. 
     """
     global pointer_1 
     global pointer_2 
     global pointer_3 
 
-    pygame.mixer.Sound.set_volume(rclick, 0.1)
-    pygame.mixer.Sound.play(rclick)
+    pygame.mixer.Sound.set_volume(RCLICK, 0.1)
+    pygame.mixer.Sound.play(RCLICK)
 
     # Increment the respective pointer and display the new code
     if field >= 26 and field <= 30:
@@ -152,6 +152,7 @@ def rotate_number(field):
 
 
 def open_flyer(): 
+    """Opens and displays the flyer"""
     # Set the current room
     set_current_room("TRAS")
     game_screen.blit(pygame.image.load(os.path.join("Images", "flyer.png")).convert(), (0, 0))
@@ -179,22 +180,23 @@ def open_garden():
     pygame.display.update()
 
 
-def get_solved_door2():
-    return solved_door2
+def get_chld_solved():
+    """Get if the childsroom is solved"""
+    return solved_chld
 
 
 # The following functions set the global status-variables to keep track of players actions and display them
-def open_birdshouse():
+def open_birdhouse():
     """Opens i.e. displays the birdhouse"""
-    pygame.mixer.Sound.set_volume(bird, 0.1)
-    pygame.mixer.Sound.play(bird)
+    pygame.mixer.Sound.set_volume(BIRD, 0.1)
+    pygame.mixer.Sound.play(BIRD)
     
     # Set the current room
     set_current_room("BIRD")
    
     # Check the variables an display what is needed
     if got_key:
-        game_screen.blit(pygame.image.load(os.path.join("Images", "birdshouse_collectedkey.png")).convert(), (0, 0))
+        game_screen.blit(pygame.image.load(os.path.join("Images", "birdshouse_COLLECTedkey.png")).convert(), (0, 0))
     elif got_nest:
         game_screen.blit(pygame.image.load(os.path.join("Images", "birdshouse.png")).convert(), (0, 0))
     else:
@@ -205,37 +207,42 @@ def open_birdshouse():
 # the following functions set the global status-variables to keep track of players actions and display them
 
 def get_key():
+    """Collect the key if possible and display it"""
     global got_key
     if not got_key and got_nest:
-        pygame.mixer.Sound.set_volume(collect, 0.1)
-        pygame.mixer.Sound.play(collect)
+        pygame.mixer.Sound.set_volume(COLLECT, 0.1)
+        pygame.mixer.Sound.play(COLLECT)
         got_key = True
-        open_birdshouse()
+        open_birdhouse()
 
 
 def remove_nest():
+    """Remove the nest if possible and display it"""
     global got_nest
     if not got_nest:
-        pygame.mixer.Sound.set_volume(nest, 0.5)
-        pygame.mixer.Sound.play(nest)
+        pygame.mixer.Sound.set_volume(NEST, 0.5)
+        pygame.mixer.Sound.play(NEST)
         got_nest = True
-        open_birdshouse()
+        open_birdhouse()
 
 
 def open_trap_garden():
+    """Open the trap if the key is collected and display it"""
     global trap_open
 
-    pygame.mixer.Sound.play(opens)
-    pygame.mixer.Sound.set_volume(popping, 0.7)
-    pygame.mixer.Sound.play(popping)
+    pygame.mixer.Sound.play(OPENS)
+    pygame.mixer.Sound.set_volume(POPPING, 0.7)
+    pygame.mixer.Sound.play(POPPING)
 
     trap_open = True
     open_garden()
 
 
 def get_trap_open():
+    """Get if the trap is open"""
     return trap_open
 
 
 def get_got_key():
+    """Get if you got the key"""
     return got_key

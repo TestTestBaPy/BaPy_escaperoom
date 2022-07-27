@@ -1,3 +1,4 @@
+"""Manages the safe and the correct displaying of the endroom"""
 import pygame, os, math, webbrowser
 from display_components import *
 from handle_userinput import handle_input
@@ -10,10 +11,8 @@ open = True
 def open_endroom(reset_code = False, open_safe = False):
     """Opens i.e. displays the endroom with the safe.
     Args:
-      reset_code:
-       Indicates if the current code should be resetted
-      open_safe:
-       Indicates if the safe was already open so it can be displayed correctly
+      reset_code: indicates if the current code should be resetted
+      open_safe: indicates if the safe was already open so it can be displayed correctly
     """
     # Set the current room
     set_current_room("TRES")
@@ -59,22 +58,25 @@ def zoom_touchpad():
 
 
 def check_for_code():
-    """Returns wheter one of the right codes was entered"""
+    """Get whether one of the right codes was entered"""
     return number_sequence == '1407' or number_sequence == '1532'
 
 
 def open_safe():
-    """Opens the safe with the open_endroom function"""
-    pygame.mixer.Sound.set_volume(swoosh, 0.2)
-    pygame.mixer.Sound.play(swoosh)
+    """Opens the safe"""
+    pygame.mixer.Sound.set_volume(SWOOSH, 0.2)
+    pygame.mixer.Sound.play(SWOOSH)
     open_endroom(open_safe = True)
 
 
 def save_num(mouse):
-    """Safes the inputted numbers to be able to check and display the entered code """ # TODO: MOUSE ALS ARGGS!
+    """Safes the inputted numbers to be able to check and display the entered code 
+    Args:
+      mouse: pygame.mouse (contains x and y-coordinates)
+    """
     global number_sequence
-    pygame.mixer.Sound.set_volume(piep, 0.1)
-    pygame.mixer.Sound.play(piep)
+    pygame.mixer.Sound.set_volume(PIEP, 0.1)
+    pygame.mixer.Sound.play(PIEP)
 
     if len(number_sequence) < 4:   
         x = mouse[0]
@@ -116,7 +118,7 @@ def save_num(mouse):
 def open_endscreen(clicked_on_exit = False):
     """Opens i.e. displays the endscreen
     Args:
-      clicked_on_exit if set to True simulates a button click on "EXIT"
+      clicked_on_exit: if set to True simulates a button click on "EXIT"
     """
     # Set the current room
     set_current_room("CALL")
@@ -149,7 +151,7 @@ def open_endscreen(clicked_on_exit = False):
 
 
 def open_final_words():
-    """Open i.e. display the final words"""
+    """Opens i.e. displays the final words"""
     global input_rect
 
     # Set the current room

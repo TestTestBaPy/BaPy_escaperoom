@@ -1,9 +1,10 @@
+"""This file manages all the rooms behind the first door, their interactive functions, status variables and displays them"""
 import pygame, os, numpy
 from display_components import *
 from handle_userinput import *
 
 crack_counter = numpy.zeros(12).reshape(4, 3)
-crack_side_len = 45
+CRACK_SIDE_LEN = 45
 
 cloth_pushed = False
 vase_cracked = False
@@ -32,24 +33,22 @@ def open_bathroom():
 def crack_wall(x, y):
     """Cracks the wall at the given coordinates i.e. displays a crack on the wall
     Args:
-      x:
-       The x coordinate (from 0 to 2)
-      y:
-       The y coordinate (from 0 to 3)
+      x: the x coordinate (from 0 to 2)
+      y: the y coordinate (from 0 to 3)
     Returns:
       True, if all tiles are cracked. Else False.
     """
     global crack_counter
     wall_crack = pygame.image.load(os.path.join("Images", "crack.png"))
     
-    # Each crack is of the size crack_side_len(45) * crack_side_len(45) pixels, 
+    # Each crack is of the size CRACK_SIDE_LEN(45) * CRACK_SIDE_LEN(45) pixels, 
     # so regarding of the coordinates decide where to place it
     for i in range(3):
         for j in range(4):
-            if x + 45 > 451 + ((i + 1) * crack_side_len) > x and y + 45 > 183 + ((j + 1) * crack_side_len) > y:
-                pygame.mixer.Sound.set_volume(kling, 0.1)
-                pygame.mixer.Sound.play(kling)
-                game_screen.blit(wall_crack, (451 + (i * crack_side_len), 183 + (j * crack_side_len)))
+            if x + 45 > 451 + ((i + 1) * CRACK_SIDE_LEN) > x and y + 45 > 183 + ((j + 1) * CRACK_SIDE_LEN) > y:
+                pygame.mixer.Sound.set_volume(KLING, 0.1)
+                pygame.mixer.Sound.play(KLING)
+                game_screen.blit(wall_crack, (451 + (i * CRACK_SIDE_LEN), 183 + (j * CRACK_SIDE_LEN)))
                 crack_counter[j][i] = 1
 
     if crack_counter.all() == 1:
@@ -62,8 +61,8 @@ def open_backroom():
     global input_rect
 
     if get_current_room() == "BATHEND":
-        pygame.mixer.Sound.set_volume(footsteps, 0.1)
-        pygame.mixer.Sound.play(footsteps)
+        pygame.mixer.Sound.set_volume(FOOTSTEPS, 0.1)
+        pygame.mixer.Sound.play(FOOTSTEPS)
        
     # Set the current room
     set_current_room("BACK")
@@ -107,9 +106,9 @@ def open_backroom():
 
  
 def input_correct(go):
-    """Handle and check the input from the user on the text field (input rect)
+    """Handles and checks the input from the user on the text field (input rect)
     Args:
-      If go is true, the field is active, else it is inactive and only display (if given) prior input
+      go: if go is true, the field is active, else it is inactive and only displays (if given) prior input
     Returns:
       True, if input was coorect/wanted. Else or when go was set to False, False.
     """
@@ -122,53 +121,58 @@ def input_correct(go):
 
 def display_solved():
     """If the display is solved, display it"""
-    pygame.mixer.Sound.set_volume(correct, 0.1)
-    pygame.mixer.Sound.play(correct)
+    pygame.mixer.Sound.set_volume(CORRECT, 0.1)
+    pygame.mixer.Sound.play(CORRECT)
                
     open_backroom()
     clock.tick(2)
     open_display()
 
 
-# Returns wheter the code was entered correctly
 def check_input():
+    """Get the information if the enetered code was correct"""
     return get_input_text() == '15'
+
 
 # The following functions sets the global status-variables to keep track of players actions and display them
 def crack_vase():
+    """Cracks the vase and displays it"""
     global vase_cracked
     if not vase_cracked:
-        pygame.mixer.Sound.set_volume(kling, 0.1)
-        pygame.mixer.Sound.play(kling)
+        pygame.mixer.Sound.set_volume(KLING, 0.1)
+        pygame.mixer.Sound.play(KLING)
         vase_cracked = True
         open_backroom()
 
 
-def open_klappe():
+def open_trap():
+    """Opens the trapdoor and displays it"""
     global trap_open
     global vase_cracked
     if vase_cracked:
         if not trap_open:
-            pygame.mixer.Sound.set_volume(clicking, 0.1)
-            pygame.mixer.Sound.play(clicking)
+            pygame.mixer.Sound.set_volume(CLICKING, 0.1)
+            pygame.mixer.Sound.play(CLICKING)
             trap_open = True
             open_backroom()
 
 
-def push_tuch():
+def push_cloth():
+    """Pushes the cloth and displays it"""
     global cloth_pushed
     if not cloth_pushed:
-        pygame.mixer.Sound.set_volume(cloth_sound, 1)
-        pygame.mixer.Sound.play(cloth_sound)    
+        pygame.mixer.Sound.set_volume(CLOTH_SOUND, 1)
+        pygame.mixer.Sound.play(CLOTH_SOUND)    
         cloth_pushed = True
         open_backroom()
 
 
 def open_display():
+    """Opens the display and displays it"""
     global display_open
 
-    pygame.mixer.Sound.set_volume(popping, 0.7)
-    pygame.mixer.Sound.play(popping)
+    pygame.mixer.Sound.set_volume(POPPING, 0.7)
+    pygame.mixer.Sound.play(POPPING)
 
     display_open = True
     open_backroom()

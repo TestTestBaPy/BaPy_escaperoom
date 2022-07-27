@@ -4,19 +4,16 @@ from display_components import *
 user_text = ''
 
 
-def handle_input(go = True, active = True, input_rect = None, max_chars = 10, only_integer = False):
+def handle_input(go = True, input_rect = None, max_chars = 10, only_integer = False):
     """This function takes an arbitrary pygame rectangle and uses it as an input textbox
     Args:
-      input_rect:
-        The pygame-rectangle to display the inputted text on
-      max_chars:
-        Limits the amount of chars to type in
-      only_integer:
-        If set to true, only integers are accepted
+      go: determines if the input should be handled or not 
+      input_rect: the pygame-rectangle to display the inputted text on
+      max_chars: limits the amount of chars to type in
+      only_integer: if set to true, only integers are accepted
     Returns: 
-      go: 
-        go is eighter set to false in the arguments or if the input needs to be checked.
-        Go is true if the textfield is deactivated. 
+      go. go is eighter set to false in the arguments or if the input needs to be checked.
+      go is true if the textfield is deactivated. 
     """
     global user_text
 
@@ -84,6 +81,7 @@ def handle_input(go = True, active = True, input_rect = None, max_chars = 10, on
 
 
 def display_num_sequence(input_rect):
+    """Displays the number sequence"""
     text_surface = small_text.render(user_text, True, WHITE) 
    
     # Render at position stated in arguments
@@ -94,9 +92,11 @@ def display_num_sequence(input_rect):
 
 
 def get_input_text():
+    """Get the user input"""
     return user_text
 
 
 def reset_text():
+    """Resets the user input"""
     global user_text
     user_text = ''

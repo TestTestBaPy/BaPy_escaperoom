@@ -1,17 +1,21 @@
+"""Manages the displaying of the starting screen and opens either the game or the story, if clicked on."""
 import pygame, os
 from display_components import *
 
-pygame.mixer.Sound.set_volume(rustle, 0.3)
-rustle.play()
+pygame.mixer.Sound.set_volume(RUSTLE, 0.3)
+RUSTLE.play()
 
 
 def open_startscreen(simulate_push = False):
-    """Opens i.e. displays the startscreen"""  
-    global rustle
+    """Opens i.e. displays the startscreen
+    Args:
+      simulate_push: if set to True simulate a push on the start button
+    """  
+    global RUSTLE
 
     set_current_room("STRT")
     if simulate_push:
-        pygame.mixer.Sound.play(button_pushed)
+        pygame.mixer.Sound.play(BUTTON_PUSHED)
         background = pygame.image.load(os.path.join("Images", "start_pushstart.png")).convert()
         game_screen.blit(background, (0, 0))
         pygame.display.update()
@@ -33,12 +37,11 @@ def open_startscreen(simulate_push = False):
 def open_3doors(simulate_push = True):
     """Opens i.e. the room with three doors to choose from
     Args: 
-      simulate_push:
-        If True simulates a push on the prior "START" button
+      simulate_push: if set to True simulate a push on the start button
     """
-    global rustle
+    global RUSTLE
 
-    rustle.stop()
+    RUSTLE.stop()
     # Simulate a click on the startbutton
     open_startscreen(simulate_push = simulate_push)
 
@@ -59,7 +62,7 @@ def open_3doors(simulate_push = True):
 
 def open_story():
     """Opens i.e. displays the background information on this game"""
-    pygame.mixer.Sound.play(button_pushed)
+    pygame.mixer.Sound.play(BUTTON_PUSHED)
     # Set the current room
     set_current_room("STRY")
     

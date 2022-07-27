@@ -1,3 +1,5 @@
+"""Manages the displaying of the results, in form of a plot, highscore table and grade.
+It also safes, sorts and cleans the userdata """
 import pygame, pylab, csv, pandas, matplotlib
 import matplotlib.backends.backend_agg as agg
 from pygame.locals import *
@@ -13,7 +15,7 @@ def save_user_data():
     # Check if file exists
     file_exists = exists("Escaperoom_stats.csv")
 
-    # write user data in csv
+    # Write user data in csv
     with open("Escaperoom_stats.csv", "a", newline='') as csv_file:
             writer = csv.writer(csv_file)
 
@@ -28,7 +30,8 @@ def save_user_data():
 
 
 def open_scipy_plot():
-    pygame.mixer.Sound.play(button_pushed)
+    """Handles the correct displaying of time vs. clicks"""
+    pygame.mixer.Sound.play(BUTTON_PUSHED)
 
     # Read the csv data
     df = pandas.read_csv("Escaperoom_stats.csv")
@@ -36,7 +39,7 @@ def open_scipy_plot():
     # This is the last entry (so the current users entry)
     current_result = df.iloc[-1]
 
-    # sort the dataframe
+    # Sort the dataframe
     df = sort_df(df)
    
     matplotlib.use("Agg")
@@ -45,7 +48,7 @@ def open_scipy_plot():
     ax.scatter((df["CLICKS"]), df[ "TIME"])
     ax.set(xlabel = "Clicks", ylabel = "Time", title = "Highscore Userdata - Clicks vs. Time")
 
-    # plot a regression line
+    # Plot a regression line
     ax.plot(linear_regression(list(df["CLICKS"]), list(df["TIME"]))[0], linear_regression(list(df["CLICKS"]), list(df[ "TIME"]))[1])
 
     # Catter the players result twice so they can see their score in comparison
@@ -68,7 +71,6 @@ def open_scipy_plot():
     textSurf = text_objects("NAME    CLICKS      TIME", small_text)
     game_screen.blit(textSurf, (x + 30, y))
     
-
     for row in df.head(5).iloc():
         y += 30
         x = 640
@@ -78,7 +80,6 @@ def open_scipy_plot():
             game_screen.blit(textSurf, (x, y))
             x += 100
         
-    
     # Display infos for the user 
     textSurf = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' minutes!', small_text)
     game_screen.blit(textSurf, (570, 100))
@@ -95,31 +96,38 @@ def linear_regression(x,y):
             x: the x-values of datapoints (array)
             y: the y-values of datapoints (array)
         Returns:
-            the values to plot the regressionline
+            The values to plot the regressionline
     """
 
-    # perform linear regression
+    # Perform linear regression
     res = stats.linregress(x, y)
 
-    # returns the needed values to plot
-    def myfunc(x):
-      return res.slope * x + res.intercept
+    def calc_lr_vals(x):
+        """Get the needed values to plot"""
+        return res.slope * x + res.intercept
 
-    # create the modelvalues
-    model = list(map(myfunc, x))
+    # Create the modelvalues
+    model = list(map(calc_lr_vals, x))
 
     return x, model
 
 
 def sort_df(df):
-    """Sorts the Dataframe in clicks and then in time"""
+    """Sorts the Dataframe in clicks and then in time
+    Args:
+      df: user dataframe
+    Returns:
+      The sorted dataframe 
+    """
     return df.sort_values(['CLICKS', 'TIME'])
 
 
 def calculate_grade(click_amount):
     """This function calculates the users grade based on clicks. 
     The minimum amout of clicks to solve door 1 or door 2 is 30 clicks.
+    Args:
+      click_amount: the amount of clicks
     Returns:
       A grade from 1 to 6. 1 is from 30-60, 2 is from 30-60 etc.
     """
-    return min(click_amount//30, 6)
+    return max(min(click_amount//30, 6), 1)

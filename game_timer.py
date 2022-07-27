@@ -1,3 +1,4 @@
+"""Manages the realtime displaying of elapsed time"""
 from display_components import *
 
 minutes = seconds = 0
@@ -32,10 +33,11 @@ def timer():
 
 
 def get_needed_time():
-    """Returns the elapsed time at moment of calling this function"""
+    """Get the elapsed time at moment of calling this function"""
     return minutes + seconds / 100
 
 
 def stop_timer():
+    """Stops the time displaying"""
     global go
     go = False
