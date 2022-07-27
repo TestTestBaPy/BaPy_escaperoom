@@ -93,9 +93,9 @@ def open_backroom():
     else:
         game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X, SPEECH_BUBBLE_Y))
         textSurf = text_objects("That was correct! I think I'm going crazy, I see numbers everywhere.", small_text)    
-        game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 65))
+        game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 45))
         textSurf = text_objects('Maybe I should remeber them....', small_text)    
-        game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 85))
+        game_screen.blit(textSurf, (SPEECH_BUBBLE_X + 50, SPEECH_BUBBLE_Y + 65))
 
     if not cloth_pushed:
         game_screen.blit(pygame.image.load(os.path.join("Images", "tuch.png")).convert_alpha(), (0, 0))
