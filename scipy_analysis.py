@@ -11,13 +11,16 @@ from scipy import stats
 
 
 def save_user_data():
-    """Saves the username (if given), click and elapsed time of player in a csv"""
+    """Saves the username (if given), click and elapsed time of player in a csv
+    """
+    # check if file exists
     file_exists = exists("Escaperoom_stats.csv")
 
     with open("Escaperoom_stats.csv", "a", newline='') as csv_file:
             writer = csv.writer(csv_file)
 
             if not file_exists:
+                # if file does not exists write header first
                 writer.writerow(["USERNAME", "CLICKS", "TIME"])
             writer.writerow([get_input_text(), get_clicks(), get_needed_time()])
         
@@ -26,10 +29,13 @@ def save_user_data():
 
 
 def open_scipy_plot():
+
+    # read the csv data
     df = pandas.read_csv("Escaperoom_stats.csv")
     # This is the last entry
     current_result = df.iloc[-1]
     df = sort_df(df)
+    #df["", ]
    
     matplotlib.use("Agg")
     fig = pylab.figure(figsize=[4, 4], dpi=150)   # 100 dots per inch, so the resulting buffer is 400x400 pixels
@@ -102,10 +108,14 @@ def linear_regression(x,y):
     return x, mymodel
     
 def sort_df(df):
-    """Sorts the Dataframe in Clicks and then in time
+    """Sorts the Dataframe in clicks and then in time
     """
-    return df[["USERNAME", "CLICKS", "TIME"]].sort_values(['CLICKS', 'TIME'], 
-              ascending = [True, True])
+    return df.sort_values(['CLICKS', 'TIME'])
 
 def calculate_grade(click_amount):
+    """This function calculates the users grade based on clicks. The minimum amout of clicks to solve door
+        1 or door 2 is 30 clicks.
+        Returns:
+            A grade from 1 to 6. 1 is from 30-60, 2 is from 30-60 etc.
+    """
     return min(click_amount//30, 6)
