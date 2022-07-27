@@ -9,10 +9,12 @@ open = True
 
 def open_endroom(reset_code = False, open_tresor = False):
     """Opens i.e. displays the endroom with the tresor.
-        Args:
-            reset_code indicates if the current code should be resetted
-            open_tresor indicates if the tresor was already open so it can be displayed 
-                        correctly
+    Args:
+      reset_code:
+       indicates if the current code should be resetted
+      open_tresor:
+       indicates if the tresor was already open so it can be displayed 
+       correctly
     """
     # Set the current room
     set_current_room("TRES")
@@ -58,7 +60,7 @@ def zoom_touchpad():
 
 
 def check_for_code():
-    """Returns wheter on of the right codes was enetered"""
+    """Returns wheter one of the right codes was entered"""
     return number_sequence == '1407' or number_sequence == '1532'
 
 
@@ -114,8 +116,8 @@ def save_num(mouse):
 
 def open_endscreen(clicked_on_exit = False):
     """Opens i.e. displays the endscreen
-        Args:
-            clicked_on_exit if set to True simulates a button click on "EXIT"
+    Args:
+      clicked_on_exit if set to True simulates a button click on "EXIT"
     """
     # Set the current room
     set_current_room("CALL")
@@ -149,8 +151,7 @@ def open_endscreen(clicked_on_exit = False):
 
 
 def open_final_words():
-    """Open i.e. display the final words
-    """
+    """Open i.e. display the final words"""
     global input_rect
 
     # Set the current room

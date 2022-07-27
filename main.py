@@ -21,13 +21,18 @@ pygame.mixer.music.set_volume(.1)
 
 def button(msg, x, y, w, h):
     """This universal function simulates a button so if the click is in the given coordinates and width/height 
-        of the 'button' the respective function will be called.
-        Args:
-            msg short description of the button-field to check (helps to decide how to handle)
-            x the x-coordinate of the upper right corner of the button field
-            y the y-coordinate of the upper right corner of the button field
-            w the width of the button 
-            h the height of the button
+       of the 'button' the respective function will be called.
+    Args:
+      msg:
+        Short description of the button-field to check (helps to decide how to handle)
+      x:
+        The x-coordinate of the upper right corner of the button field
+      y: 
+        The y-coordinate of the upper right corner of the button field
+      w:
+        The width of the button 
+      h:
+        The height of the button
     """ 
     global current_room
 
@@ -193,18 +198,6 @@ def button(msg, x, y, w, h):
 Screen = 0  
 # set up the game (here you can decide in which room you want to start) default shouold be open_startscreen()
 open_startscreen()
-#open_3doors()
-#open_bathroom()
-#open_backroom()
-
-#open_childsroom()
-#open_garden()
-
-#open_door_3()
-
-#open_endroom()
-#open_endscreen()
-#open_final_words()
 
 frame_count = 0
 frame_rate = 60

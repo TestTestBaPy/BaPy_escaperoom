@@ -35,8 +35,9 @@ def open_startscreen(simulate_push = False):
 
 def open_3doors(simulate_push = True):
     """Opens i.e. the room with three doors to choose from
-        Args: 
-            simulate_push if True simulates a push on the prior "START" button
+    Args: 
+      simulate_push:
+        If True simulates a push on the prior "START" button
     """
     global rauschen
 

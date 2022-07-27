@@ -13,8 +13,7 @@ input_rect = None
 
 
 def open_bathroom():
-    """Opens i.e. displays the bathroom
-    """
+    """Opens i.e. displays the bathroom"""
     # Set the current room
     set_current_room("BATH")
 
@@ -34,11 +33,13 @@ def open_bathroom():
 
 def crack_wall(x, y):
     """Cracks the wall at the given coordinates i.e. displays a crack on the wall
-        Args:
-            x the x coordinate (from 0 to 2)
-            y the y coordinate (from 0 to 3)
-        Returns:
-            True, if all tiles are cracked. Else False.
+    Args:
+      x:
+       The x coordinate (from 0 to 2)
+      y:
+       The y coordinate (from 0 to 3)
+    Returns:
+      True, if all tiles are cracked. Else False.
     """
     global crack_counter
     wall_crack = pygame.image.load(os.path.join("Images", "crack.png"))
@@ -59,8 +60,7 @@ def crack_wall(x, y):
 
 
 def open_backroom():
-    """Opens i.e. displays the backroom
-    """
+    """Opens i.e. displays the backroom"""
     global input_rect
 
     if get_current_room() == "BATHEND":
@@ -114,10 +114,10 @@ def open_backroom():
  
 def input_correct(go):
     """Handle and check the input from the user on the text field (input rect)
-        Args:
-            If go is true, the field is active, else it is inactive and only display (if given) prior input
-        Returns:
-            True, if input was coorect/wanted. Else or when go was set to False, False.
+    Args:
+      If go is true, the field is active, else it is inactive and only display (if given) prior input
+    Returns:
+      True, if input was coorect/wanted. Else or when go was set to False, False.
     """
     if not go:
         display_num_sequence(input_rect)
@@ -127,8 +127,7 @@ def input_correct(go):
 
 
 def display_solved():
-    """If the display is solved, displays it
-    """
+    """If the display is solved, displays it"""
     pygame.mixer.Sound.set_volume(correct, 0.1)
     pygame.mixer.Sound.play(correct)
                

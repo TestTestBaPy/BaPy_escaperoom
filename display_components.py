@@ -66,8 +66,7 @@ def text_objects(text, font):
 
 
 def display_loading_screen():
-    """ Load the frames with rate 3 per second to the backgorund 
-    """
+    """Load the frames with rate 3 per second to the backgorund """
     for i in range(3):
         for j in range(7):
             background = pygame.image.load(os.path.join("Images/load", "l" + str(j + 1) + ".jpg")).convert()

@@ -12,8 +12,7 @@ got_key = False
 
 
 def open_childsroom():
-    """Opens i.e. display the childsroom
-    """
+    """Opens i.e. display the childsroom"""
     # Set the current room
     set_current_room("CHLD")
     
@@ -35,8 +34,7 @@ def open_childsroom():
 
 
 def display_pointer():
-    """Displays the numbers on the blackboard
-    """
+    """Displays the numbers on the blackboard"""
     base_font = pygame.font.Font("pokemon.ttf", 70) 
     text_surface = base_font.render(str(pointer_1 % 10), True, (255, 255, 255)) 
     game_screen.blit(text_surface, (400, 110))
@@ -51,8 +49,7 @@ def display_pointer():
 
 
 def check_code():
-    """Checks if the current blackboard numbers are correct
-    """
+    """Checks if the current blackboard numbers are correct"""
     global solved_door2
     
     if str(pointer_1 % 10) + str(pointer_2 % 10) + str(pointer_3 % 10) == '420':
@@ -63,9 +60,7 @@ def check_code():
 
 
 def open_book():
-    """Displays the inside of the book in the childsroom
-    """
-
+    """Displays the inside of the book in the childsroom"""
     pygame.mixer.Sound.set_volume(page, 0.1)
     pygame.mixer.Sound.play(page)
 
@@ -147,9 +142,10 @@ def open_book():
 
 def rotate_number(field):
     """Rotates the number on the blackboard
-        Args:
-            field: after dividing the mouse-coordinate by 15 the resulting numbers (ranges)
-              indicate which of the three squares was clicked. 
+    Args:
+      field: 
+        after dividing the mouse-coordinate by 15 the resulting numbers (ranges)
+        indicate which of the three squares was clicked. 
     """
     global pointer_1 
     global pointer_2 
@@ -180,8 +176,7 @@ def open_flyer():
 
 
 def open_garden():
-    """Opens i.e. displays the garden
-    """
+    """Opens i.e. displays the garden"""
     # Set the current room
     set_current_room("GARD")
   
@@ -209,8 +204,7 @@ def get_solved_door2():
 
 # The following functions set the global status-variables to keep track of players actions and display them
 def open_birdshouse():
-    """Opens i.e. displays the birdshouse
-    """
+    """Opens i.e. displays the birdshouse"""
     pygame.mixer.Sound.set_volume(bird, 0.1)
     pygame.mixer.Sound.play(bird)
     

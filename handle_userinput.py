@@ -6,13 +6,17 @@ user_text = ''
 
 def handle_input(go = True, active = True, input_rect = None, max_chars = 10, only_integer = False):
     """This function takes an arbitrary pygame rectangle and uses it as a input text box
-        Args:
-            input_rect the pygame-rectangle to display the inputted text on
-            max_chars limits the amount of chars to type in
-            only_integer if set to true, only integers are accepted
-        Returns: 
-            The value of go: go is eighter set to false in the arguments or if the input needs to be checked.
-            Go is true if the textfield is deactivated. 
+    Args:
+      input_rect:
+        The pygame-rectangle to display the inputted text on
+      max_chars:
+        Limits the amount of chars to type in
+      only_integer:
+        If set to true, only integers are accepted
+    Returns: 
+      go: 
+        go is eighter set to false in the arguments or if the input needs to be checked.
+        Go is true if the textfield is deactivated. 
     """
     global user_text
 
