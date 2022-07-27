@@ -4,24 +4,24 @@ pygame.init()
 
 current_room = "STRT"
 
-# needed componets
+# Needed componets
 smallText = pygame.font.Font("pokemon.ttf", 20)
 bigText = pygame.font.Font("pokemon.ttf", 60)
 speech_bubble = pygame.image.load(os.path.join("Images", "speechbubble.png"))
 clock = pygame.time.Clock()
 
-# needed for scipy
+# Needed for scipy
 click_counter = 0
 
-# all escape-rooms
+# All escape-rooms
 rooms = ['STRT', 'STRY', 'DOOR', 'BATH', 'CHLD', 'BACK', 'TRES',]
 current_room = 'STRT'
 
-# set width and height (orignial images are 325x200)
+# Set width and height (orignial images are 325x200)
 display_width = 325 * 3
 display_height = 200 * 3
 
-# door postions for startscreen (top left corner)
+# Door postions for startscreen (top left corner)
 door_1 = [(253, 129)]
 door_2 = [(418, 129)]
 door_3 = [(582, 129)]
@@ -40,7 +40,7 @@ white = (255, 255, 255)
 game_screen = pygame.display.set_mode([display_width, display_height])
 pygame.display.set_caption('Where is my Emma?')
 
-# sounds
+# Sounds
 woosh = pygame.mixer.Sound('Sounds/spruh.mp3')
 piep = pygame.mixer.Sound('Sounds/Piep.mp3')
 swoosh = pygame.mixer.Sound('Sounds/tresor.mp3')
@@ -59,8 +59,7 @@ bird = pygame.mixer.Sound('Sounds/bird.mp3')
 nest = pygame.mixer.Sound('Sounds/nest.mp3')
 popping = pygame.mixer.Sound('Sounds/popping.mp3')
 
-
-# 
+ 
 def text_objects(text, font):
     textSurface = font.render(text, True, (0, 0, 0))
     return textSurface, textSurface.get_rect()
