@@ -1,14 +1,14 @@
 import pygame, os
 from display_components import *
 
-rauschen = pygame.mixer.Sound('Sounds/Meeresrauschen.wav')
-pygame.mixer.Sound.set_volume(rauschen, 0.3)
-rauschen.play()
+rustle = pygame.mixer.Sound('Sounds/Meeresrustle.wav')
+pygame.mixer.Sound.set_volume(rustle, 0.3)
+rustle.play()
 
 
 def open_startscreen(simulate_push = False):
     """Opens i.e. displays the startscreen"""  
-    global rauschen
+    global rustle
 
     set_current_room("STRT")
     if simulate_push:
@@ -39,9 +39,9 @@ def open_3doors(simulate_push = True):
       simulate_push:
         If True simulates a push on the prior "START" button
     """
-    global rauschen
+    global rustle
 
-    rauschen.stop()
+    rustle.stop()
     # Simulate a click on the startbutton
     open_startscreen(simulate_push = simulate_push)
 
@@ -53,7 +53,7 @@ def open_3doors(simulate_push = True):
     game_screen.blit(background, (0, 0))
 
     # Load speechbubble with text
-    game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
+    game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X,SPEECH_BUBBLE_Y))
     textSurf, textRect = text_objects('Where is my Emma? I need to find her. How dare she leave me alone!', smallText)
     textRect.bottomleft = ((200, 510))
     game_screen.blit(textSurf, textRect)

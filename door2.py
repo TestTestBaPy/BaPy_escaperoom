@@ -6,7 +6,7 @@ pointer_2 = 9
 pointer_3 = 9
 
 solved_door2 = False
-klappe_open = False
+trap_open = False
 got_nest = False
 got_key = False
 
@@ -20,13 +20,13 @@ def open_childsroom():
     game_screen.blit(background, (0, 0))
     pygame.display.update()
 
-    game_screen.blit(speech_bubble, (speech_bubble_x, speech_bubble_y))
+    game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X, SPEECH_BUBBLE_Y))
     textSurf, textRect = text_objects("The nostalgia... that's my old room. I didn't know my parents kept my stuff.", smallText)    
-    textRect.bottomleft = ((speech_bubble_x + 30, speech_bubble_y + 60))
+    textRect.bottomleft = ((SPEECH_BUBBLE_X + 30, SPEECH_BUBBLE_Y + 60))
     game_screen.blit(textSurf, textRect)
 
     textSurf, textRect = text_objects("Even my old friend. I loved reading stories to my teddybear. ", smallText)    
-    textRect.bottomleft = ((speech_bubble_x + 30, speech_bubble_y + 85))
+    textRect.bottomleft = ((SPEECH_BUBBLE_X + 30, SPEECH_BUBBLE_Y + 85))
     game_screen.blit(textSurf, textRect)
 
     display_pointer()
@@ -183,13 +183,13 @@ def open_garden():
     game_screen.blit(pygame.image.load(os.path.join("Images", "garden.png")).convert(), (0, 0))
 
     # If the side entrace was opened display it
-    if klappe_open:
-        game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
+    if trap_open:
+        game_screen.blit(speech_bubble, (SPEECH_BUBBLE_X,SPEECH_BUBBLE_Y))
         textSurf, textRect = text_objects("That was correct! But why are there so many holes in the fence?", smallText)    
-        textRect.bottomleft = ((speech_bubble_x + 50 ,speech_bubble_y + 65))
+        textRect.bottomleft = ((SPEECH_BUBBLE_X + 50 ,SPEECH_BUBBLE_Y + 65))
         game_screen.blit(textSurf, textRect)
         textSurf, textRect = text_objects('Maybe I should remeber them....', smallText)    
-        textRect.bottomleft = ((speech_bubble_x + 50 ,speech_bubble_y + 85))
+        textRect.bottomleft = ((SPEECH_BUBBLE_X + 50 ,SPEECH_BUBBLE_Y + 85))
         game_screen.blit(textSurf, textRect)
         
     else:
@@ -241,19 +241,19 @@ def remove_nest():
         open_birdshouse()
 
 
-def open_klappe_garden():
-    global klappe_open
+def open_trap_garden():
+    global trap_open
 
     pygame.mixer.Sound.play(opens)
     pygame.mixer.Sound.set_volume(popping, 0.7)
     pygame.mixer.Sound.play(popping)
 
-    klappe_open = True
+    trap_open = True
     open_garden()
 
 
-def get_klappe_open():
-    return klappe_open
+def get_trap_open():
+    return trap_open
 
 
 def get_got_key():

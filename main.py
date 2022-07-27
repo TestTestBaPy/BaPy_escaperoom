@@ -107,10 +107,10 @@ def button(msg, x, y, w, h):
 
             elif current_room == "GARD":
 
-                if not get_klappe_open() and get_got_key():
-                    open_klappe_garden()
+                if not get_trap_open() and get_got_key():
+                    open_trap_garden()
                     
-                elif get_klappe_open():
+                elif get_trap_open():
                     open_endroom()
                     
             elif "DISPLAYDOOR" in msg:
@@ -147,7 +147,7 @@ def button(msg, x, y, w, h):
         # If clicked on check, check if input was correct
         elif "CHECK" in msg and current_room == "TCHP":
             if check_for_code():
-                open_tresor()
+                open_safe()
 
         # If clicked on the numberfield save your input
         elif "NUMBERS" in msg and current_room == "TCHP":
@@ -196,7 +196,7 @@ def button(msg, x, y, w, h):
                 reset_text()
            
 Screen = 0  
-# set up the game (here you can decide in which room you want to start) default shouold be open_startscreen()
+# Set up, the game (here you can decide in which room you want to start) default should be open_startscreen()
 open_startscreen()
 
 frame_count = 0
@@ -209,7 +209,6 @@ t1.daemon = True
 # Start the thread
 t1.start()
 
-##################################################  MAIN  #####################################################################################################################
 while True:
     # Each interactive event is saved here
     for event in pygame.event.get():
@@ -230,9 +229,9 @@ while True:
 
             # Elect between three doors (each has an own story)
             elif current_room == "DOOR":
-                button("DOOR 1", 253, 129, door_width, door_height)
-                button("DOOR 2", 418, 129, door_width, door_height)
-                button("DOOR 3", 582, 129, door_width, door_height)
+                button("DOOR 1", 253, 129, DOOR_WIDTH, DOOR_HEIGHT)
+                button("DOOR 2", 418, 129, DOOR_WIDTH, DOOR_HEIGHT)
+                button("DOOR 3", 582, 129, DOOR_WIDTH, DOOR_HEIGHT)
 
             # Bathroom task buttons
             elif current_room == "BATH":
