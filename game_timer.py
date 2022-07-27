@@ -22,7 +22,7 @@ def timer():
         seconds = total_seconds % 60
         output_string = "Time: {0:02}:{1:02} Clicks: {2}".format(minutes, seconds, get_clicks())
 
-        text = smallText.render(output_string, True, BLACK)
+        text = small_text.render(output_string, True, BLACK)
         timer_rect = pygame.Rect(450, 12, 200, 30)
         pygame.draw.rect(game_screen, (190, 190, 190), timer_rect)
         game_screen.blit(text, (460, 17))

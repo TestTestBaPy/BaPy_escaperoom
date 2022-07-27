@@ -84,7 +84,7 @@ def handle_input(go = True, active = True, input_rect = None, max_chars = 10, on
 
 
 def display_num_sequence(input_rect):
-    text_surface = smallText.render(user_text, True, WHITE) 
+    text_surface = small_text.render(user_text, True, WHITE) 
    
     # Render at position stated in arguments
     game_screen.blit(text_surface, (input_rect.x + 5, input_rect.y + 5))

@@ -68,10 +68,10 @@ def open_scipy_plot():
 
     y = 250
     x = 600
-    textSurf = text_objects("Highscore Table", smallText)
+    textSurf = text_objects("Highscore Table", small_text)
     game_screen.blit(textSurf, (x + 60, y))
     y += 20
-    textSurf = text_objects("NAME    CLICKS      TIME", smallText)
+    textSurf = text_objects("NAME    CLICKS      TIME", small_text)
     game_screen.blit(textSurf, (x + 30, y))
     
 
@@ -80,7 +80,7 @@ def open_scipy_plot():
         x = 640
         for i in range(3):
 
-            textSurf = text_objects(str(row[i]).replace("nan", "-"), smallText)
+            textSurf = text_objects(str(row[i]).replace("nan", "-"), small_text)
             game_screen.blit(textSurf, (x, y))
             x += 100
         
@@ -93,7 +93,7 @@ def open_scipy_plot():
     textRect.bottomleft = ((570, 130))
     game_screen.blit(textSurf, textRect)
 
-    textSurf, textRect = text_objects('The orange dot is you!', smallText)
+    textSurf, textRect = text_objects('The orange dot is you!', small_text)
     textRect.bottomleft = ( (600, 520) )
 
     game_screen.blit(textSurf, (600,520))

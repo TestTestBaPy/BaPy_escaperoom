@@ -23,11 +23,11 @@ def open_endroom(reset_code = False, open_safe = False):
     # Alternative codes have alternative endings
     if number_sequence == '1407':
         game_screen.blit(pygame.image.load(os.path.join("Images", "emma_dead.png")).convert(), (0, 0))
-        text_surface = smallText.render("EMMA", True, WHITE)
+        text_surface = small_text.render("EMMA", True, WHITE)
         game_screen.blit(text_surface, (415, 280))
-        text_surface = smallText.render("* 03.08.2014", True, WHITE)
+        text_surface = small_text.render("* 03.08.2014", True, WHITE)
         game_screen.blit(text_surface, (380, 320))
-        text_surface = smallText.render("x 04.20.2025", True, WHITE)
+        text_surface = small_text.render("x 04.20.2025", True, WHITE)
         game_screen.blit(text_surface, (380, 340))
         
     else:
@@ -107,7 +107,7 @@ def save_num(mouse):
             else:
                 number_sequence += '9'
 
-        text_surface = bigText.render(number_sequence, True, WHITE)
+        text_surface = big_text.render(number_sequence, True, WHITE)
             
         # Display the code
         game_screen.blit(text_surface, (50 + 5, 150 + 5))
@@ -129,22 +129,22 @@ def open_endscreen(clicked_on_exit = False):
 
         game_screen.blit(pygame.image.load(os.path.join("Images", "call_buy.png")).convert(), (0, 0))
    
-        text_surface = smallText.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, BLACK)
+        text_surface = small_text.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, BLACK)
         game_screen.blit(text_surface, (180, 90))
 
-        text_surface = smallText.render("Can you help a man out? Yes, usual place. Okay, see you soon. Thank you.", True, BLACK)
+        text_surface = small_text.render("Can you help a man out? Yes, usual place. Okay, see you soon. Thank you.", True, BLACK)
         game_screen.blit(text_surface, (180, 120))
     else:
         game_screen.blit(pygame.image.load(os.path.join("Images", "call_quit.png")).convert(), (0, 0))
 
-        text_surface = smallText.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, BLACK)
+        text_surface = small_text.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, BLACK)
         game_screen.blit(text_surface, (180, 90))
 
-        text_surface = smallText.render("Please delete my number. Yes, I'm quitting. Have a good life my firend.", True, BLACK)
+        text_surface = small_text.render("Please delete my number. Yes, I'm quitting. Have a good life my firend.", True, BLACK)
         game_screen.blit(text_surface, (180, 120))
 
     # Display the monologue
-    textSurf = text_objects("Hey, Escopub...", smallText)
+    textSurf = text_objects("Hey, Escopub...", small_text)
     game_screen.blit(textSurf, (210, 490))
 
 
@@ -157,16 +157,16 @@ def open_final_words():
 
     game_screen.blit(pygame.image.load(os.path.join("Images", "final_words.png")).convert(), (0, 0))
 
-    text_surface = smallText.render("Did you enjoy the Escaperoom-Game 'Where is my Emma?' Grade now with a 1.0 at: ", True, BLACK)
+    text_surface = small_text.render("Did you enjoy the Escaperoom-Game 'Where is my Emma?' Grade now with a 1.0 at: ", True, BLACK)
     game_screen.blit(text_surface, (140, 240))
 
-    text_surface = smallText.render("https://hisinone.dienste.uni-osnabrueck.de", True, (50, 50, 250))
+    text_surface = small_text.render("https://hisinone.dienste.uni-osnabrueck.de", True, (50, 50, 250))
     game_screen.blit(text_surface, (300, 270))
 
-    text_surface = smallText.render("If you like to, you can enter your username to be put in the highscore table!", True, BLACK)
+    text_surface = small_text.render("If you like to, you can enter your username to be put in the highscore table!", True, BLACK)
     game_screen.blit(text_surface, (140, 350))
 
-    text_surface = bigText.render("Results", True, WHITE)
+    text_surface = big_text.render("Results", True, WHITE)
     game_screen.blit(text_surface, (705, 480))
 
     input_rect = pygame.Rect(400, 400, 200, 30)
