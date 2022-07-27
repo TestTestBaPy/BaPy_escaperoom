@@ -15,10 +15,6 @@ input_rect = None
 def open_bathroom():
     """Opens i.e. displays the bathroom
     """
-
-    pygame.mixer.Sound.set_volume(popping, 0.7)
-    pygame.mixer.Sound.play(popping)
-
     # set the current room
     set_current_room("BATH")
 
@@ -100,6 +96,8 @@ def open_backroom():
 
     # If the correct code was entered...
     else:
+        pygame.mixer.Sound.set_volume(popping, 0.7)
+        pygame.mixer.Sound.play(popping)
         game_screen.blit(speech_bubble, (speech_bubble_x, speech_bubble_y))
         textSurf, textRect = text_objects("That was correct! I think I'm going crazy, I see numbers everywhere.", smallText)    
         textRect.bottomleft = ((speech_bubble_x + 50, speech_bubble_y + 65))
