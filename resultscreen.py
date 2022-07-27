@@ -1,4 +1,4 @@
-import pygame, pylab, csv, pandas
+import pygame, pylab, csv, pandas, matplotlib
 import matplotlib.backends.backend_agg as agg
 from pygame.locals import *
 from game_timer import get_needed_time
