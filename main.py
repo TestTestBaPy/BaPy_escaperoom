@@ -19,7 +19,7 @@ pygame.mixer.music.play(-1,0.0)
 pygame.mixer.music.set_volume(.1)
 
 
-def button(msg, x, y, w, h, ic, ac):
+def button(msg, x, y, w, h):
     """This universal function simulates a button so if the click is in the given coordinates and width/height 
         of the 'button' the respective function will be called.
         Args:
@@ -238,30 +238,30 @@ while True:
             
             # at the startscreen you can elect between 'START' and 'STORY'
             if current_room == "STRT":
-                button("START", 80, 235, 220, 100, 0, 0)
-                button("STORY", 325, 235, 120, 100, 0, 0)
+                button("START", 80, 235, 220, 100)
+                button("STORY", 325, 235, 120, 100)
 
             # elect between three doors (each has an own story)
             elif current_room == "DOOR":
-                button("DOOR 1", 253, 129, door_width, door_height, 0, 0)
-                button("DOOR 2", 418, 129, door_width, door_height, 0, 0)
-                button("DOOR 3", 582, 129, door_width, door_height, 0, 0)
+                button("DOOR 1", 253, 129, door_width, door_height)
+                button("DOOR 2", 418, 129, door_width, door_height)
+                button("DOOR 3", 582, 129, door_width, door_height)
 
             # bathroom task buttons
             elif current_room == "BATH":
-                button("CRACK", 10, 10, 1000, 1000, 0, 0)
+                button("CRACK", 10, 10, 1000, 1000)
 
             # bathroom task solved
             elif current_room == "BATHEND":
                 pygame.mixer.Sound.play(footsteps)
-                button("DOOR", 447, 177, 100, 150, 0, 0)
+                button("DOOR", 447, 177, 100, 150)
 
             # in the backroom you can click on multiple interactive objects
             elif current_room == "BACK":   
-                button("VASE", 809, 120, 90, 80, 0, 0) 
-                button("KLAPPE", 338, 425, 300, 100, 0, 0)
-                button("TUCH", 58, 168, 100, 220, 0, 0)
-                button("DISPLAY", 450, 130, 100, 30, 0, 0)
+                button("VASE", 809, 120, 90, 80) 
+                button("KLAPPE", 338, 425, 300, 100)
+                button("TUCH", 58, 168, 100, 220)
+                button("DISPLAY", 450, 130, 100, 30)
 
             # backroom task solved
             elif current_room == "BACKEND":
