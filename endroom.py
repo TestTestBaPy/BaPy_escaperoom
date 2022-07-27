@@ -108,7 +108,7 @@ def save_num(mouse):
             else:
                 number_sequence += '9'
 
-        text_surface = bigText.render(number_sequence, True, (255, 255, 255))
+        text_surface = bigText.render(number_sequence, True, WHITE)
             
         # Display the code
         game_screen.blit(text_surface, (50 + 5, 150 + 5))
@@ -130,18 +130,18 @@ def open_endscreen(clicked_on_exit = False):
 
         game_screen.blit(pygame.image.load(os.path.join("Images", "call_buy.png")).convert(), (0, 0))
    
-        text_surface = smallText.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, (0, 0, 0))
+        text_surface = smallText.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, BLACK)
         game_screen.blit(text_surface, (180, 90))
 
-        text_surface = smallText.render("Can you help a man out? Yes, usual place. Okay, see you soon. Thank you.", True, (0, 0, 0))
+        text_surface = smallText.render("Can you help a man out? Yes, usual place. Okay, see you soon. Thank you.", True, BLACK)
         game_screen.blit(text_surface, (180, 120))
     else:
         game_screen.blit(pygame.image.load(os.path.join("Images", "call_quit.png")).convert(), (0, 0))
 
-        text_surface = smallText.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, (0, 0, 0))
+        text_surface = smallText.render("Forget the ealier text... It was just because of the stress from the funeral. ", True, BLACK)
         game_screen.blit(text_surface, (180, 90))
 
-        text_surface = smallText.render("Please delete my number. Yes, I'm quitting. Have a good life my firend.", True, (0, 0, 0))
+        text_surface = smallText.render("Please delete my number. Yes, I'm quitting. Have a good life my firend.", True, BLACK)
         game_screen.blit(text_surface, (180, 120))
 
     # Display the monologue
@@ -159,13 +159,13 @@ def open_final_words():
 
     game_screen.blit(pygame.image.load(os.path.join("Images", "final_words.png")).convert(), (0, 0))
 
-    text_surface = smallText.render("Did you enjoy the Escaperoom-Game 'Where is my Emma?' Grade now with a 1.0 at: ", True, (0, 0, 0))
+    text_surface = smallText.render("Did you enjoy the Escaperoom-Game 'Where is my Emma?' Grade now with a 1.0 at: ", True, BLACK)
     game_screen.blit(text_surface, (140, 240))
 
     text_surface = smallText.render("https://hisinone.dienste.uni-osnabrueck.de", True, (50, 50, 250))
     game_screen.blit(text_surface, (300, 270))
 
-    text_surface = smallText.render("If you like to, you can enter your username to be put in the highscore table!", True, (0, 0, 0))
+    text_surface = smallText.render("If you like to, you can enter your username to be put in the highscore table!", True, BLACK)
     game_screen.blit(text_surface, (140, 350))
 
     text_surface = bigText.render("Results", True, white)

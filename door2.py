@@ -36,13 +36,13 @@ def open_childsroom():
 def display_pointer():
     """Displays the numbers on the blackboard"""
     base_font = pygame.font.Font("pokemon.ttf", 70) 
-    text_surface = base_font.render(str(pointer_1 % 10), True, (255, 255, 255)) 
+    text_surface = base_font.render(str(pointer_1 % 10), True, WHITE) 
     game_screen.blit(text_surface, (400, 110))
 
-    text_surface = base_font.render(str(pointer_2 % 10), True, (255, 255, 255)) 
+    text_surface = base_font.render(str(pointer_2 % 10), True, WHITE) 
     game_screen.blit(text_surface, (470, 110))
 
-    text_surface = base_font.render(str(pointer_3 % 10), True, (255, 255, 255)) 
+    text_surface = base_font.render(str(pointer_3 % 10), True, WHITE) 
     game_screen.blit(text_surface, (540, 110))
 
     check_code()

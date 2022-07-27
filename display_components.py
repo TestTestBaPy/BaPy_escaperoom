@@ -35,7 +35,7 @@ speech_bubble_height = 100
 speech_bubble_x = 150
 speech_bubble_y = 450
 
-black = (0, 0, 0)
+BLACK = (0, 0, 0)
 white = (255, 255, 255)
 game_screen = pygame.display.set_mode([display_width, display_height])
 pygame.display.set_caption('Where is my Emma?')
@@ -61,7 +61,7 @@ popping = pygame.mixer.Sound('Sounds/popping.mp3')
 
  
 def text_objects(text, font):
-    textSurface = font.render(text, True, (0, 0, 0))
+    textSurface = font.render(text, True, BLACK)
     return textSurface, textSurface.get_rect()
 
 
