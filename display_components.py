@@ -75,29 +75,30 @@ def display_loading_screen():
             clock.tick(3)
 
 
-# If we push exit we...
+# Push exit button
 def push_exit():
+    pygame.mixer.Sound.play(button_pushed)
     game_screen.blit(pygame.image.load(os.path.join("Images", "pushed_exit.png")).convert_alpha(), (0, 0))
     time.sleep(0.3)
 
 
-# With this function we get our current room by looking at the global situation
+# Get our current room by looking at the global situation
 def set_current_room(room):
     global current_room
     current_room = room
 
 
-# This function return the current room
+# Return the current room
 def get_current_room():
     return current_room
 
 
-# If you click on the screen the counter increases by 1
+# Counter increases by 1
 def click():
     global click_counter
     click_counter += 1
 
 
-# This function returns the total number of clicks
+# Returns the total number of clicks
 def get_clicks():
     return click_counter          

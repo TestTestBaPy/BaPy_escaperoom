@@ -5,11 +5,11 @@ Jasmin:
     
        
 Jenny:
-    - scipy schön machen plus ergänzen 
-    - buttonfunktion besser machen 
-    - text von csv lesen
-    - leaderborad
-    - journey: klick problem
+    - scipy schön machen plus ergänzen done
+    - buttonfunktion besser machen done FINALLY
+    - text von csv lesen NO
+    - leaderborad DONE
+    - journey: klick problem DONE
 
 Lara:
     - Video erstellen
@@ -18,6 +18,22 @@ Lara:
 
 Alle:
     - 10 datenpunkte erstellen
+
+
+Konzeptionierung des csvs:
+
+Monologue sind in:
+
+Start ('How to play')
+Story (x)
+3doors ('How did i get here blabla')
+bath ('Odette blabla')
+backroom('crazy balbla')
+chld('my old blabla')
+garden ('zahlen blabla)
+tresor(x)
+call('Hey im quitting')/('Hey i need more')
+resultscreen(Grade with 1.0 ...)
     
 
   
