@@ -72,14 +72,12 @@ def open_scipy_plot():
         y += 30
         x = 640
         for i in range(3):
-            print("I PRINT", x, y)
 
             textSurf, textRect = text_objects(str(row[i]).replace("nan", "-"), smallText)
             game_screen.blit(textSurf, (x, y))
             x += 100
         
     
-
     # display infos for the user 
     textSurf, textRect = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' minutes!', smallText)
     textRect.bottomleft = ((570,100))
