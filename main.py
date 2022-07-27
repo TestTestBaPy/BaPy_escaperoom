@@ -6,7 +6,7 @@ from door3 import *
 from display_components import *
 from endscreen import *
 from startscreen import *
-from scipy_analysis import *
+from resultscreen import *
 from game_timer import *
 
 # Initialze pygame first
