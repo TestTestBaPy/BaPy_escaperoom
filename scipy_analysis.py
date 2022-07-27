@@ -29,7 +29,7 @@ def open_scipy_plot():
     df = pandas.read_csv("Escaperoom_stats.csv")
     # This is the last entry
     current_result = df.iloc[-1]
-    df = df[["CLICKS", "TIME"]].sort_values("CLICKS")
+    df = sort_df(df)
    
     matplotlib.use("Agg")
     fig = pylab.figure(figsize=[4, 4], dpi=150)   # 100 dots per inch, so the resulting buffer is 400x400 pixels
@@ -42,11 +42,13 @@ def open_scipy_plot():
     # catter the players result twice so they can see their score in comparison
     ax.scatter(current_result[1], current_result[2])
 
-    print(df.index)
-    game_screen.fill(white)
-    textsurface = smallText.render(str(df["CLICKS", "TIME"][0]), False, (255, 255, 255))
-    game_screen.blit(textsurface, (0,0))
+    df_h = df.head(5)
+    #print(df.loc())
+   
+    #x = (str(df[["CLICKS", "TIME"]][:5]))
+    #textsurface = smallText.render(x, True, BLACK)
 
+    
     canvas = agg.FigureCanvasAgg(fig)
     canvas.draw()
     renderer = canvas.get_renderer()
@@ -55,6 +57,23 @@ def open_scipy_plot():
     surf = pygame.image.fromstring(raw_data, size, "RGB")
     game_screen.fill(white)
     game_screen.blit(surf, (0,0))
+
+    x = 300
+    textSurf, textRect = text_objects("Highscore Table", smallText)
+    textRect.bottomleft = ((600, x))
+    game_screen.blit(textSurf, textRect)
+    x += 20
+    textSurf, textRect = text_objects("CLICKS        TIME", smallText)
+    textRect.bottomleft = ((580, x))
+    game_screen.blit(textSurf, textRect)
+    
+    for row in df_h.iloc():
+        x += 20
+        textSurf, textRect = text_objects(str(row[0]) + "           " +  str(row[1]), smallText)
+        textRect.bottomleft = ((600, x))
+        game_screen.blit(textSurf, textRect)
+        
+    
 
     # display infos for the user 
     textSurf, textRect = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' minutes!', smallText)
@@ -79,6 +98,11 @@ def linear_regression(x,y):
 
     return x, mymodel
     
+def sort_df(df):
+    """Sorts the Dataframe in Clicks and then in time
+    """
+    return df[["CLICKS", "TIME"]].sort_values(['CLICKS', 'TIME'], 
+              ascending = [True, True])
 
 def calculate_grade(click_amount):
     return min(click_amount//30, 6)
