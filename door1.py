@@ -169,9 +169,6 @@ def push_tuch():
     if not tuch_pushed:
         pygame.mixer.Sound.set_volume(cloth_sound, 1)
         pygame.mixer.Sound.play(cloth_sound)    
-        # pygame.mixer.Sound.set_volume(woosh, 0.1)
-        # pygame.mixer.Sound.play(woosh)
-        #Ahhh
         tuch_pushed = True
         open_backroom()
 
