@@ -80,6 +80,10 @@ In order to solve our puzzles you need to click on suspicious things on the scre
 We hid some hints for you, so keep your eyes open, anything can be useful, maybe it helps if you use pen and paper.
 If you have the correct code to solve the puzzle you have to either use your keyboard or you have to click on numbers at your screen.
 
+PLEASE TRY TO CLICK AS SENSITIVELY AS POSSIBLE; OTHERWISE IT MAY BE THE CASE THAT E.G. NUMBER COULD BE ENTERED TWICE.
+YOU SHOULD ALSO BE CAREFUL TO CLICK EXACTLY ON THE THINGS YOU HAVE CHOOSEN. THE CONTROLS OF OUR GAME ARE QUITE ACCURATE AND SENSITIVE.
+THANK YOU VERY MUCH AND HAVE FUN PLAYING!!! 
+
 GAME STRUCTURE AND SOLUTIONS (SPOILER)
 ---------------------
 BEVORE READING FURTHER... PLEASE PLAY THE GAME FIRST, IN THIS SECTION WE WILL GIVE YOU THE SOLUTIONS!
