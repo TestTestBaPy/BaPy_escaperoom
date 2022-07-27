@@ -45,7 +45,6 @@ def crack_wall(x, y):
     
     # each crack is crack_side_len(45) * crack_side_len(45) pixels big, 
     # so regarding of the coordinates decide where to place it
-    #Ahhh
     for i in range(3):
         for j in range(4):
             if x + 45 > 451 + ((i + 1) * crack_side_len) > x and y + 45 > 183 + ((j + 1) * crack_side_len) > y:
@@ -73,12 +72,12 @@ def open_backroom():
     
     game_screen.blit(pygame.image.load(os.path.join("Images", "backroom.png")).convert(), (0, 0))
     
-    # if the klappe was opened, display it
+    # if the trapdoor was opened, display it
     if klappe_open:
         klappe = pygame.image.load(os.path.join("Images", "klappe.png")).convert_alpha()
         game_screen.blit(klappe, (0, 0))
 
-    # if the display is not open the code was not (yet) entered correctly
+    # if the blackboard is not open, the code was not (yet) entered correctly
     if not display_open:
         game_screen.blit(pygame.image.load(os.path.join("Images", "board.png")).convert(), (313, 44))
         textSurf, textRect = text_objects('Please enter the right code: ', smallText)    
@@ -94,6 +93,7 @@ def open_backroom():
 
         input_correct(go = False)
 
+    # If the correct code was entered...
     else:
         game_screen.blit(speech_bubble, (speech_bubble_x, speech_bubble_y))
         textSurf, textRect = text_objects("That was correct! I think I'm going crazy, I see numbers everywhere.", smallText)    
@@ -115,7 +115,7 @@ def open_backroom():
 def input_correct(go):
     """Handle and check the input from the user on the text field (input rect)
         Args:
-            go if true, the field is active, else it is inactive and only display (if given) prior input
+            If go is true, the field is active, else it is inactive and only display (if given) prior input
         Returns:
             True, if input was coorect/wanted. Else or when go was set to False, False.
     """
@@ -137,14 +137,14 @@ def display_solved():
     open_display()
 
 
+# Returns wheter the code was entered correctly
 def check_input():
-    """Returns wheter the code was entered correctly
-    """
     return get_input_text() == '15'
 
 
-# the following functions set the global status-variables to keep track of players actions and display them
 def crack_vase():
+    """Sets the global status-variables to keep track of players actions and display them
+    """
     global vase_cracked
     if not vase_cracked:
         pygame.mixer.Sound.set_volume(kling, 0.1)
@@ -154,6 +154,8 @@ def crack_vase():
 
 
 def open_klappe():
+    """
+    """
     global klappe_open
     global vase_cracked
     if vase_cracked:
@@ -165,6 +167,8 @@ def open_klappe():
 
 
 def push_tuch():
+    """
+    """
     global tuch_pushed
     if not tuch_pushed:
         pygame.mixer.Sound.set_volume(cloth_sound, 1)
@@ -177,6 +181,8 @@ def push_tuch():
 
 
 def open_display():
+    """
+    """
     global display_open
     display_open = True
     open_backroom()

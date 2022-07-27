@@ -59,13 +59,15 @@ bird = pygame.mixer.Sound('Sounds/bird.mp3')
 nest = pygame.mixer.Sound('Sounds/nest.mp3')
 
 
+# 
 def text_objects(text, font):
     textSurface = font.render(text, True, (0, 0, 0))
     return textSurface, textSurface.get_rect()
 
 
 def display_loading_screen():
-    # load the frames with rate 3 per second to the backgorund
+    """ Load the frames with rate 3 per second to the backgorund 
+    """
     for i in range(3):
         for j in range(7):
             background = pygame.image.load(os.path.join("Images/load", "l" + str(j + 1) + ".jpg")).convert()
@@ -74,24 +76,29 @@ def display_loading_screen():
             clock.tick(3)
 
 
+# If we push exit we...
 def push_exit():
     game_screen.blit(pygame.image.load(os.path.join("Images", "pushed_exit.png")).convert_alpha(), (0, 0))
     time.sleep(0.3)
 
 
+# With this function we get our current room by looking at the global situation
 def set_current_room(room):
     global current_room
     current_room = room
 
 
+# This function return the current room
 def get_current_room():
     return current_room
 
 
+# If you click on the screen the counter increases by 1
 def click():
     global click_counter
     click_counter += 1
 
 
+# This function returns the total number of clicks
 def get_clicks():
     return click_counter          
