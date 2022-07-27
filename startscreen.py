@@ -23,11 +23,11 @@ def open_startscreen(simulate_push = False):
     input_rect = pygame.Rect(600, 450, 300, 100)
     pygame.draw.rect(game_screen, (235, 235, 235), input_rect)
     textSurf = text_objects("How to play?", small_text)
-    game_screen.blit(textSurf, (600 + 5, 450 + 25))  
+    game_screen.blit(textSurf, (600 + 5, 450 + 5))  
     textSurf = text_objects("Click on 'START' to start the game.", small_text)
-    game_screen.blit(textSurf, (600 + 5, 450 + 55))
+    game_screen.blit(textSurf, (600 + 5, 450 + 35))
     textSurf = text_objects("and on 'STORY' to get background.", small_text)
-    game_screen.blit(textSurf, (600 + 5, 450 + 85))
+    game_screen.blit(textSurf, (600 + 5, 450 + 65))
 
 
 def open_3doors(simulate_push = True):
