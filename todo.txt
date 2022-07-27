@@ -19,11 +19,22 @@ Lara:
 Alle:
     - 10 datenpunkte erstellen
 
-
+NOCH MACHEN:
+    	- docstrings in jeder datei
+        - sound zwitschern und footsteps fixen
+        - csv 
+        - datenpunkte
+        - journey
+        - prints rausnehgmen
+        - 'only for testing resons' rausnehgmen
+        - # open xyz entfernen
+        - loading screen einfügen
+        - unbenutze variablen streichen
+        
 Konzeptionierung des csvs:
 
 Monologue sind in:
-
+dict = {"STRT" : "...", "DOOR" : "...", "BATH" : "...", "BACKROOM" : "...", "CHLD" : "...", "GARD" : "...", "TRES" : "...", "CALL" : "...", "NAN" : "..."}
 Start ('How to play')
 Story (x)
 3doors ('How did i get here blabla')

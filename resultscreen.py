@@ -30,6 +30,8 @@ def save_user_data():
 
 def open_scipy_plot():
 
+    pygame.mixer.Sound.play(button_pushed)
+
     # read the csv data
     df = pandas.read_csv("Escaperoom_stats.csv")
     # This is the last entry

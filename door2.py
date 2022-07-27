@@ -225,7 +225,7 @@ def open_birdshouse():
 
 def get_key():
     global got_key
-    if not got_key:
+    if not got_key and got_nest:
         pygame.mixer.Sound.set_volume(collect, 0.1)
         pygame.mixer.Sound.play(collect)
         got_key = True

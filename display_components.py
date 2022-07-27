@@ -2,8 +2,6 @@ import pygame, os, time
 
 pygame.init()
 
-current_room = "STRT"
-
 # Needed componets
 smallText = pygame.font.Font("pokemon.ttf", 20)
 bigText = pygame.font.Font("pokemon.ttf", 60)
@@ -14,7 +12,7 @@ clock = pygame.time.Clock()
 click_counter = 0
 
 # All escape-rooms
-rooms = ['STRT', 'STRY', 'DOOR', 'BATH', 'CHLD', 'BACK', 'TRES',]
+rooms = ['STRT', 'STRY', 'DOOR', 'BATH', 'CHLD', 'BACK', 'GARd', 'TRES', 'TRAS', 'BOOK', 'BIRD', 'NAN']
 current_room = 'STRT'
 
 # Set width and height (orignial images are 325x200)

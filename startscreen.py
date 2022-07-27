@@ -11,6 +11,7 @@ def open_startscreen(simulate_push = False):
 
     set_current_room("STRT")
     if simulate_push:
+        pygame.mixer.Sound.play(button_pushed)
         background = pygame.image.load(os.path.join("Images", "start_pushstart.png")).convert()
         game_screen.blit(background, (0, 0))
         pygame.display.update()

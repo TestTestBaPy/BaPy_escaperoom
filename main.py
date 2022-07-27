@@ -128,7 +128,7 @@ def button(msg, x, y, w, h):
         elif "KLAPPE" in msg:
             open_klappe()
         
-        # If you clicked on cloth it will be pushed
+        # If clicked on cloth it will be pushed
         elif "TUCH" in msg:
             push_tuch()
 
@@ -140,7 +140,7 @@ def button(msg, x, y, w, h):
         elif "TOUCHPAD" in msg:
             zoom_touchpad()
             
-        # If click on abort go back and delete your input
+        # If clicked on abort go back and delete input
         elif "ABORT" in msg:
             open_endroom(reset_code=True)
 
@@ -149,26 +149,26 @@ def button(msg, x, y, w, h):
             if check_for_code():
                 open_safe()
 
-        # If clicked on the numberfield save your input
+        # If clicked on the numberfield, save input
         elif "NUMBERS" in msg and current_room == "TCHP":
             pygame.mixer.Sound.set_volume(piep, 0.1)
             pygame.mixer.Sound.play(piep)
             save_num(mouse)
         
-        # If clicked on book display it
+        # If clicked on book, display it
         elif "BOOK" in msg:
             open_book()
 
-        # If clicked on exit in the birdshouse open the garden
+        # If clicked on exit in the birdshouse, open the garden
         elif "EXIT" in msg and current_room == "BIRD":
             push_exit()
             open_garden()
 
-        # If clicked on BLACKboard
+        # If clicked on blackboard
         elif "TAFEL" in msg:
             rotate_number((mouse[0] / 15))
 
-        # If clicked on the garbage can
+        # If clicked on the garbagecan
         elif "TRASH" in msg:
             open_flyer()
 
@@ -218,9 +218,8 @@ while True:
 
         mouse_click = pygame.mouse.get_pressed()
 
-        # If there was a left-click (or rightclick), check if a valid button was pressed in dependence of the current room
-        if event.type == pygame.MOUSEBUTTONUP:
-            
+        # If there was a left-click (or right-click), check if a valid button was pressed in dependence of the current room
+        if event.type == pygame.MOUSEBUTTONUP:   
             click()
             current_room = get_current_room()
             
