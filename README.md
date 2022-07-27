@@ -82,7 +82,7 @@ If you have the correct code to solve the puzzle you have to either use your key
 
 GAME STRUCTURE AND SOLUTIONS (SPOILER)
 ---------------------
-BEVORE READING FURTHER... PLEASE PLAY THE GAME FIRST, IN THIS SECTION WE WILL GIVE YOU THE SOLUTIONS!
+BEFORE READING FURTHER... PLEASE PLAY THE GAME FIRST, IN THIS SECTION WE WILL GIVE YOU THE SOLUTIONS!
 
 | Door 1 | Door 2 | Door 3 |
 |:--------------|:-------------|:--------------|
