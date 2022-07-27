@@ -146,7 +146,7 @@ def open_endscreen(clicked_on_exit = False):
 
     # Display the monologue
     textSurf = text_objects("Hey, Escopub...", small_text)
-    game_screen.blit(textSurf, (210, 490))
+    game_screen.blit(textSurf, (210, 460))
 
 
 def open_final_words():
