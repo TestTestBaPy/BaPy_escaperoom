@@ -185,7 +185,7 @@ def get_solved_door2():
 
 # The following functions set the global status-variables to keep track of players actions and display them
 def open_birdshouse():
-    """Opens i.e. displays the birdshouse"""
+    """Opens i.e. displays the birdhouse"""
     pygame.mixer.Sound.set_volume(bird, 0.1)
     pygame.mixer.Sound.play(bird)
     

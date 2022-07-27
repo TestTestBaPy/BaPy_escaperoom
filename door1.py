@@ -75,7 +75,7 @@ def open_backroom():
         klappe = pygame.image.load(os.path.join("Images", "klappe.png")).convert_alpha()
         game_screen.blit(klappe, (0, 0))
 
-    # If the Blackboard is not open, the code was not (yet) entered correctly
+    # If the blackboard is not open, the code was not (yet) entered correctly
     if not display_open:
         game_screen.blit(pygame.image.load(os.path.join("Images", "board.png")).convert(), (313, 44))
         textSurf = text_objects('Please enter the right code: ', small_text)    
@@ -121,7 +121,7 @@ def input_correct(go):
 
 
 def display_solved():
-    """If the display is solved, displays it"""
+    """If the display is solved, display it"""
     pygame.mixer.Sound.set_volume(correct, 0.1)
     pygame.mixer.Sound.play(correct)
                
