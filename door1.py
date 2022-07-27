@@ -28,6 +28,8 @@ def open_bathroom():
     textSurf, textRect = text_objects('Hmph, it seems Emma is not here.', smallText)
     textRect.bottomleft = ((190, 530))
     game_screen.blit(textSurf, textRect)
+    pygame.mixer.Sound.set_volume(popping, 0.1)
+    pygame.mixer.Sound.play(popping)
 
     pygame.display.update()
 

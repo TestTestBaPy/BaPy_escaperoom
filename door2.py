@@ -196,6 +196,8 @@ def open_garden():
         textSurf, textRect = text_objects('Maybe I should remeber them....', smallText)    
         textRect.bottomleft = ((speech_bubble_x + 50 ,speech_bubble_y + 85))
         game_screen.blit(textSurf, textRect)
+        pygame.mixer.Sound.set_volume(popping, 0.1)
+        pygame.mixer.Sound.play(popping)
     else:
         game_screen.blit(pygame.image.load(os.path.join("Images", "garden_klappe.png")).convert_alpha(), (0, 0))   
     
