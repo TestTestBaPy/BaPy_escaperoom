@@ -190,8 +190,6 @@ def open_garden():
     # if the klappe was opened display it
     if klappe_open:
 
-        pygame.mixer.Sound.set_volume(popping, 0.7)
-        pygame.mixer.Sound.play(popping)
         game_screen.blit(speech_bubble, (speech_bubble_x,speech_bubble_y))
         textSurf, textRect = text_objects("That was correct! But why are there so many holes in the fence?", smallText)    
         textRect.bottomleft = ((speech_bubble_x + 50 ,speech_bubble_y + 65))
@@ -249,6 +247,8 @@ def get_nest():
 def open_klappe_garden():
     global klappe_open
     klappe_open = True
+    pygame.mixer.Sound.set_volume(popping, 0.7)
+    pygame.mixer.Sound.play(popping)
     open_garden()
 
 
