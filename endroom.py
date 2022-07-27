@@ -14,12 +14,12 @@ def open_endroom(reset_code = False, open_tresor = False):
             open_tresor indicates if the tresor was already open so it can be displayed 
                         correctly
     """
-    # set the current room
+    # Set the current room
     set_current_room("TRES")
     
     global number_sequence
    
-    # alternative code have alternative endings
+    # Alternative code have alternative endings
     if number_sequence == '1407':
         game_screen.blit(pygame.image.load(os.path.join("Images", "emma_dead.png")).convert(), (0, 0))
         text_surface = smallText.render("EMMA", True, white)
@@ -35,7 +35,7 @@ def open_endroom(reset_code = False, open_tresor = False):
     if reset_code:
         number_sequence = ''
 
-    # if the tresor was (not) opened (do not) display the door
+    # If the tresor was (not) opened (do not) display the door
     if not open_tresor:
         safe_door = pygame.image.load(os.path.join("Images", "tresor_closed.png"))
         game_screen.blit(safe_door,(0, 0))
@@ -47,9 +47,8 @@ def open_endroom(reset_code = False, open_tresor = False):
 
 
 def zoom_touchpad():
-    """Zooms in on the touchpad so the user can type in a code
-    """
-    # set the current room
+    """Zooms in on the touchpad so the user can type in a code"""
+    # Set the current room
     set_current_room("TCHP")
 
     game_screen.blit(pygame.image.load(os.path.join("Images", "pad.png")).convert(), (0, 0))
@@ -64,18 +63,15 @@ def check_for_code():
 
 
 def open_tresor():
-    """Opens the tresor with the open_endroom function
-    """
+    """Opens the tresor with the open_endroom function"""
     pygame.mixer.Sound.set_volume(swoosh, 0.2)
     pygame.mixer.Sound.play(swoosh)
     open_endroom(open_tresor = True)
 
 
 def save_num(mouse):
-    """Safes the inputted numbers to be able to check and display the entered code
-    """
+    """Safes the inputted numbers to be able to check and display the entered code"""
     global number_sequence
-
     pygame.mixer.Sound.set_volume(piep, 0.1)
     pygame.mixer.Sound.play(piep)
 
@@ -83,7 +79,7 @@ def save_num(mouse):
         x = mouse[0]
         y = mouse[1]
 
-        # perform simple division to decide which of the numbers was clicked
+        # Perform simple division to decide which of the numbers was clicked
         if math.ceil(x / 100) == 5: 
             if math.ceil(y / 120) == 1:
                 number_sequence += '1'
@@ -112,7 +108,7 @@ def save_num(mouse):
 
         text_surface = bigText.render(number_sequence, True, (255, 255, 255))
             
-        # display the code
+        # Display the code
         game_screen.blit(text_surface, (50 + 5, 150 + 5))
 
 
@@ -121,13 +117,13 @@ def open_endscreen(clicked_on_exit = False):
         Args:
             clicked_on_exit if set to True simulates a button click on "EXIT"
     """
-    # set the current room
+    # Set the current room
     set_current_room("CALL")
 
     if clicked_on_exit:
         push_exit()   
     
-    # display alternative endings based on the entered code
+    # Display alternative endings based on the entered code
     if number_sequence == '1407':
 
         game_screen.blit(pygame.image.load(os.path.join("Images", "call_buy.png")).convert(), (0, 0))
@@ -146,7 +142,7 @@ def open_endscreen(clicked_on_exit = False):
         text_surface = smallText.render("Please delete my number. Yes, I'm quitting. Have a good life my firend.", True, (0, 0, 0))
         game_screen.blit(text_surface, (180, 120))
 
-    # display the monologue
+    # Display the monologue
     textSurf, textRect = text_objects("Hey, Escopub...", smallText)
     textRect.bottomleft = ((210, 490))
     game_screen.blit(textSurf, textRect)
@@ -157,7 +153,7 @@ def open_final_words():
     """
     global input_rect
 
-    # set the current room
+    # Set the current room
     set_current_room("FNAL")
 
     game_screen.blit(pygame.image.load(os.path.join("Images", "final_words.png")).convert(), (0, 0))
@@ -179,15 +175,13 @@ def open_final_words():
 
 
 def user_name_input():
-    """Handles input and makes sure that the username is no longer than 10 chars
-    """
+    """Handles input and makes sure that the username is no longer than 10 chars"""
     if not handle_input(input_rect= input_rect, only_integer=False, max_chars = 10):
        pass
  
     
 def open_tab():
-    """Allows to open the URL only once
-    """
+    """Allows to open the URL only once"""
     global open 
 
     if open:

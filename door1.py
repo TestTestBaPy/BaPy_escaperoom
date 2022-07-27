@@ -15,14 +15,13 @@ input_rect = None
 def open_bathroom():
     """Opens i.e. displays the bathroom
     """
-    # set the current room
+    # Set the current room
     set_current_room("BATH")
 
-    # display background
+    # Display background
     game_screen.blit(pygame.image.load(os.path.join("Images", "bathroom.png")).convert(), (0, 0))
 
-    # display monologue
-
+    # Display monologue
     textSurf, textRect = text_objects('Oh, my old bathroom. Even Henry and Odette, the rubber ducks are here.', smallText)
     textRect.bottomleft = ((190, 510))
     game_screen.blit(textSurf, textRect)
@@ -44,7 +43,7 @@ def crack_wall(x, y):
     global crack_counter
     wall_crack = pygame.image.load(os.path.join("Images", "crack.png"))
     
-    # each crack is crack_side_len(45) * crack_side_len(45) pixels big, 
+    # Each crack is crack_side_len(45) * crack_side_len(45) pixels big, 
     # so regarding of the coordinates decide where to place it
     for i in range(3):
         for j in range(4):
@@ -68,17 +67,17 @@ def open_backroom():
         pygame.mixer.Sound.set_volume(footsteps, 0.1)
         pygame.mixer.Sound.play(footsteps)
        
-    # set the current room
+    # Set the current room
     set_current_room("BACK")
     
     game_screen.blit(pygame.image.load(os.path.join("Images", "backroom.png")).convert(), (0, 0))
     
-    # if the trapdoor was opened, display it
+    # If the trapdoor was opened, display it
     if klappe_open:
         klappe = pygame.image.load(os.path.join("Images", "klappe.png")).convert_alpha()
         game_screen.blit(klappe, (0, 0))
 
-    # if the blackboard is not open, the code was not (yet) entered correctly
+    # If the blackboard is not open, the code was not (yet) entered correctly
     if not display_open:
         game_screen.blit(pygame.image.load(os.path.join("Images", "board.png")).convert(), (313, 44))
         textSurf, textRect = text_objects('Please enter the right code: ', smallText)    
@@ -143,7 +142,6 @@ def check_input():
     return get_input_text() == '15'
 
 # The following functions sets the global status-variables to keep track of players actions and display them
-
 def crack_vase():
     global vase_cracked
     if not vase_cracked:
@@ -174,8 +172,6 @@ def push_tuch():
 
 
 def open_display():
-    """
-    """
     global display_open
 
     pygame.mixer.Sound.set_volume(popping, 0.7)
@@ -184,5 +180,5 @@ def open_display():
     display_open = True
     open_backroom()
 
-    # set the current room
+    # Set the current room
     set_current_room("BACKEND")
