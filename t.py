@@ -40,6 +40,6 @@ while True:
         if event.type == pygame.QUIT:
             quit()
 
-    screen.fill(pygame.Color('white'))
+    screen.fill(pygame.Color('WHITE'))
     blit_text(screen, text, (20, 20), font)
     pygame.display.update() 

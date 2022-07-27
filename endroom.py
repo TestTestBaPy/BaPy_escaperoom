@@ -24,11 +24,11 @@ def open_endroom(reset_code = False, open_safe = False):
     # Alternative code have alternative endings
     if number_sequence == '1407':
         game_screen.blit(pygame.image.load(os.path.join("Images", "emma_dead.png")).convert(), (0, 0))
-        text_surface = smallText.render("EMMA", True, white)
+        text_surface = smallText.render("EMMA", True, WHITE)
         game_screen.blit(text_surface, (415, 280))
-        text_surface = smallText.render("* 03.08.2014", True, white)
+        text_surface = smallText.render("* 03.08.2014", True, WHITE)
         game_screen.blit(text_surface, (380, 320))
-        text_surface = smallText.render("x 04.20.2025", True, white)
+        text_surface = smallText.render("x 04.20.2025", True, WHITE)
         game_screen.blit(text_surface, (380, 340))
         
     else:
@@ -168,7 +168,7 @@ def open_final_words():
     text_surface = smallText.render("If you like to, you can enter your username to be put in the highscore table!", True, BLACK)
     game_screen.blit(text_surface, (140, 350))
 
-    text_surface = bigText.render("Results", True, white)
+    text_surface = bigText.render("Results", True, WHITE)
     game_screen.blit(text_surface, (705, 480))
 
     input_rect = pygame.Rect(400, 400, 200, 30)
