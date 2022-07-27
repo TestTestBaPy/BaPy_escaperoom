@@ -50,12 +50,6 @@ def open_scipy_plot():
 
     # Catter the players result twice so they can see their score in comparison
     ax.scatter(current_result[1], current_result[2])
-
-    df_h = df.head(5)
-    #print(df.loc())
-   
-    #x = (str(df[["CLICKS", "TIME"]][:5]))
-    #textsurface = smallText.render(x, True, BLACK)
    
     canvas = agg.FigureCanvasAgg(fig)
     canvas.draw()
@@ -86,10 +80,10 @@ def open_scipy_plot():
         
     
     # Display infos for the user 
-    textSurf, textRect = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' minutes!', smallText)
+    textSurf, textRect = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' minutes!', small_text)
     textRect.bottomleft = ((570, 100))
     game_screen.blit(textSurf, textRect)
-    textSurf, textRect = text_objects('Great job,' + str(get_input_text()) + ' your grade is ' + str(calculate_grade(current_result[1])), smallText)
+    textSurf, textRect = text_objects('Great job,' + str(get_input_text()) + ' your grade is ' + str(calculate_grade(current_result[1])), small_text)
     textRect.bottomleft = ((570, 130))
     game_screen.blit(textSurf, textRect)
 
