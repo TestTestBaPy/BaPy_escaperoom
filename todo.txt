@@ -1,12 +1,12 @@
 Jasmin:
-    -Readability: Comments, Naming Conventions etc. + Docstrings (PEP 257)
-    -[button geräusch] (erstmal finden)   NICHT angegeben
+    - Readability: Comments, Naming Conventions etc. + Docstrings (PEP 257)
+    - [button geräusch] (erstmal finden)   NICHT angegeben
     - readme: sensibler umgang
        
 Jenny:
     - scipy schön machen plus ergänzen done
     - buttonfunktion besser machen done FINALLY
-    - text von csv lesen NO
+    - text von csv lesen NO WIE UND WHY
     - leaderborad DONE
     - journey: klick problem DONE
 
@@ -22,7 +22,6 @@ NOCH MACHEN:
     	- docstrings in jeder datei
         - sound zwitschern und footsteps fixen
         - csv 
-        - datenpunkte
         - journey
         - prints rausnehgmen
         - 'only for testing resons' rausnehgmen
@@ -31,7 +30,7 @@ NOCH MACHEN:
         - unbenutze variablen streichen
         - verschobene texte korrigieren
 
-Konzeptionierung des csvs:
+Konzeptionierung des csvs: (WIRKLICH NÖTIG??)
 
 Monologue sind in:
 dict = {"STRT" : "...", "DOOR" : "...", "BATH" : "...", "BACKROOM" : "...", "CHLD" : "...", "GARD" : "...", "TRES" : "...", "CALL" : "...", "NAN" : "..."}
