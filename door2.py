@@ -9,9 +9,6 @@ solved_door2 = False
 klappe_open = False
 got_nest = False
 got_key = False
-# reminder: eig unnötig - kommen noch formen?
-#Ahhh
-possible_nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 def open_childsroom():
@@ -41,13 +38,13 @@ def display_pointer():
     """Displays the numbers on the blackboard
     """
     base_font = pygame.font.Font("pokemon.ttf", 70) 
-    text_surface = base_font.render(str(possible_nums[pointer_1 % 10]), True, (255, 255, 255)) 
+    text_surface = base_font.render(str(pointer_1 % 10), True, (255, 255, 255)) 
     game_screen.blit(text_surface, (400, 110))
 
-    text_surface = base_font.render(str(possible_nums[pointer_2 % 10]), True, (255, 255, 255)) 
+    text_surface = base_font.render(str(pointer_2 % 10), True, (255, 255, 255)) 
     game_screen.blit(text_surface, (470, 110))
 
-    text_surface = base_font.render(str(possible_nums[pointer_3 % 10]), True, (255, 255, 255)) 
+    text_surface = base_font.render(str(pointer_3 % 10), True, (255, 255, 255)) 
     game_screen.blit(text_surface, (540, 110))
 
     check_code()
@@ -58,7 +55,7 @@ def check_code():
     """
     global solved_door2
     
-    if str(possible_nums[pointer_1 % 10]) + str(possible_nums[pointer_2 % 10]) + str(possible_nums[pointer_3 % 10]) == '420':
+    if str(pointer_1 % 10) + str(pointer_2 % 10) + str(pointer_3 % 10) == '420':
         solved_door2 = True
         game_screen.blit(pygame.image.load(os.path.join("Images", "wall.png")).convert_alpha(), (0, 0))
 
@@ -151,10 +148,9 @@ def open_book():
 def rotate_number(field):
     """Rotates the number on the blackboard
         Args:
-            field after dividing the mouse-coordinate by 15 the resulting numbers (ranges)
-            indicate which of the three squares was clicked  
+            field: after dividing the mouse-coordinate by 15 the resulting numbers (ranges)
+              indicate which of the three squares was clicked. 
     """
-    #Ahhh
     global pointer_1 
     global pointer_2 
     global pointer_3 

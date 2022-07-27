@@ -11,8 +11,9 @@ def handle_input(go = True, active = True, input_rect = None, max_chars = 10, on
             max_chars limits the amount of chars to type in
             only_integer if set to true, only integers are accepted
         Returns: 
+            The value of go: go is eighter set to false in the arguments or if the input needs to be checked.
+            Go is true if the textfield is deactivated. 
     """
-    #Ahhh
     global user_text
 
     # color_active stores color which gets active when input box is clicked by user

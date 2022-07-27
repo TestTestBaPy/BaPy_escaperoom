@@ -14,7 +14,6 @@ def open_endroom(reset_code = False, open_tresor = False):
             open_tresor indicates if the tresor was already open so it can be displayed 
                         correctly
     """
-    #Ahhh
     # set the current room
     set_current_room("TRES")
     

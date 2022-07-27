@@ -55,10 +55,9 @@ def open_scipy_plot():
     game_screen.fill(white)
     game_screen.blit(surf, (0,0))
 
-    textSurf, textRect = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' in time!', smallText)
+    textSurf, textRect = text_objects('You needed ' + str(get_clicks()) + ' clicks and ' + str(get_needed_time()) + ' minutes!', smallText)
     textRect.bottomleft = ((570,100))
     game_screen.blit(textSurf, textRect)
-    #Ahhh
     textSurf, textRect = text_objects('Great job,' + str(get_input_text()) + ', your grade is ' + str(calculate_grade(current_result[1])), smallText)
     textRect.bottomleft = ((570,130))
     game_screen.blit(textSurf, textRect)
