@@ -194,11 +194,11 @@ def button(msg, x, y, w, h):
             if not input_correct(True) and check_input():
                 display_solved()
                 reset_text()
+        
            
-Screen = 0  
 # Set up, the game (here you can decide in which room you want to start) default should be open_startscreen()
 open_startscreen()
-open_final_words()
+#open_final_words()
 
 frame_count = 0
 frame_rate = 60
@@ -218,8 +218,9 @@ while True:
 
         mouse_click = pygame.mouse.get_pressed()
 
-        # If there was a left-click, check if a valid button was pressed in dependence of the current room
-        if mouse_click[0] == 1:    
+        # If there was a left-click (or rightclick), check if a valid button was pressed in dependence of the current room
+        if event.type == pygame.MOUSEBUTTONUP:
+            
             click()
             current_room = get_current_room()
             
