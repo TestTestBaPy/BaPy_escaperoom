@@ -152,7 +152,6 @@ def button(msg, x, y, w, h, ic, ac):
         
         # if clicked on book display it
         elif "BOOK" in msg:
-            # TODO: hier rauschen
             pygame.mixer.Sound.set_volume(page, 0.1)
             pygame.mixer.Sound.play(page)
             open_book()
@@ -176,7 +175,6 @@ def button(msg, x, y, w, h, ic, ac):
  
         # if clicked on open the birdshouse
         elif "BIRD" in msg:
-            # TODO: hier zwitschern
             pygame.mixer.Sound.set_volume(bird, 0.1)
             pygame.mixer.Sound.play(bird)
             open_birdshouse()
@@ -187,7 +185,6 @@ def button(msg, x, y, w, h, ic, ac):
 
         # if clicked on nest collect it
         elif "NEST" in msg:
-            # TODO: hier rauschen IN METHODE
             pygame.mixer.Sound.set_volume(nest, 0.1)
             pygame.mixer.Sound.play(nest)
             get_nest()  
