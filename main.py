@@ -95,7 +95,8 @@ def button(msg, x, y, w, h):
                 else:
                     open_door_3()
                
-            elif current_room == "BATHEND": 
+            elif current_room == "BATHEND":
+                pygame.mixer.Sound.play(FOOTSTEPS) 
                 open_backroom()
             
             elif current_room == "CHLD":
@@ -235,7 +236,6 @@ while True:
 
             # Bathroom task solved
             elif current_room == "BATHEND":
-                pygame.mixer.Sound.play(FOOTSTEPS)
                 button("DOOR", 447, 177, 100, 150)
 
             # In the backroom you can click on multiple interactive objects

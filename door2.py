@@ -188,8 +188,6 @@ def get_chld_solved():
 # The following functions set the global status-variables to keep track of players actions and display them
 def open_birdhouse():
     """Opens i.e. displays the birdhouse"""
-    pygame.mixer.Sound.set_volume(BIRD, 0.1)
-    pygame.mixer.Sound.play(BIRD)
     
     # Set the current room
     set_current_room("BIRD")
@@ -200,6 +198,8 @@ def open_birdhouse():
     elif got_nest:
         game_screen.blit(pygame.image.load(os.path.join("Images", "birdshouse.png")).convert(), (0, 0))
     else:
+        pygame.mixer.Sound.set_volume(BIRD, 0.1)
+        pygame.mixer.Sound.play(BIRD)
         game_screen.blit(pygame.image.load(os.path.join("Images", "birdshouse_with_nest.png")).convert(), (0, 0))
 
     pygame.display.update()
