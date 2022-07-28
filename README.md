@@ -85,6 +85,9 @@ GAME STRUCTURE AND SOLUTIONS (SPOILER)
 ---------------------
 BEFORE READING FURTHER... PLEASE PLAY THE GAME FIRST, IN THIS SECTION WE WILL GIVE YOU THE SOLUTIONS!
 
+You can either read further or you can have a look at the video below:
+https://github.com/jjennyy/BaPy_escaperoom/blob/main/Video/BaPy_escaperoom_results.mp4
+
 | Door 1 | Door 2 | Door 3 |
 |:--------------|:-------------|:--------------|
 | Bathroom | Childsroom | Surprise |
