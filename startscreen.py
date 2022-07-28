@@ -14,6 +14,8 @@ def open_startscreen(simulate_push = False):
     global RUSTLE
 
     set_current_room("STRT")
+
+    # Simulate a push if it was set to True
     if simulate_push:
         pygame.mixer.Sound.play(BUTTON_PUSHED)
         background = pygame.image.load(os.path.join("Images", "start_pushstart.png")).convert()

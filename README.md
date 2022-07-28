@@ -1,6 +1,6 @@
 # Escaperoom Adventure - Where is my Emma? 
 
-This project was created as part of the 'Basic Programming in Python' course at the University Osnabrück.
+This project was created as part of the "Basic Programming in Python" course at the University Osnabrück.
 It is based on the concept of an escaperoom, where you can examine the individual scenes by clicking on the screen. Each scene consists of 1-2 puzzles, only when you solve the respective puzzles you can switch to the next scene.
 If you manage to solve all the puzzles, you finish the game and find out where Emma is!
 

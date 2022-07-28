@@ -1,4 +1,5 @@
-"""This file manages status variables (e.g. current room) and offers constants and functions for the majority of the other files"""
+"""This file manages status variables (e.g. current room) and offers constants 
+and functions for the majority of the other files"""
 import pygame, os, time
 
 pygame.init()

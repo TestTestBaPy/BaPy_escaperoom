@@ -6,7 +6,7 @@ go = True
 
 
 def timer():
-    """Displays the elapsed time on the gamescreen"""  
+    """Displays the elapsed time and clicks on the gamescreen"""  
     global minutes
     global seconds
         

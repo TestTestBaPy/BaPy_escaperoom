@@ -1,4 +1,5 @@
-"""This file manages all the rooms behind the second door, their interactive functions, status variables and displays them"""
+"""This file manages all the rooms behind the second door, 
+their interactive functions, status variables and displays them"""
 import pygame, os
 from display_components import *
 

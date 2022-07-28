@@ -1,6 +1,0 @@
-Alle:
-    - 10 datenpunkte erstellen
-
-NOCH MACHEN:
-        - sound zwitschern und footsteps fixen
-        - csv 

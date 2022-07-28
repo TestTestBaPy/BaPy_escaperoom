@@ -1,4 +1,5 @@
-"""This file manages all the rooms behind the first door, their interactive functions, status variables and displays them"""
+"""This file manages all the rooms behind the first door, 
+their interactive functions, status variables and displays them"""
 import pygame, os, numpy
 from display_components import *
 from handle_userinput import *

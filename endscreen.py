@@ -18,7 +18,7 @@ def open_endroom(reset_code = False, open_safe = False):
     
     global number_sequence
    
-    # Alternative codes have alternative endings
+    # Alternative entered codes have alternative endings
     if number_sequence == '1407':
         game_screen.blit(pygame.image.load(os.path.join("Images", "emma_dead.png")).convert(), (0, 0))
         text_surface = small_text.render("EMMA", True, WHITE)

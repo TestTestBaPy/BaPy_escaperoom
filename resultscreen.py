@@ -54,6 +54,7 @@ def open_scipy_plot():
     # Catter the players result twice so they can see their score in comparison
     ax.scatter(current_result[1], current_result[2])
    
+    # Displaying
     canvas = agg.FigureCanvasAgg(fig)
     canvas.draw()
     renderer = canvas.get_renderer()

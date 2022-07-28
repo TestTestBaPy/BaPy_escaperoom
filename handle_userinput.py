@@ -17,10 +17,10 @@ def handle_input(go = True, input_rect = None, max_chars = 10, only_integer = Fa
     """
     global user_text
 
-    # Color_active stores color which gets active when input box is clicked by user
+    # Color_active stores color, get active when input box is clicked by user
     color_active = (30, 100, 30)
 
-    # Color_passive store color which is color of input box.
+    # Color_passive store color, is passive when input box is clicked (again) by user
     color_passive = (170, 170, 170)
     color = color_passive
 
