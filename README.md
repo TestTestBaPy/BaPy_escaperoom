@@ -94,25 +94,25 @@ BEFORE READING FURTHER... PLEASE PLAY THE GAME FIRST, IN THIS SECTION WE WILL GI
 THE STARTING SCREEN
 ---------------------
 Here you can choose between starting the game or reading the story.
-![Starting screen](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Startingscreen.PNG)
+![Starting screen](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Startingscreen.PNG)
 
 THE BIG DESCISION
 ---------------------
 If you clicked on start, you will end up in this room where you have to decide between 3 doors.
 Depending on your choice you will visit different rooms and solve different puzzles.
-![Big descision](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Big%20decision.PNG)
+![Big descision](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Big%20decision.PNG)
 
 ROOMS BEHIND DOOR 1
 ---------------------
 The first room will be the bathroom, try to find out what the puzzle could be.
-![Bathroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Bathroom.PNG)
+![Bathroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Bathroom.PNG)
 ```bash
 Crack the tiles on the wall in the middle of the screen by clicking on it.
 ```
 
 The second room will be the backroom, here you have to find the correct code, if you want to enter the next room.
 Be careful, even the most obvious things can sometimes be wrong!
-![Backroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Backroom.PNG)
+![Backroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Backroom.PNG)
 ```bash
 You can find the key in the vase on the right-hand side.
 ```
@@ -121,7 +121,7 @@ The correct amount of red balls is 15. Please use your keyboard to enter this nu
 ```
 
 The last room contains a safe. The code can be found in room 2.
-![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Safe.PNG)
+![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Safe.PNG)
 ```bash
 You can find the code for the safe in the backroom. It is 1407. 
 This time you have to click on the right numbers on the touchpad.
@@ -130,7 +130,7 @@ This time you have to click on the right numbers on the touchpad.
 ROOMS BEHIND DOOR 2
 ---------------------
 The first room will be the childsroom, here you have to solve a puzzle that is a little bit harder, it consists of a logic puzzle that needs to be solved in order to enter the next room.
-![Childsroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Childsroom.PNG)
+![Childsroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Childsroom.PNG)
 ```bash
 The puzzle can be found in the red book. The solution is 420. 
 Please click on the numbers on the wall to enter the correct sequence.
@@ -138,13 +138,13 @@ Please click on the numbers on the wall to enter the correct sequence.
 
 The next room is the garden, here you can find a key that is needed if you want to enter the last room.
 Please keep in mind that the code for the last room is hidden in this room, and that you cannot come back.
-![Garden](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Garden.PNG)
+![Garden](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Garden.PNG)
 ```bash
 The key can be found in the birdhouse.
 ```
 
 The last room consists of a safe. The code can be found in room 2.
-![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Safe.PNG)
+![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Safe.PNG)
 ```bash
 You can find the code for the safe on the fence in the garden. It is 1532 (amount of holes).
 ```
