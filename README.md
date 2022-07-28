@@ -16,6 +16,7 @@ CONTENTS OF THIS FILE
     - Rooms behind door 2
     - Rooms behind door 3
  - The story
+ - The results
  - Sources
 
 REQUIREMENTS
@@ -159,6 +160,10 @@ Our protagonist is a drug addict that comes from his parents funeral when he exp
 In his search he is headed to his childhood home he hasn´t visited for years.
 In the ending of the first room the safe contains a tombstone with the name Emma on it. Realizing it was a haluzination and that he imagined having a sister that died he calls his dealer Escopub to get a new dose to forget everything.
 In the ending of the secound room the safe contains a bag of ecstasy/Emma pills. Seeing them he realizes he does not want to go through the cicle of withdrawals and hights again. He gets rid of the bag and calls Escopub for a final goodbye.
+
+THE RESULTS
+---------------------
+
 
 SOURCES
 ---------------------
