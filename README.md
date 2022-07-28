@@ -16,6 +16,7 @@ CONTENTS OF THIS FILE
     - Rooms behind door 2
     - Rooms behind door 3
  - The story
+ - The results
  - Sources
 
 REQUIREMENTS
@@ -84,6 +85,9 @@ GAME STRUCTURE AND SOLUTIONS (SPOILER)
 ---------------------
 BEFORE READING FURTHER... PLEASE PLAY THE GAME FIRST, IN THIS SECTION WE WILL GIVE YOU THE SOLUTIONS!
 
+You can either read further or you can have a look at the video below:
+https://github.com/jjennyy/BaPy_escaperoom/blob/main/Video/BaPy_escaperoom_results.mp4
+
 | Door 1 | Door 2 | Door 3 |
 |:--------------|:-------------|:--------------|
 | Bathroom | Childsroom | Surprise |
@@ -94,25 +98,25 @@ BEFORE READING FURTHER... PLEASE PLAY THE GAME FIRST, IN THIS SECTION WE WILL GI
 THE STARTING SCREEN
 ---------------------
 Here you can choose between starting the game or reading the story.
-![Starting screen](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Startingscreen.PNG)
+![Starting screen](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Startingscreen.PNG)
 
 THE BIG DESCISION
 ---------------------
 If you clicked on start, you will end up in this room where you have to decide between 3 doors.
 Depending on your choice you will visit different rooms and solve different puzzles.
-![Big descision](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Big%20decision.PNG)
+![Big descision](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Big%20decision.PNG)
 
 ROOMS BEHIND DOOR 1
 ---------------------
 The first room will be the bathroom, try to find out what the puzzle could be.
-![Bathroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Bathroom.PNG)
+![Bathroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Bathroom.PNG)
 ```bash
 Crack the tiles on the wall in the middle of the screen by clicking on it.
 ```
 
 The second room will be the backroom, here you have to find the correct code, if you want to enter the next room.
 Be careful, even the most obvious things can sometimes be wrong!
-![Backroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Backroom.PNG)
+![Backroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Backroom.PNG)
 ```bash
 You can find the key in the vase on the right-hand side.
 ```
@@ -121,7 +125,7 @@ The correct amount of red balls is 15. Please use your keyboard to enter this nu
 ```
 
 The last room contains a safe. The code can be found in room 2.
-![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Safe.PNG)
+![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Safe.PNG)
 ```bash
 You can find the code for the safe in the backroom. It is 1407. 
 This time you have to click on the right numbers on the touchpad.
@@ -130,7 +134,7 @@ This time you have to click on the right numbers on the touchpad.
 ROOMS BEHIND DOOR 2
 ---------------------
 The first room will be the childsroom, here you have to solve a puzzle that is a little bit harder, it consists of a logic puzzle that needs to be solved in order to enter the next room.
-![Childsroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Childsroom.PNG)
+![Childsroom](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Childsroom.PNG)
 ```bash
 The puzzle can be found in the red book. The solution is 420. 
 Please click on the numbers on the wall to enter the correct sequence.
@@ -138,13 +142,13 @@ Please click on the numbers on the wall to enter the correct sequence.
 
 The next room is the garden, here you can find a key that is needed if you want to enter the last room.
 Please keep in mind that the code for the last room is hidden in this room, and that you cannot come back.
-![Garden](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Garden.PNG)
+![Garden](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Garden.PNG)
 ```bash
 The key can be found in the birdhouse.
 ```
 
 The last room consists of a safe. The code can be found in room 2.
-![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Bilder%20Projekt/Safe.PNG)
+![Safe](https://github.com/jjennyy/BaPy_escaperoom/blob/main/Images_README/Safe.PNG)
 ```bash
 You can find the code for the safe on the fence in the garden. It is 1532 (amount of holes).
 ```
@@ -159,6 +163,10 @@ Our protagonist is a drug addict that comes from his parents funeral when he exp
 In his search he is headed to his childhood home he hasn´t visited for years.
 In the ending of the first room the safe contains a tombstone with the name Emma on it. Realizing it was a haluzination and that he imagined having a sister that died he calls his dealer Escopub to get a new dose to forget everything.
 In the ending of the secound room the safe contains a bag of ecstasy/Emma pills. Seeing them he realizes he does not want to go through the cicle of withdrawals and hights again. He gets rid of the bag and calls Escopub for a final goodbye.
+
+THE RESULTS
+---------------------
+
 
 SOURCES
 ---------------------
